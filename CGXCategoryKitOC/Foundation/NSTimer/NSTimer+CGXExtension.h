@@ -1,9 +1,9 @@
 //
 //  NSTimer+CGXExtension.h
-//  CGXAppStructure-OC
+//  CGXCategoryKit-OC
 //
-//  Created by CGX on 2019/3/30.
-//  Copyright © 2019 CGX. All rights reserved.
+//  Created by CGX on 2020/10/01.
+//  Copyright © 2020 CGX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

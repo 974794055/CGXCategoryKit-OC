@@ -1,9 +1,9 @@
 //
-//  UIButton+Clicks.m
-//  PreventContinuousClick
+//  UIButton+CGXClicks.m
+//  CGXCategoryKit-OC
 //
-//  Created by CGX on 2018/12/14.
-//  Copyright © 2018年 CGX. All rights reserved.
+//  Created by CGX on 2020/10/01.
+//  Copyright © 2020 CGX. All rights reserved.
 //
 
 #import "UIControl+CGXClicks.h"

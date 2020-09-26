@@ -1,9 +1,9 @@
 //
 //  UIWindow+CGXHierarchy.h
-//  CGXAppStructure
+//  CGXCategoryKit-OC
 //
-//  Created by CGX on 2017/7/21.
-//  Copyright © 2017年 CGX. All rights reserved.
+//  Created by CGX on 2020/10/01.
+//  Copyright © 2020 CGX. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
