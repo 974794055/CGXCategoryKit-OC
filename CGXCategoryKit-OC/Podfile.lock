@@ -1,0 +1,26 @@
+PODS:
+  - CGXCategoryKitOC (0.0.1):
+    - CGXCategoryKitOC/Foundation (= 0.0.1)
+    - CGXCategoryKitOC/UIControl (= 0.0.1)
+    - CGXCategoryKitOC/UIKit (= 0.0.1)
+  - CGXCategoryKitOC/Foundation (0.0.1):
+    - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.1)
+  - CGXCategoryKitOC/Foundation/NSTimer (0.0.1)
+  - CGXCategoryKitOC/UIControl (0.0.1)
+  - CGXCategoryKitOC/UIKit (0.0.1):
+    - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.1)
+  - CGXCategoryKitOC/UIKit/UIWindow (0.0.1)
+
+DEPENDENCIES:
+  - CGXCategoryKitOC (from `../`)
+
+EXTERNAL SOURCES:
+  CGXCategoryKitOC:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CGXCategoryKitOC: 6046247ea4e71e6eebaaa9d70e095929f9aacfcf
+
+PODFILE CHECKSUM: 3e9a2c3e3743f461070a398254cd57bd7bb7643a
+
+COCOAPODS: 1.9.3
