@@ -22,4 +22,5 @@
  @return Returns the topViewController in stack of topMostController.
  */
 - (UIViewController*)gx_currentViewController;
+
 @end
