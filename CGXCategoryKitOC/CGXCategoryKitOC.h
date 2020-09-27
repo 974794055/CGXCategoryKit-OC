@@ -20,7 +20,4 @@
 //// ****  NSTimer   **** /
 #import "NSTimer+CGXExtension.h"
 
-
-
-
 #endif /* CGXCategoryKitOC_h */
