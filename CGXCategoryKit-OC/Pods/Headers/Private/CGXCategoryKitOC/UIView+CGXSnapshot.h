@@ -1,0 +1,1 @@
+../../../../../CGXCategoryKitOC/UIKit/UIView/UIView+CGXSnapshot.h

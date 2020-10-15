@@ -1,0 +1,1 @@
+../../../../../CGXCategoryKitOC/Foundation/UIImage/UIImage+CGXCapture.h

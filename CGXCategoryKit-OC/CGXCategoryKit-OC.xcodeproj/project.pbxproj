@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4AB6EBDD518CF09393B8CC18 /* libPods-CGXCategoryKit-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4379478D85F29E6A94F324 /* libPods-CGXCategoryKit-OC.a */; };
 		9E2DABE024D1B065006E1712 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2DABDF24D1B065006E1712 /* AppDelegate.m */; };
-		9E2DABE324D1B065006E1712 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2DABE224D1B065006E1712 /* SceneDelegate.m */; };
 		9E2DABE624D1B065006E1712 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2DABE524D1B065006E1712 /* ViewController.m */; };
 		9E2DABE924D1B065006E1712 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2DABE724D1B065006E1712 /* Main.storyboard */; };
 		9E2DABEB24D1B067006E1712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2DABEA24D1B067006E1712 /* Assets.xcassets */; };
@@ -26,8 +25,6 @@
 		9E2DABDB24D1B065006E1712 /* CGXCategoryKit-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXCategoryKit-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2DABDE24D1B065006E1712 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E2DABDF24D1B065006E1712 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9E2DABE124D1B065006E1712 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		9E2DABE224D1B065006E1712 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		9E2DABE424D1B065006E1712 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9E2DABE524D1B065006E1712 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9E2DABE824D1B065006E1712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,8 +92,6 @@
 				9E2DABF724D1B8A9006E1712 /* Podspec Metadata */,
 				9E2DABDE24D1B065006E1712 /* AppDelegate.h */,
 				9E2DABDF24D1B065006E1712 /* AppDelegate.m */,
-				9E2DABE124D1B065006E1712 /* SceneDelegate.h */,
-				9E2DABE224D1B065006E1712 /* SceneDelegate.m */,
 				9E2DABE424D1B065006E1712 /* ViewController.h */,
 				9E2DABE524D1B065006E1712 /* ViewController.m */,
 				B5CEAB332513A6B800D4D26B /* PrefixHeader.pch */,
@@ -221,7 +216,6 @@
 				9E2DABE624D1B065006E1712 /* ViewController.m in Sources */,
 				9E2DABE024D1B065006E1712 /* AppDelegate.m in Sources */,
 				9E2DABF124D1B067006E1712 /* main.m in Sources */,
-				9E2DABE324D1B065006E1712 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +358,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AA9R26989C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXCategoryKit-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXCategoryKit-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,6 +378,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AA9R26989C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXCategoryKit-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXCategoryKit-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
