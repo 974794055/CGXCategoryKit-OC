@@ -176,7 +176,6 @@ Pod::Spec.new do |s|
         ss.subspec 'CALayer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}'
         end
-        
         ss.subspec 'CATransaction' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CATransaction/**/*.{h,m}'
         end
@@ -196,7 +195,6 @@ Pod::Spec.new do |s|
         end
     end
 
-    
 end
 
 

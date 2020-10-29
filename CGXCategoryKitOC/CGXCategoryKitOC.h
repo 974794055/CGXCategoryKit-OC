@@ -28,7 +28,6 @@
 //// ****  UISegmentedControl   **** /
 #import "UISegmentedControl+CGXCategory.h"
 
-
 //// ****  UIView   **** /
 #import "UIView+CGXBlockGesture.h"
 #import "UIView+CGXExtension.h"

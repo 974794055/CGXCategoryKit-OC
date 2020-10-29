@@ -78,19 +78,19 @@
     
     return direction;
 }
-- (BOOL)isScrolledToTop
+- (BOOL)gx_isScrolledToTop
 {
     return self.contentOffset.y <= [self gx_topContentOffset].y;
 }
-- (BOOL)isScrolledToBottom
+- (BOOL)gx_isScrolledToBottom
 {
     return self.contentOffset.y >= [self gx_bottomContentOffset].y;
 }
-- (BOOL)isScrolledToLeft
+- (BOOL)gx_isScrolledToLeft
 {
     return self.contentOffset.x <= [self gx_leftContentOffset].x;
 }
-- (BOOL)isScrolledToRight
+- (BOOL)gx_isScrolledToRight
 {
     return self.contentOffset.x >= [self gx_rightContentOffset].x;
 }
