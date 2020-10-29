@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     
     s.subspec 'Foundation' do |ss|
-#        ss.source_files = 'CGXCategoryKitOC/Foundation/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryKitOC/Foundation/**/*.{h,m}'
         
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'
@@ -98,7 +98,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'UIKit' do |ss|
         
-#        ss.source_files = 'CGXCategoryKitOC/UIKit/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryKitOC/UIKit/**/*.{h,m}'
         
         ss.subspec 'UIWindow' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIWindow/**/*.{h,m}'
@@ -171,7 +171,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'QuartzCore' do |ss|
  
-#        ss.source_files = 'CGXCategoryKitOC/QuartzCore/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryKitOC/QuartzCore/**/*.{h,m}'
  
         ss.subspec 'CALayer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}'

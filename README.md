@@ -9,12 +9,13 @@
 - 下载链接：https://github.com/974794055/CGXCategoryKit-OC.git
 -  QQ号：974794055
 -  群名称：
-- 群   号：
-- 版本： 0.0.3
+-  群   号：
+-  版本： 0.0.3
   
 ## 功能：    
-- Foundation、UIKit、UIControl、CoreLocation、QuartzCored等延展
+-  Foundation、UIKit、UIControl、CoreLocation、QuartzCored等延展
  
  ## 优点：
-- 1、使用延展封装方法，减少代码重复度；
-- 2、提供更加全面丰富、高度的方法；
+-  1、使用延展封装方法，减少代码重复度；
+-  2、提供更加全面丰富、高度的方法；
+
