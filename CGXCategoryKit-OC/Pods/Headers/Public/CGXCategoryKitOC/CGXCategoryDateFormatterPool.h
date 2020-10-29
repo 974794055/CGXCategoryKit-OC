@@ -1,1 +1,1 @@
-../../../../../CGXCategoryKitOC/Foundation/NSDate/NSDateFormatter/CGXCategoryDateFormatterPool.h
+../../../../../CGXCategoryKitOC/Foundation/NSDate/CGXCategoryDateFormatterPool.h
