@@ -65,7 +65,7 @@
 }
 
 + (UIImage *)gx_imageWithPDFNamed:(NSString *)pdfNamed forHeight:(CGFloat)height{
-    return [self gx_imageWithPDFNamed:pdfNamed withTintColor:nil forHeight:height];
+    return [self gx_imageWithPDFNamed:pdfNamed withTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0] forHeight:height];
 }
 
 + (UIImage *)gx_imageWithPDFNamed:(NSString *)pdfNamed withTintColor:(UIColor *)tintColor forHeight:(CGFloat)height{

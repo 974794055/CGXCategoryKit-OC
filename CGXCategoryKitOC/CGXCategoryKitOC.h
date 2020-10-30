@@ -287,9 +287,7 @@
 #import "CGXCategoryDateFormatterPool.h"
 #import "NSCalendar+CGXExtension.h"
 
-
 #import "NSNull+CGXSafe.h"
-
 
 #endif /* CGXCategoryKitOC_h */
 

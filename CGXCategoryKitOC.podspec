@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'UIKit' do |ss|
-        
+        ss.dependency 'CGXCategoryKitOC/Foundation'
         ss.source_files = 'CGXCategoryKitOC/UIKit/**/*.{h,m}'
         
         ss.subspec 'UIWindow' do |sss|

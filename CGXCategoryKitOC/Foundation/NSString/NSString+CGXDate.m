@@ -567,7 +567,7 @@
     return day;
 }
 #pragma mark -- 获取当前后几天日期 周日
-+ (NSMutableArray *)currentDateLaterDate:(int)dayCount {
++ (NSMutableArray *)gx_currentDateLaterDate:(int)dayCount {
     NSMutableArray *dayMArr = [[NSMutableArray alloc] init];
     for (int i = 0; i < dayCount; i++) {
         //从现在开始的24小时
@@ -644,7 +644,7 @@
         if (_day > day) {
             _day = 1;
             _month ++;
-            _year = _month > 12 ? _year += 1 : _year;
+            _year = (_month > 12) ? (_year+1) : _year;
             _month = _month > 12 ? 1 : _month;
         }
         NSString * string;
@@ -676,7 +676,7 @@
         if (_day > day) {
             _day = 1;
             _month ++;
-            _year = _month > 12 ? _year += 1 : _year;
+            _year = (_month > 12) ? (_year + 1) : _year;
             _month = _month > 12 ? 1 : _month;
             
         }
