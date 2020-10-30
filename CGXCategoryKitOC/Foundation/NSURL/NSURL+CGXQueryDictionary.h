@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NSDictionary+CGXURL.h"
 @interface NSURL (CGXQueryDictionary)
 
 /**
@@ -59,19 +59,3 @@
 
 @end
 
-#pragma mark -
-
-@interface NSDictionary (CGXURLQuery)
-
-/**
- *  @return URL query string component created from the keys and values in
- *  the dictionary. Returns nil for an empty dictionary.
- *  @param sortedKeys Sorted the keys alphabetically?
- *  @see cavetas from the main `NSURL` category as well.
- */
-- (NSString*)gx_URLQueryStringWithSortedKeys:(BOOL) sortedKeys;
-
-/** As above, but `sortedKeys=NO` */
-- (NSString*)gx_URLQueryString;
-
-@end

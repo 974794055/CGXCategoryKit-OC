@@ -23,4 +23,6 @@
  *  @return url 参数字符串
  */
 - (NSString *)gx_URLQueryString;
+
+- (NSString*)gx_URLQueryStringWithSortedKeys:(BOOL)sortedKeys;
 @end

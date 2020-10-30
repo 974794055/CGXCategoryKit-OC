@@ -12,7 +12,7 @@
     "974794055": "974794055@qq.com"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
@@ -31,13 +31,17 @@
     "Accelerate",
     "MobileCoreServices",
     "SystemConfiguration",
-    "AdSupport"
+    "AdSupport",
+    "CoreLocation",
+    "Accelerate",
+    "UserNotifications"
   ],
   "source_files": "CGXCategoryKitOC/CGXCategoryKitOC.h",
   "public_header_files": "CGXCategoryKitOC/CGXCategoryKitOC.h",
   "subspecs": [
     {
       "name": "Foundation",
+      "source_files": "CGXCategoryKitOC/Foundation/**/*.{h,m}",
       "subspecs": [
         {
           "name": "NSTimer",
@@ -139,6 +143,12 @@
     },
     {
       "name": "UIKit",
+      "dependencies": {
+        "CGXCategoryKitOC/Foundation": [
+
+        ]
+      },
+      "source_files": "CGXCategoryKitOC/UIKit/**/*.{h,m}",
       "subspecs": [
         {
           "name": "UIWindow",
@@ -232,6 +242,7 @@
     },
     {
       "name": "QuartzCore",
+      "source_files": "CGXCategoryKitOC/QuartzCore/**/*.{h,m}",
       "subspecs": [
         {
           "name": "CALayer",

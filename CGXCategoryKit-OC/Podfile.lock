@@ -68,6 +68,7 @@ PODS:
   - CGXCategoryKitOC/QuartzCore/CATransaction (0.0.3)
   - CGXCategoryKitOC/UIControl (0.0.3)
   - CGXCategoryKitOC/UIKit (0.0.3):
+    - CGXCategoryKitOC/Foundation
     - CGXCategoryKitOC/UIKit/UIApplication (= 0.0.3)
     - CGXCategoryKitOC/UIKit/UIBarButtonItem (= 0.0.3)
     - CGXCategoryKitOC/UIKit/UIButton (= 0.0.3)
@@ -89,27 +90,48 @@ PODS:
     - CGXCategoryKitOC/UIKit/UIViewController (= 0.0.3)
     - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.3)
     - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.3)
-  - CGXCategoryKitOC/UIKit/UIApplication (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIBarButtonItem (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIButton (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIImageView (0.0.3)
-  - CGXCategoryKitOC/UIKit/UILabel (0.0.3)
-  - CGXCategoryKitOC/UIKit/UINavigationBar (0.0.3)
-  - CGXCategoryKitOC/UIKit/UINavigationController (0.0.3)
-  - CGXCategoryKitOC/UIKit/UINavigationItem (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIResponder (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIScreen (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIScrollView (0.0.3)
-  - CGXCategoryKitOC/UIKit/UISegmentedControl (0.0.3)
-  - CGXCategoryKitOC/UIKit/UISplitViewController (0.0.3)
-  - CGXCategoryKitOC/UIKit/UITableView (0.0.3)
-  - CGXCategoryKitOC/UIKit/UITableViewCell (0.0.3)
-  - CGXCategoryKitOC/UIKit/UITextField (0.0.3)
-  - CGXCategoryKitOC/UIKit/UITextView (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIView (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIViewController (0.0.3)
-  - CGXCategoryKitOC/UIKit/UIWindow (0.0.3)
-  - CGXCategoryKitOC/UIKit/WKWebView (0.0.3)
+  - CGXCategoryKitOC/UIKit/UIApplication (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIBarButtonItem (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIButton (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIImageView (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UILabel (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationBar (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationController (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationItem (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIResponder (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIScreen (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIScrollView (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UISegmentedControl (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UISplitViewController (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableView (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableViewCell (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextField (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextView (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIView (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIViewController (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIWindow (0.0.3):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/WKWebView (0.0.3):
+    - CGXCategoryKitOC/Foundation
   - Masonry (1.1.0)
 
 DEPENDENCIES:
@@ -125,9 +147,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 63ee0f9cafed836e16c2026162a36c17f35ee8be
+  CGXCategoryKitOC: 23171a2d6ccf21741cb06d513a65e1bf2b3d3ae2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: a8f327399b927d78fa931ce47cc860b3c42bfca6
+PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4
 
 COCOAPODS: 1.9.3
