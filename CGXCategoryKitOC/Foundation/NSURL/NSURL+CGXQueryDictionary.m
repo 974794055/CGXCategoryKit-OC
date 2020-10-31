@@ -72,7 +72,7 @@ static NSString *const kFragmentBegin       = @"#";
 
 #pragma mark -
 
-@implementation NSString (CGXURLQuery)
+@implementation NSString (CGXURLQueryQQQ)
 
 - (NSDictionary*)gx_URLQueryDictionary {
   NSMutableDictionary *mute = @{}.mutableCopy;
