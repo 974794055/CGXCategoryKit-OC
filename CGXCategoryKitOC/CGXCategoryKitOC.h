@@ -196,6 +196,72 @@
 #import "UIScrollView+CGXExtension.h"
 #import "UIScrollView+CGXAddition.h"
 
+// ****  UITextField   **** /
+#import "UITextField+CGXHistory.h"
+#import "UITextField+CGXExtension.h"
+#import "UITextField+CGXSelect.h"
+#import "UITextField+CGXShake.h"
+#import "UITextField+CGXAddView.h"
+#import "UITextField+CGXHighLighted.h"
+
+// ****  UITextView   **** /
+#import "UITextView+CGXSelect.h"
+#import "UITextView+CGXExtension.h"
+#import "UITextView+CGXPlaceholder.h"
+#import "UITextView+CGXHighLighted.h"
+
+// ****  UIViewController   **** /
+#import "UIViewController+CGXViewController.h"
+#import "UIViewController+CGXExtension.h"
+#import "UIViewController+CGXAppStore.h"
+
+#import "NSURL+CGXParam.h"
+#import "NSURL+CGXQueryDictionary.h"
+
+#import "NSUserDefaults+CGXExtension.h"
+#import "NSUserDefaults+CGXSafeAccess.h"
+
+// ****  NSString   **** /
+#import "NSString+CGX.h"
+#import "NSString+CGXExtension.h"
+#import "NSString+CGXSize.h"
+#import "NSString+CGXRegex.h"
+#import "NSString+CGXCrypto.h"
+#import "NSString+CGXSecurity.h"
+#import "NSString+CGXURLEncode.h"
+#import "NSString+CGXMIME.h"
+#import "NSString+CGXTrims.h"
+#import "NSString+CGXScore.h"
+#import "NSString+CGXUUID.h"
+#import "NSString+CGXMD5.h"
+
+//*  NSDate   **** /
+#import "NSDate+CGX.h"
+#import "NSDate+CGXTime.h"
+#import "NSDate+CGXDay.h"
+#import "NSDate+CGXYear.h"
+#import "NSDate+CGXMonth.h"
+#import "NSDate+CGXWeek.h"
+#import "NSDate+CGXCompare.h"
+#import "NSDate+CGXExtension.h"
+#import "NSDate+CGXComponents.h"
+#import "NSDate+CGXTransTime.h"
+#import "NSDate+CGXLunarCalendar.h"
+#import "CGXCategoryDateFormatterPool.h"
+#import "NSCalendar+CGXExtension.h"
+
+// ****  NSObject   **** /
+//#import "NSObject+CGXMainRuntime.h"
+#import "NSObject+CGXModelParse.h"
+#import "NSObject+CGXExtension.h"
+#import "NSObject+CGXObject.h"
+//#import "NSObject+CGXRuntime.h"
+#import "NSObject+CGXGCD.h"
+#import "NSObject+CGXKVOBlocks.h"
+#import "NSObject+CGXEasyCopy.h"
+#import "NSObject+CGXAddProperty.h"
+#import "NSObject+CGXAssociatedObject.h"
+#import "NSObject+CGXSafe.h"
 
 #endif /* CGXCategoryKitOC_h */
 

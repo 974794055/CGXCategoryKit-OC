@@ -1,117 +1,141 @@
 PODS:
-  - CGXCategoryKitOC (0.0.7):
-    - CGXCategoryKitOC/CoreLocation (= 0.0.7)
-    - CGXCategoryKitOC/Foundation (= 0.0.7)
-    - CGXCategoryKitOC/QuartzCore (= 0.0.7)
-    - CGXCategoryKitOC/UIControl (= 0.0.7)
-    - CGXCategoryKitOC/UIKit (= 0.0.7)
-  - CGXCategoryKitOC/CoreLocation (0.0.7):
-    - CGXCategoryKitOC/CoreLocation/CLLocation (= 0.0.7)
-  - CGXCategoryKitOC/CoreLocation/CLLocation (0.0.7)
-  - CGXCategoryKitOC/Foundation (0.0.7):
-    - CGXCategoryKitOC/Foundation/NSArray (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSData (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSDictionary (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSException (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSFileHandle (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSFileManager (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSHTTPCookieStorage (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSIndexPath (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSMutableAttributedString (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSNull (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSNumber (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSRunLoop (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/UIColor (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/UIFont (= 0.0.7)
-    - CGXCategoryKitOC/Foundation/UIImage (= 0.0.7)
-  - CGXCategoryKitOC/Foundation/NSArray (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSBundle (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSData (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSDictionary (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSException (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSFileHandle (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSFileManager (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSHTTPCookieStorage (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSIndexPath (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSMutableAttributedString (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSNull (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSNumber (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSRunLoop (0.0.7)
-  - CGXCategoryKitOC/Foundation/NSTimer (0.0.7)
-  - CGXCategoryKitOC/Foundation/UIColor (0.0.7)
-  - CGXCategoryKitOC/Foundation/UIDevice (0.0.7)
-  - CGXCategoryKitOC/Foundation/UIFont (0.0.7)
-  - CGXCategoryKitOC/Foundation/UIImage (0.0.7)
-  - CGXCategoryKitOC/QuartzCore (0.0.7):
-    - CGXCategoryKitOC/QuartzCore/CALayer (= 0.0.7)
-    - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (= 0.0.7)
-    - CGXCategoryKitOC/QuartzCore/CAShapeLayer (= 0.0.7)
-    - CGXCategoryKitOC/QuartzCore/CATransaction (= 0.0.7)
-  - CGXCategoryKitOC/QuartzCore/CALayer (0.0.7)
-  - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (0.0.7)
-  - CGXCategoryKitOC/QuartzCore/CAShapeLayer (0.0.7)
-  - CGXCategoryKitOC/QuartzCore/CATransaction (0.0.7)
-  - CGXCategoryKitOC/UIControl (0.0.7)
-  - CGXCategoryKitOC/UIKit (0.0.7):
+  - CGXCategoryKitOC (0.0.8):
+    - CGXCategoryKitOC/CoreLocation (= 0.0.8)
+    - CGXCategoryKitOC/Foundation (= 0.0.8)
+    - CGXCategoryKitOC/QuartzCore (= 0.0.8)
+    - CGXCategoryKitOC/UIControl (= 0.0.8)
+    - CGXCategoryKitOC/UIKit (= 0.0.8)
+  - CGXCategoryKitOC/CoreLocation (0.0.8):
+    - CGXCategoryKitOC/CoreLocation/CLLocation (= 0.0.8)
+  - CGXCategoryKitOC/CoreLocation/CLLocation (0.0.8)
+  - CGXCategoryKitOC/Foundation (0.0.8):
+    - CGXCategoryKitOC/Foundation/NSArray (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSData (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSDictionary (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSException (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSFileHandle (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSFileManager (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSHTTPCookieStorage (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSIndexPath (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSMutableAttributedString (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSNull (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSNumber (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSRunLoop (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/UIColor (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/UIFont (= 0.0.8)
+    - CGXCategoryKitOC/Foundation/UIImage (= 0.0.8)
+  - CGXCategoryKitOC/Foundation/NSArray (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSBundle (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSData (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSDictionary (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSException (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSFileHandle (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSFileManager (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSHTTPCookieStorage (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSIndexPath (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSMutableAttributedString (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSNull (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSNumber (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSRunLoop (0.0.8)
+  - CGXCategoryKitOC/Foundation/NSTimer (0.0.8)
+  - CGXCategoryKitOC/Foundation/UIColor (0.0.8)
+  - CGXCategoryKitOC/Foundation/UIDevice (0.0.8)
+  - CGXCategoryKitOC/Foundation/UIFont (0.0.8)
+  - CGXCategoryKitOC/Foundation/UIImage (0.0.8)
+  - CGXCategoryKitOC/QuartzCore (0.0.8):
+    - CGXCategoryKitOC/QuartzCore/CALayer (= 0.0.8)
+    - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (= 0.0.8)
+    - CGXCategoryKitOC/QuartzCore/CAShapeLayer (= 0.0.8)
+    - CGXCategoryKitOC/QuartzCore/CATransaction (= 0.0.8)
+  - CGXCategoryKitOC/QuartzCore/CALayer (0.0.8)
+  - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (0.0.8)
+  - CGXCategoryKitOC/QuartzCore/CAShapeLayer (0.0.8)
+  - CGXCategoryKitOC/QuartzCore/CATransaction (0.0.8)
+  - CGXCategoryKitOC/UIControl (0.0.8)
+  - CGXCategoryKitOC/UIKit (0.0.8):
     - CGXCategoryKitOC/Foundation
-    - CGXCategoryKitOC/UIKit/UIApplication (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIBarButtonItem (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIButton (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIImageView (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UILabel (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UINavigationBar (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UINavigationController (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UINavigationItem (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIResponder (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIScreen (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIScrollView (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UISegmentedControl (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UISplitViewController (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UITableView (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UITableViewCell (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIView (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.7)
-    - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.7)
-  - CGXCategoryKitOC/UIKit/UIApplication (0.0.7):
+    - CGXCategoryKitOC/UIKit/NSDate (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/NSObject (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/NSString (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/NSURL (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/NSUserDefaults (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIApplication (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIBarButtonItem (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIButton (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIImageView (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UILabel (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UINavigationBar (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UINavigationController (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UINavigationItem (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIResponder (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIScreen (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIScrollView (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UISegmentedControl (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UISplitViewController (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UITableView (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UITableViewCell (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UITextField (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UITextView (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIView (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIViewController (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.8)
+    - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.8)
+  - CGXCategoryKitOC/UIKit/NSDate (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIBarButtonItem (0.0.7):
+  - CGXCategoryKitOC/UIKit/NSObject (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIButton (0.0.7):
+  - CGXCategoryKitOC/UIKit/NSString (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIImageView (0.0.7):
+  - CGXCategoryKitOC/UIKit/NSURL (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UILabel (0.0.7):
+  - CGXCategoryKitOC/UIKit/NSUserDefaults (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UINavigationBar (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIApplication (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UINavigationController (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIBarButtonItem (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UINavigationItem (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIButton (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIResponder (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIImageView (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIScreen (0.0.7):
+  - CGXCategoryKitOC/UIKit/UILabel (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIScrollView (0.0.7):
+  - CGXCategoryKitOC/UIKit/UINavigationBar (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UISegmentedControl (0.0.7):
+  - CGXCategoryKitOC/UIKit/UINavigationController (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UISplitViewController (0.0.7):
+  - CGXCategoryKitOC/UIKit/UINavigationItem (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UITableView (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIResponder (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UITableViewCell (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIScreen (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIView (0.0.7):
+  - CGXCategoryKitOC/UIKit/UIScrollView (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/UIWindow (0.0.7):
+  - CGXCategoryKitOC/UIKit/UISegmentedControl (0.0.8):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/WKWebView (0.0.7):
+  - CGXCategoryKitOC/UIKit/UISplitViewController (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableView (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableViewCell (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextField (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextView (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIView (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIViewController (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIWindow (0.0.8):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/WKWebView (0.0.8):
     - CGXCategoryKitOC/Foundation
   - Masonry (1.1.0)
 
@@ -128,7 +152,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 34a1bacf55b95d76690fabd4b428d54df8f0125a
+  CGXCategoryKitOC: 15dc844e13d62291fdf48e05e5535051ed417f58
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

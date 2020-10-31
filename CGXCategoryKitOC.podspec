@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.0.7"      #版本号，与tag值一致
+    s.version      = "0.0.8"      #版本号，与tag值一致
     s.summary      = "APP的Foundation、UIKit的延展库"  #简介
     s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址
@@ -142,6 +142,31 @@ Pod::Spec.new do |s|
         ss.subspec 'UIScrollView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}'
         end
+        ss.subspec 'UITextField' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextField/**/*.{h,m}'
+        end
+        ss.subspec 'UITextView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextView/**/*.{h,m}'
+        end
+        ss.subspec 'UIViewController' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}'
+        end
+        ss.subspec 'NSURL' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}'
+        end
+        ss.subspec 'NSUserDefaults' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSUserDefaults/**/*.{h,m}'
+        end
+        ss.subspec 'NSString' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}'
+        end
+        ss.subspec 'NSObject' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSObject/**/*.{h,m}'
+        end
+        ss.subspec 'NSDate' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSDate/**/*.{h,m}'
+        end
+        
     end
     
     s.subspec 'UIControl' do |ss|

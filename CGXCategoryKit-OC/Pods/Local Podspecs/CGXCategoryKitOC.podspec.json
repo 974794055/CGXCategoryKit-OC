@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.0.7"
+    "tag": "0.0.8"
   },
   "requires_arc": true,
   "frameworks": [
@@ -204,6 +204,38 @@
         {
           "name": "UIScrollView",
           "source_files": "CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}"
+        },
+        {
+          "name": "UITextField",
+          "source_files": "CGXCategoryKitOC/UIKit/UITextField/**/*.{h,m}"
+        },
+        {
+          "name": "UITextView",
+          "source_files": "CGXCategoryKitOC/UIKit/UITextView/**/*.{h,m}"
+        },
+        {
+          "name": "UIViewController",
+          "source_files": "CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}"
+        },
+        {
+          "name": "NSURL",
+          "source_files": "CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}"
+        },
+        {
+          "name": "NSUserDefaults",
+          "source_files": "CGXCategoryKitOC/UIKit/NSUserDefaults/**/*.{h,m}"
+        },
+        {
+          "name": "NSString",
+          "source_files": "CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}"
+        },
+        {
+          "name": "NSObject",
+          "source_files": "CGXCategoryKitOC/UIKit/NSObject/**/*.{h,m}"
+        },
+        {
+          "name": "NSDate",
+          "source_files": "CGXCategoryKitOC/UIKit/NSDate/**/*.{h,m}"
         }
       ]
     },
