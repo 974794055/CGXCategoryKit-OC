@@ -64,10 +64,6 @@
           "source_files": "CGXCategoryKitOC/Foundation/UIDevice/**/*.{h,m}"
         },
         {
-          "name": "NSFileManager",
-          "source_files": "CGXCategoryKitOC/Foundation/NSFileManager/**/*.{h,m}"
-        },
-        {
           "name": "NSURL",
           "source_files": "CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}"
         },
@@ -78,62 +74,6 @@
         {
           "name": "NSUserDefaults",
           "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
-        },
-        {
-          "name": "NSObject",
-          "source_files": "CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}"
-        },
-        {
-          "name": "NSIndexPath",
-          "source_files": "CGXCategoryKitOC/Foundation/NSIndexPath/**/*.{h,m}"
-        },
-        {
-          "name": "NSRunLoop",
-          "source_files": "CGXCategoryKitOC/Foundation/NSRunLoop/**/*.{h,m}"
-        },
-        {
-          "name": "NSMutableAttributedString",
-          "source_files": "CGXCategoryKitOC/Foundation/NSMutableAttributedString/**/*.{h,m}"
-        },
-        {
-          "name": "UIImage",
-          "source_files": "CGXCategoryKitOC/Foundation/UIImage/**/*.{h,m}"
-        },
-        {
-          "name": "NSString",
-          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}"
-        },
-        {
-          "name": "NSHTTPCookieStorage",
-          "source_files": "CGXCategoryKitOC/Foundation/NSHTTPCookieStorage/**/*.{h,m}"
-        },
-        {
-          "name": "NSFileHandle",
-          "source_files": "CGXCategoryKitOC/Foundation/NSFileHandle/**/*.{h,m}"
-        },
-        {
-          "name": "NSException",
-          "source_files": "CGXCategoryKitOC/Foundation/NSException/**/*.{h,m}"
-        },
-        {
-          "name": "NSDictionary",
-          "source_files": "CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}"
-        },
-        {
-          "name": "NSArray",
-          "source_files": "CGXCategoryKitOC/Foundation/NSArray/**/*.{h,m}"
-        },
-        {
-          "name": "NSData",
-          "source_files": "CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}"
-        },
-        {
-          "name": "NSNumber",
-          "source_files": "CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}"
-        },
-        {
-          "name": "NSDate",
-          "source_files": "CGXCategoryKitOC/Foundation/NSDate/**/*.{h,m}"
         },
         {
           "name": "NSNull",
@@ -157,6 +97,32 @@
         {
           "name": "WKWebView",
           "source_files": "CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "UIControl",
+      "source_files": "CGXCategoryKitOC/UIControl/**/*.{h,m}"
+    },
+    {
+      "name": "QuartzCore",
+      "source_files": "CGXCategoryKitOC/QuartzCore/**/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "CALayer",
+          "source_files": "CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}"
+        },
+        {
+          "name": "CATransaction",
+          "source_files": "CGXCategoryKitOC/QuartzCore/CATransaction/**/*.{h,m}"
+        },
+        {
+          "name": "CAShapeLayer",
+          "source_files": "CGXCategoryKitOC/QuartzCore/CAShapeLayer/**/*.{h,m}"
+        },
+        {
+          "name": "CAMediaTimingFunction",
+          "source_files": "CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction/**/*.{h,m}"
         }
       ]
     },
