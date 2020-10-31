@@ -47,10 +47,6 @@
           "source_files": "CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}"
         },
         {
-          "name": "NSNotificationCenter",
-          "source_files": "CGXCategoryKitOC/Foundation/NSNotificationCenter/**/*.{h,m}"
-        },
-        {
           "name": "NSBundle",
           "source_files": "CGXCategoryKitOC/Foundation/NSBundle/**/*.{h,m}"
         },
@@ -65,10 +61,6 @@
         {
           "name": "NSURL",
           "source_files": "CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}"
-        },
-        {
-          "name": "NSUserDefaults",
-          "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
         },
         {
           "name": "NSNull",

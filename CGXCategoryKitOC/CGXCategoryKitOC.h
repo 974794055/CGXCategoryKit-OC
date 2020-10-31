@@ -29,8 +29,6 @@
 
 //// ****  NSTimer   **** /
 #import "NSTimer+CGXExtension.h"
-//// ****  NSNotificationCenter   **** /
-#import "NSNotificationCenter+CGXMainThread.h"
 //// ****  NSBundle   **** /
 #import "NSBundle+CGXAppIcon.h"
 
@@ -43,11 +41,8 @@
 
 // ****  CLLocation   **** /
 #import "CATransaction+CGXAnimate.h"
-
 #import "CAShapeLayer+CGXBezierPath.h"
-
 #import "CAMediaTimingFunction+CGXAdditionalEquations.h"
-
 // ****  CALayer   **** /
 #import "CALayer+CGXExtension.h"
 
@@ -58,12 +53,6 @@
 #import "NSURL+CGXParam.h"
 #import "NSURL+CGXQueryDictionary.h"
 
-// ****  NSUserDefaults   **** /
-#import "NSUserDefaults+CGXExtension.h"
-#import "NSUserDefaults+CGXSafeAccess.h"
-
-// ****  NSRunLoop   **** /
-#import "NSRunLoop+CGXPerformBlock.h"
 
 // ****  CLLocation   **** /
 #import "CLLocation+CGXCH1903.h"

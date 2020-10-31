@@ -11,20 +11,16 @@ PODS:
   - CGXCategoryKitOC/Foundation (0.0.4):
     - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.4)
     - CGXCategoryKitOC/Foundation/NSDictionary (= 0.0.4)
-    - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.4)
     - CGXCategoryKitOC/Foundation/NSNull (= 0.0.4)
     - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.4)
     - CGXCategoryKitOC/Foundation/NSURL (= 0.0.4)
-    - CGXCategoryKitOC/Foundation/NSUserDefaults (= 0.0.4)
     - CGXCategoryKitOC/Foundation/UIColor (= 0.0.4)
     - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.4)
   - CGXCategoryKitOC/Foundation/NSBundle (0.0.4)
   - CGXCategoryKitOC/Foundation/NSDictionary (0.0.4)
-  - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.4)
   - CGXCategoryKitOC/Foundation/NSNull (0.0.4)
   - CGXCategoryKitOC/Foundation/NSTimer (0.0.4)
   - CGXCategoryKitOC/Foundation/NSURL (0.0.4)
-  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.4)
   - CGXCategoryKitOC/Foundation/UIColor (0.0.4)
   - CGXCategoryKitOC/Foundation/UIDevice (0.0.4)
   - CGXCategoryKitOC/QuartzCore (0.0.4):
@@ -60,7 +56,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: f67bb9dae5711efe936c44edb3cfd53e972f4d68
+  CGXCategoryKitOC: ddadb63335e68d9ec3ca9a18a966c24f060064dd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

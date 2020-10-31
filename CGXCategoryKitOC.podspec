@@ -23,9 +23,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'
         end
-        ss.subspec 'NSNotificationCenter' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSNotificationCenter/**/*.{h,m}'
-        end
         ss.subspec 'NSBundle' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSBundle/**/*.{h,m}'
         end
@@ -37,9 +34,6 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSURL' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
-        end
-        ss.subspec 'NSUserDefaults' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
         end
         ss.subspec 'NSNull' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNull/**/*.{h,m}'
