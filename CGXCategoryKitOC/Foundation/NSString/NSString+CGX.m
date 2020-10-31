@@ -63,7 +63,8 @@
     return formatter;
 }
  
-+ (NSString *)dataStringWithTimeInterval:(NSTimeInterval)time {
++ (NSString *)dataStringWithTimeInterval:(NSTimeInterval)time
+{
     NSString *result = @"";
     NSDateFormatter *formatter = [self creatDateFormatter];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -85,7 +86,8 @@
                 if (duration < 12) {
                     result = [NSString stringWithFormat:@"%@个月前",@(duration)];
                 } else{
-                    result = @"1年前";
+                    NSUInteger durationsssss = ceil(duration/12);
+                    result = [NSString stringWithFormat:@"%@年前",@(durationsssss)];
                 }
             }
         }

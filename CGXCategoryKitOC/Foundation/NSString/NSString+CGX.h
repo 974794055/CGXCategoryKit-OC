@@ -16,6 +16,8 @@
 // 早安、午安、晚安
 + (NSString *)gx_helloStringByLocalTime;
 
+// xx分钟前、xx小时前, xx天前、xx个月前、1年前
++ (NSString *)dataStringWithTimeInterval:(NSTimeInterval)time;
 @end
 
 
