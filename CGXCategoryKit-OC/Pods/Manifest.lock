@@ -1,49 +1,49 @@
 PODS:
-  - CGXCategoryKitOC (0.0.3):
-    - CGXCategoryKitOC/CoreLocation (= 0.0.3)
-    - CGXCategoryKitOC/Foundation (= 0.0.3)
-    - CGXCategoryKitOC/QuartzCore (= 0.0.3)
-    - CGXCategoryKitOC/UIControl (= 0.0.3)
-    - CGXCategoryKitOC/UIKit (= 0.0.3)
-  - CGXCategoryKitOC/CoreLocation (0.0.3):
-    - CGXCategoryKitOC/CoreLocation/CLLocation (= 0.0.3)
-  - CGXCategoryKitOC/CoreLocation/CLLocation (0.0.3)
-  - CGXCategoryKitOC/Foundation (0.0.3):
-    - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/NSNull (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/NSURL (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/NSUserDefaults (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/UIColor (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.3)
-    - CGXCategoryKitOC/Foundation/UIFont (= 0.0.3)
-  - CGXCategoryKitOC/Foundation/NSBundle (0.0.3)
-  - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.3)
-  - CGXCategoryKitOC/Foundation/NSNull (0.0.3)
-  - CGXCategoryKitOC/Foundation/NSTimer (0.0.3)
-  - CGXCategoryKitOC/Foundation/NSURL (0.0.3)
-  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.3)
-  - CGXCategoryKitOC/Foundation/UIColor (0.0.3)
-  - CGXCategoryKitOC/Foundation/UIDevice (0.0.3)
-  - CGXCategoryKitOC/Foundation/UIFont (0.0.3)
-  - CGXCategoryKitOC/QuartzCore (0.0.3):
-    - CGXCategoryKitOC/QuartzCore/CALayer (= 0.0.3)
-    - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (= 0.0.3)
-    - CGXCategoryKitOC/QuartzCore/CAShapeLayer (= 0.0.3)
-    - CGXCategoryKitOC/QuartzCore/CATransaction (= 0.0.3)
-  - CGXCategoryKitOC/QuartzCore/CALayer (0.0.3)
-  - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (0.0.3)
-  - CGXCategoryKitOC/QuartzCore/CAShapeLayer (0.0.3)
-  - CGXCategoryKitOC/QuartzCore/CATransaction (0.0.3)
-  - CGXCategoryKitOC/UIControl (0.0.3)
-  - CGXCategoryKitOC/UIKit (0.0.3):
+  - CGXCategoryKitOC (0.0.4):
+    - CGXCategoryKitOC/CoreLocation (= 0.0.4)
+    - CGXCategoryKitOC/Foundation (= 0.0.4)
+    - CGXCategoryKitOC/QuartzCore (= 0.0.4)
+    - CGXCategoryKitOC/UIControl (= 0.0.4)
+    - CGXCategoryKitOC/UIKit (= 0.0.4)
+  - CGXCategoryKitOC/CoreLocation (0.0.4):
+    - CGXCategoryKitOC/CoreLocation/CLLocation (= 0.0.4)
+  - CGXCategoryKitOC/CoreLocation/CLLocation (0.0.4)
+  - CGXCategoryKitOC/Foundation (0.0.4):
+    - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSDictionary (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSNull (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSURL (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/NSUserDefaults (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/UIColor (= 0.0.4)
+    - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.4)
+  - CGXCategoryKitOC/Foundation/NSBundle (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSDictionary (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSNull (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSTimer (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSURL (0.0.4)
+  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.4)
+  - CGXCategoryKitOC/Foundation/UIColor (0.0.4)
+  - CGXCategoryKitOC/Foundation/UIDevice (0.0.4)
+  - CGXCategoryKitOC/QuartzCore (0.0.4):
+    - CGXCategoryKitOC/QuartzCore/CALayer (= 0.0.4)
+    - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (= 0.0.4)
+    - CGXCategoryKitOC/QuartzCore/CAShapeLayer (= 0.0.4)
+    - CGXCategoryKitOC/QuartzCore/CATransaction (= 0.0.4)
+  - CGXCategoryKitOC/QuartzCore/CALayer (0.0.4)
+  - CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction (0.0.4)
+  - CGXCategoryKitOC/QuartzCore/CAShapeLayer (0.0.4)
+  - CGXCategoryKitOC/QuartzCore/CATransaction (0.0.4)
+  - CGXCategoryKitOC/UIControl (0.0.4)
+  - CGXCategoryKitOC/UIKit (0.0.4):
     - CGXCategoryKitOC/Foundation
-    - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.3)
-    - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.3)
-  - CGXCategoryKitOC/UIKit/UIWindow (0.0.3):
+    - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.4)
+    - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.4)
+  - CGXCategoryKitOC/UIKit/UIWindow (0.0.4):
     - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/WKWebView (0.0.3):
+  - CGXCategoryKitOC/UIKit/WKWebView (0.0.4):
     - CGXCategoryKitOC/Foundation
   - Masonry (1.1.0)
 
@@ -60,7 +60,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: d2d8fb894044251947a0888f414ebccf02476a1a
+  CGXCategoryKitOC: f67bb9dae5711efe936c44edb3cfd53e972f4d68
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

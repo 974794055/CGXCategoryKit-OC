@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "9.0"                  #支持的平台和版本号
     s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }         #存储库的git地址，以及tag值
     s.requires_arc = true #是否支持ARC
-    s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary','Accelerate','MobileCoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
+    s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
     
     #需要托管的源代码路径
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
@@ -44,7 +44,9 @@ Pod::Spec.new do |s|
         ss.subspec 'NSNull' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNull/**/*.{h,m}'
         end
-        
+        ss.subspec 'NSDictionary' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}'
+        end
         
     end
     

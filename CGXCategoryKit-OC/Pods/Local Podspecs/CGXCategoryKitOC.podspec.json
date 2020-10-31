@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.0.3"
+    "tag": "0.0.4"
   },
   "requires_arc": true,
   "frameworks": [
@@ -27,9 +27,8 @@
     "CoreImage",
     "QuartzCore",
     "ImageIO",
-    "AssetsLibrary",
     "Accelerate",
-    "MobileCoreServices",
+    "CoreServices",
     "SystemConfiguration",
     "AdSupport",
     "CoreLocation",
@@ -68,16 +67,16 @@
           "source_files": "CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}"
         },
         {
-          "name": "UIFont",
-          "source_files": "CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}"
-        },
-        {
           "name": "NSUserDefaults",
           "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
         },
         {
           "name": "NSNull",
           "source_files": "CGXCategoryKitOC/Foundation/NSNull/**/*.{h,m}"
+        },
+        {
+          "name": "NSDictionary",
+          "source_files": "CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}"
         }
       ]
     },
