@@ -45,9 +45,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSFileManager' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSFileManager/**/*.{h,m}'
         end
-        ss.subspec 'NSURL' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
-        end
         ss.subspec 'UIFont' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}'
         end
@@ -62,9 +59,6 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'UIImage' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/UIImage/**/*.{h,m}'
-        end
-        ss.subspec 'NSString' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
         end
         ss.subspec 'NSHTTPCookieStorage' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSHTTPCookieStorage/**/*.{h,m}'
