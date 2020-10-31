@@ -155,20 +155,6 @@
 #import "UIImageView+CGXFaceAwareFill.h"
 #import "UIImageView+CGXLetters.h"
 #import "UIImageView+CGXReflect.h"
-
-
-// ****  UILabel   **** /
-#import "UILabel+CGXAttributeTap.h"
-#import "UILabel+CGXExtensions.h"
-#import "UILabel+CGXAutoSize.h"
-#import "UILabel+CGXAdaptive.h"
-
-// ****  UITextView   **** /
-#import "UITextView+CGXSelect.h"
-#import "UITextView+CGXExtension.h"
-#import "UITextView+CGXPlaceholder.h"
-#import "UITextView+CGXHighLighted.h"
-
 // ****  UIButton   **** /
 #import "UIButton+CGXEdgeInsets.h"
 #import "UIButton+CGXBadge.h"
@@ -178,22 +164,6 @@
 #import "UIButton+CGXBtnBlock.h"
 #import "UIButton+CGXExtension.h"
 #import "UIButton+CGXIndicator.h"
-
-
-
-// ****  UITextField   **** /
-#import "UITextField+CGXHistory.h"
-#import "UITextField+CGXExtension.h"
-#import "UITextField+CGXSelect.h"
-#import "UITextField+CGXShake.h"
-#import "UITextField+CGXAddView.h"
-#import "UITextField+CGXHighLighted.h"
-
-
-// ****  UIViewController   **** /
-#import "UIViewController+CGXViewController.h"
-#import "UIViewController+CGXExtension.h"
-#import "UIViewController+CGXAppStore.h"
 
 //// ****  UIView   **** /
 #import "UIView+CGXBlockGesture.h"
@@ -206,13 +176,6 @@
 #import "UIView+CGXRoundedCorners.h"
 #import "UIView+CGXShake.h"
 #import "UIView+CGXSnapshot.h"
-
-
-// ****  UIScrollView   **** /
-#import "UIScrollView+CGXStopScroll.h"
-#import "UIScrollView+CGXPages.h"
-#import "UIScrollView+CGXExtension.h"
-#import "UIScrollView+CGXAddition.h"
 
 
 #import "UISplitViewController+CGXQuickAccess.h"

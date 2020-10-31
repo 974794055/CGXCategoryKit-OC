@@ -121,36 +121,20 @@ Pod::Spec.new do |s|
         ss.subspec 'UIResponder' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIResponder/**/*.{h,m}'
         end
-        
-
         ss.subspec 'UIButton' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIButton/**/*.{h,m}'
         end
         ss.subspec 'UIImageView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIImageView/**/*.{h,m}'
         end
-        ss.subspec 'UILabel' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/UILabel/**/*.{h,m}'
-        end
-        ss.subspec 'UIScrollView' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}'
-        end
+
         ss.subspec 'UISplitViewController' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UISplitViewController/**/*.{h,m}'
-        end
-        ss.subspec 'UITextField' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextField/**/*.{h,m}'
-        end
-        ss.subspec 'UITextView' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextView/**/*.{h,m}'
         end
         ss.subspec 'UIView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIView/**/*.{h,m}'
         end
-        ss.subspec 'UIViewController' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}'
-        end
-        
+
   
     end
     
