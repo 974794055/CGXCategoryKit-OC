@@ -32,9 +32,6 @@ Pod::Spec.new do |s|
         ss.subspec 'UIDevice' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/UIDevice/**/*.{h,m}'
         end
-        ss.subspec 'NSURL' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
-        end
         ss.subspec 'NSNull' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNull/**/*.{h,m}'
         end

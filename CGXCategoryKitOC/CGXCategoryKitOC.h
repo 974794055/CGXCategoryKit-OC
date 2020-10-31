@@ -49,10 +49,6 @@
 // ****  UIDevice   **** /
 #import "UIDevice+CGXExtension.h"
 
-// ****  NSURL   **** /
-#import "NSURL+CGXParam.h"
-#import "NSURL+CGXQueryDictionary.h"
-
 
 // ****  CLLocation   **** /
 #import "CLLocation+CGXCH1903.h"

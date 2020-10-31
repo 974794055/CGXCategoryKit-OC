@@ -23,7 +23,6 @@
     // Do any additional setup after loading the view.
     
     
-    
 //    btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [self.view addSubview:btn];
 //    btn.backgroundColor = [UIColor lightGrayColor];
