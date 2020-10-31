@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.0.6"      #版本号，与tag值一致
+    s.version      = "0.0.7"      #版本号，与tag值一致
     s.summary      = "APP的Foundation、UIKit的延展库"  #简介
     s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址
@@ -127,12 +127,20 @@ Pod::Spec.new do |s|
         ss.subspec 'UIImageView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIImageView/**/*.{h,m}'
         end
-
         ss.subspec 'UISplitViewController' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UISplitViewController/**/*.{h,m}'
         end
         ss.subspec 'UIView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIView/**/*.{h,m}'
+        end
+        ss.subspec 'UILabel' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UILabel/**/*.{h,m}'
+        end
+        ss.subspec 'UIImageView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIImageView/**/*.{h,m}'
+        end
+        ss.subspec 'UIScrollView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}'
         end
     end
     

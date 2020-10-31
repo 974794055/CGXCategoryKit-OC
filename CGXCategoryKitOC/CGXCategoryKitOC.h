@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.0.6
+ 版本： 0.0.7
  */
 
 #ifndef CGXCategoryKitOC_h
@@ -178,6 +178,23 @@
 #import "UIView+CGXSnapshot.h"
 
 #import "UISplitViewController+CGXQuickAccess.h"
+
+// ****  UILabel   **** /
+#import "UILabel+CGXAttributeTap.h"
+#import "UILabel+CGXExtensions.h"
+#import "UILabel+CGXAutoSize.h"
+#import "UILabel+CGXAdaptive.h"
+
+// ****  UIImageView   **** /
+#import "UIImageView+CGXFaceAwareFill.h"
+#import "UIImageView+CGXLetters.h"
+#import "UIImageView+CGXReflect.h"
+
+// ****  UIScrollView   **** /
+#import "UIScrollView+CGXStopScroll.h"
+#import "UIScrollView+CGXPages.h"
+#import "UIScrollView+CGXExtension.h"
+#import "UIScrollView+CGXAddition.h"
 
 
 #endif /* CGXCategoryKitOC_h */

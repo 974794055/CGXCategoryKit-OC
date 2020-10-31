@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.0.6"
+    "tag": "0.0.7"
   },
   "requires_arc": true,
   "frameworks": [
@@ -192,6 +192,18 @@
         {
           "name": "UIView",
           "source_files": "CGXCategoryKitOC/UIKit/UIView/**/*.{h,m}"
+        },
+        {
+          "name": "UILabel",
+          "source_files": "CGXCategoryKitOC/UIKit/UILabel/**/*.{h,m}"
+        },
+        {
+          "name": "UIImageView",
+          "source_files": "CGXCategoryKitOC/UIKit/UIImageView/**/*.{h,m}"
+        },
+        {
+          "name": "UIScrollView",
+          "source_files": "CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}"
         }
       ]
     },

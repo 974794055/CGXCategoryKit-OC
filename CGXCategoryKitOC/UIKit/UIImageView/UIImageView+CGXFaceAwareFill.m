@@ -29,14 +29,14 @@ static CIDetector * _faceDetector;
         return;
     }
     
-    CGRect facesRect = [self rectWithFaces];
+    CGRect facesRect = [self gx_rectWithFaces];
     if (facesRect.size.height + facesRect.size.width == 0)
         return;
     self.contentMode = UIViewContentModeTopLeft;
-    [self scaleImageFocusingOnRect:facesRect];
+    [self gx_scaleImageFocusingOnRect:facesRect];
 }
 
-- (CGRect)rectWithFaces {
+- (CGRect)gx_rectWithFaces {
     // Get a CIIImage
     CIImage* image = self.image.CIImage;
     
@@ -70,7 +70,7 @@ static CIDetector * _faceDetector;
     return totalFaceRects;
 }
 
-- (void)scaleImageFocusingOnRect:(CGRect) facesRect {
+- (void)gx_scaleImageFocusingOnRect:(CGRect) facesRect {
     CGFloat multi1 = self.frame.size.width / self.image.size.width;
     CGFloat multi2 = self.frame.size.height / self.image.size.height;
     CGFloat multi = MAX(multi1, multi2);
