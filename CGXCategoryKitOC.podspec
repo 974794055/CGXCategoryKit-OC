@@ -47,7 +47,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSDictionary' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}'
         end
-        
     end
     
     s.subspec 'UIKit' do |ss|
