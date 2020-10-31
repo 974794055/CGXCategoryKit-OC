@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.0.4"      #版本号，与tag值一致
+    s.version      = "0.0.5"      #版本号，与tag值一致
     s.summary      = "APP的Foundation、UIKit的延展库"  #简介
     s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址
@@ -38,6 +38,62 @@ Pod::Spec.new do |s|
         ss.subspec 'NSDictionary' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}'
         end
+        
+        ss.subspec 'NSNotificationCenter' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSNotificationCenter/**/*.{h,m}'
+        end
+        ss.subspec 'NSFileManager' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSFileManager/**/*.{h,m}'
+        end
+        ss.subspec 'NSURL' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
+        end
+        ss.subspec 'UIFont' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}'
+        end
+        ss.subspec 'NSUserDefaults' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
+        end
+        ss.subspec 'NSObject' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'
+        end
+        ss.subspec 'NSIndexPath' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSIndexPath/**/*.{h,m}'
+        end
+        ss.subspec 'NSRunLoop' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSRunLoop/**/*.{h,m}'
+        end
+        ss.subspec 'NSMutableAttributedString' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSMutableAttributedString/**/*.{h,m}'
+        end
+        ss.subspec 'UIImage' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/UIImage/**/*.{h,m}'
+        end
+        ss.subspec 'NSString' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
+        end
+        ss.subspec 'NSHTTPCookieStorage' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSHTTPCookieStorage/**/*.{h,m}'
+        end
+        ss.subspec 'NSFileHandle' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSFileHandle/**/*.{h,m}'
+        end
+        ss.subspec 'NSException' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSException/**/*.{h,m}'
+        end
+        ss.subspec 'NSArray' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSArray/**/*.{h,m}'
+        end
+        ss.subspec 'NSData' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}'
+        end
+        ss.subspec 'NSNumber' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}'
+        end
+        ss.subspec 'NSDate' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSDate/**/*.{h,m}'
+        end
+        
     end
     
     s.subspec 'UIKit' do |ss|
@@ -51,15 +107,15 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}'
         end
     end
-
+    
     s.subspec 'UIControl' do |ss|
         ss.source_files = 'CGXCategoryKitOC/UIControl/**/*.{h,m}'
     end
-
+    
     s.subspec 'QuartzCore' do |ss|
-
+        
         ss.source_files = 'CGXCategoryKitOC/QuartzCore/**/*.{h,m}'
-
+        
         ss.subspec 'CALayer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}'
         end
@@ -76,12 +132,12 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'CoreLocation' do |ss|
- 
+        
         ss.subspec 'CLLocation' do |sss|
             sss.source_files = 'CGXCategoryKitOC/CoreLocation/CLLocation/**/*.{h,m}'
         end
     end
-
+    
 end
 
 
