@@ -38,9 +38,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSURL' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
         end
-        ss.subspec 'UIFont' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}'
-        end
         ss.subspec 'NSUserDefaults' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
         end

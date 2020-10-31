@@ -58,10 +58,6 @@
 #import "NSURL+CGXParam.h"
 #import "NSURL+CGXQueryDictionary.h"
 
-// ****  UIFont   **** /
-#import "UIFont+CGXDynamicFontControl.h"
-#import "UIFont+CGXCustomLoader.h"
-#import "UIFont+CGXTTF.h"
 
 // ****  NSUserDefaults   **** /
 #import "NSUserDefaults+CGXExtension.h"
