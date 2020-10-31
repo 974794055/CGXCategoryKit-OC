@@ -83,14 +83,6 @@
           "source_files": "CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}"
         },
         {
-          "name": "NSUserDefaults",
-          "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
-        },
-        {
-          "name": "NSObject",
-          "source_files": "CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}"
-        },
-        {
           "name": "NSIndexPath",
           "source_files": "CGXCategoryKitOC/Foundation/NSIndexPath/**/*.{h,m}"
         },
@@ -133,10 +125,6 @@
         {
           "name": "NSNumber",
           "source_files": "CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}"
-        },
-        {
-          "name": "NSDate",
-          "source_files": "CGXCategoryKitOC/Foundation/NSDate/**/*.{h,m}"
         }
       ]
     },

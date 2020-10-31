@@ -51,12 +51,6 @@ Pod::Spec.new do |s|
         ss.subspec 'UIFont' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/UIFont/**/*.{h,m}'
         end
-        ss.subspec 'NSUserDefaults' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
-        end
-        ss.subspec 'NSObject' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'
-        end
         ss.subspec 'NSIndexPath' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSIndexPath/**/*.{h,m}'
         end
@@ -89,9 +83,6 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSNumber' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}'
-        end
-        ss.subspec 'NSDate' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/Foundation/NSDate/**/*.{h,m}'
         end
         
     end

@@ -12,7 +12,6 @@ PODS:
     - CGXCategoryKitOC/Foundation/NSArray (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSBundle (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSData (= 0.0.5)
-    - CGXCategoryKitOC/Foundation/NSDate (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSDictionary (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSException (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSFileHandle (= 0.0.5)
@@ -23,12 +22,10 @@ PODS:
     - CGXCategoryKitOC/Foundation/NSNotificationCenter (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSNull (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSNumber (= 0.0.5)
-    - CGXCategoryKitOC/Foundation/NSObject (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSRunLoop (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSString (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSURL (= 0.0.5)
-    - CGXCategoryKitOC/Foundation/NSUserDefaults (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIColor (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIFont (= 0.0.5)
@@ -36,7 +33,6 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSArray (0.0.5)
   - CGXCategoryKitOC/Foundation/NSBundle (0.0.5)
   - CGXCategoryKitOC/Foundation/NSData (0.0.5)
-  - CGXCategoryKitOC/Foundation/NSDate (0.0.5)
   - CGXCategoryKitOC/Foundation/NSDictionary (0.0.5)
   - CGXCategoryKitOC/Foundation/NSException (0.0.5)
   - CGXCategoryKitOC/Foundation/NSFileHandle (0.0.5)
@@ -47,12 +43,10 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.0.5)
   - CGXCategoryKitOC/Foundation/NSNull (0.0.5)
   - CGXCategoryKitOC/Foundation/NSNumber (0.0.5)
-  - CGXCategoryKitOC/Foundation/NSObject (0.0.5)
   - CGXCategoryKitOC/Foundation/NSRunLoop (0.0.5)
   - CGXCategoryKitOC/Foundation/NSString (0.0.5)
   - CGXCategoryKitOC/Foundation/NSTimer (0.0.5)
   - CGXCategoryKitOC/Foundation/NSURL (0.0.5)
-  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.5)
   - CGXCategoryKitOC/Foundation/UIColor (0.0.5)
   - CGXCategoryKitOC/Foundation/UIDevice (0.0.5)
   - CGXCategoryKitOC/Foundation/UIFont (0.0.5)
@@ -90,7 +84,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: b58d6a66090f2cdf9277df6ab1e327650f7740a9
+  CGXCategoryKitOC: 6f7606680bb69a69103e2a4038d1c4c95d3cc3bd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4
