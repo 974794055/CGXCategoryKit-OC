@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.0.5"      #版本号，与tag值一致
+    s.version      = "0.0.6"      #版本号，与tag值一致
     s.summary      = "APP的Foundation、UIKit的延展库"  #简介
     s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址
@@ -91,6 +91,67 @@ Pod::Spec.new do |s|
         ss.subspec 'WKWebView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}'
         end
+        ss.subspec 'UISegmentedControl' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}'
+        end
+        ss.subspec 'UITableView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITableView/**/*.{h,m}'
+        end
+        ss.subspec 'UITableViewCell' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITableViewCell/**/*.{h,m}'
+        end
+        ss.subspec 'UINavigationItem' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UINavigationItem/**/*.{h,m}'
+        end
+        ss.subspec 'UINavigationBar' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UINavigationBar/**/*.{h,m}'
+        end
+        ss.subspec 'UIBarButtonItem' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIBarButtonItem/**/*.{h,m}'
+        end
+        ss.subspec 'UINavigationController' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UINavigationController/**/*.{h,m}'
+        end
+        ss.subspec 'UIScreen' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIScreen/**/*.{h,m}'
+        end
+        ss.subspec 'UIApplication' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIApplication/**/*.{h,m}'
+        end
+        ss.subspec 'UIResponder' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIResponder/**/*.{h,m}'
+        end
+        
+
+        ss.subspec 'UIButton' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIButton/**/*.{h,m}'
+        end
+        ss.subspec 'UIImageView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIImageView/**/*.{h,m}'
+        end
+        ss.subspec 'UILabel' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UILabel/**/*.{h,m}'
+        end
+        ss.subspec 'UIScrollView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIScrollView/**/*.{h,m}'
+        end
+        ss.subspec 'UISplitViewController' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UISplitViewController/**/*.{h,m}'
+        end
+        ss.subspec 'UITextField' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextField/**/*.{h,m}'
+        end
+        ss.subspec 'UITextView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITextView/**/*.{h,m}'
+        end
+        ss.subspec 'UIView' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIView/**/*.{h,m}'
+        end
+        ss.subspec 'UIViewController' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}'
+        end
+        
+  
     end
     
     s.subspec 'UIControl' do |ss|

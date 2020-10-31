@@ -23,9 +23,7 @@ PODS:
     - CGXCategoryKitOC/Foundation/NSNull (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSNumber (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSRunLoop (= 0.0.5)
-    - CGXCategoryKitOC/Foundation/NSString (= 0.0.5)
     - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.5)
-    - CGXCategoryKitOC/Foundation/NSURL (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIColor (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIDevice (= 0.0.5)
     - CGXCategoryKitOC/Foundation/UIFont (= 0.0.5)
@@ -44,9 +42,7 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSNull (0.0.5)
   - CGXCategoryKitOC/Foundation/NSNumber (0.0.5)
   - CGXCategoryKitOC/Foundation/NSRunLoop (0.0.5)
-  - CGXCategoryKitOC/Foundation/NSString (0.0.5)
   - CGXCategoryKitOC/Foundation/NSTimer (0.0.5)
-  - CGXCategoryKitOC/Foundation/NSURL (0.0.5)
   - CGXCategoryKitOC/Foundation/UIColor (0.0.5)
   - CGXCategoryKitOC/Foundation/UIDevice (0.0.5)
   - CGXCategoryKitOC/Foundation/UIFont (0.0.5)
@@ -63,8 +59,65 @@ PODS:
   - CGXCategoryKitOC/UIControl (0.0.5)
   - CGXCategoryKitOC/UIKit (0.0.5):
     - CGXCategoryKitOC/Foundation
+    - CGXCategoryKitOC/UIKit/UIApplication (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIBarButtonItem (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIButton (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIImageView (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UILabel (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UINavigationBar (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UINavigationController (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UINavigationItem (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIResponder (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIScreen (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIScrollView (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UISegmentedControl (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UISplitViewController (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UITableView (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UITableViewCell (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UITextField (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UITextView (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIView (= 0.0.5)
+    - CGXCategoryKitOC/UIKit/UIViewController (= 0.0.5)
     - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.5)
     - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.5)
+  - CGXCategoryKitOC/UIKit/UIApplication (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIBarButtonItem (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIButton (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIImageView (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UILabel (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationBar (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationController (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UINavigationItem (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIResponder (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIScreen (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIScrollView (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UISegmentedControl (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UISplitViewController (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableView (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITableViewCell (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextField (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UITextView (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIView (0.0.5):
+    - CGXCategoryKitOC/Foundation
+  - CGXCategoryKitOC/UIKit/UIViewController (0.0.5):
+    - CGXCategoryKitOC/Foundation
   - CGXCategoryKitOC/UIKit/UIWindow (0.0.5):
     - CGXCategoryKitOC/Foundation
   - CGXCategoryKitOC/UIKit/WKWebView (0.0.5):
@@ -84,7 +137,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 6f7606680bb69a69103e2a4038d1c4c95d3cc3bd
+  CGXCategoryKitOC: 23a9b1f041f5cff4f763569b5bdbfeb293e159f5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4
