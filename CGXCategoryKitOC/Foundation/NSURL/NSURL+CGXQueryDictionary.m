@@ -14,6 +14,40 @@ static NSString *const kQueryDivider        = @"=";
 static NSString *const kQueryBegin          = @"?";
 static NSString *const kFragmentBegin       = @"#";
 
+
+
+@implementation NSDictionary (CGXURLQQQQ)
+
+
+- (NSString*)gx_URLQueryStringWithSortedKeys:(BOOL)sortedKeys
+{
+  NSMutableString *queryString = @"".mutableCopy;
+  NSArray *keys = sortedKeys ? [self.allKeys sortedArrayUsingSelector:@selector(compare:)] : self.allKeys;
+  for (NSString *key in keys) {
+    id rawValue = self[key];
+    NSString *value = nil;
+    // beware of empty or null
+    if (!(rawValue == [NSNull null] || ![rawValue description].length)) {
+      value =gx_URLEscape([self[key] description]);
+    }
+    [queryString appendFormat:@"%@%@%@%@",
+     queryString.length ? kQuerySeparator : @"",    // appending?
+    gx_URLEscape(key),
+     value ? kQueryDivider : @"",
+     value ? value : @""];
+  }
+  return queryString.length ? queryString.copy : nil;
+}
+static inline NSString *gx_URLEscape(NSString *string) {
+    return ((__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
+        NULL,
+        (__bridge CFStringRef)string,
+        NULL,
+        (__bridge CFStringRef)gx_URLReservedChars,
+        kCFStringEncodingUTF8));
+}
+@end
+
 @implementation NSURL (CGXQueryDictionary)
 
 - (NSDictionary*)gx_queryDictionary {
@@ -102,4 +136,5 @@ static NSString *const kFragmentBegin       = @"#";
 }
 
 @end
+
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSDictionary+CGXURL.h"
+
 @interface NSURL (CGXQueryDictionary)
 
 /**
