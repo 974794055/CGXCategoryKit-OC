@@ -49,7 +49,7 @@
 /**
  *  为类添加基础类型的属性，如：int,float,CGPoint,CGRect等
  *  @param name 属性的name
- *  @param type 属性的encodingType，如int类型的属性，type为@encode(int)
+ *  @param type 属性的encodingType，如int类型的属性，type为 @ encode (int)
  */
 + (void)gx_addBasicProperty:(NSString *)name encodingType:(char *)type;
 

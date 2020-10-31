@@ -64,8 +64,6 @@
 //    NSLog(@"%@",[NSString gx_likeStringWithNum:@"1999999999"]);
 //
 //    NSLog(@"%@",[NSString gx_helloStringByLocalTime]);
-//
-
     
 }
 - (void)gx_tapAttributeInLabel:(UILabel *)label

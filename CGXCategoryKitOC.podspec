@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
     
     s.subspec 'Foundation' do |ss|
         ss.source_files = 'CGXCategoryKitOC/Foundation/**/*.{h,m}'
-        
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'
         end
