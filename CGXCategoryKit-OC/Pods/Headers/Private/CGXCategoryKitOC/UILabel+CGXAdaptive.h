@@ -1,1 +1,0 @@
-../../../../../CGXCategoryKitOC/UIKit/UILabel/UILabel+CGXAdaptive.h
