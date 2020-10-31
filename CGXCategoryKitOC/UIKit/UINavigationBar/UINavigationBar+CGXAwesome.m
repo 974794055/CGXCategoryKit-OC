@@ -9,8 +9,6 @@
 #import "UINavigationBar+CGXAwesome.h"
 #import <objc/runtime.h>
 
-#import <objc/runtime.h>
-
 static char CGXDefaultStatusBarStyleKey;
 static char CGXStatusBarStyleKey;
 

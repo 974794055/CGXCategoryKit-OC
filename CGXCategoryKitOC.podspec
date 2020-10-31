@@ -134,7 +134,6 @@ Pod::Spec.new do |s|
         ss.subspec 'UIView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIView/**/*.{h,m}'
         end
-  
     end
     
     s.subspec 'UIControl' do |ss|

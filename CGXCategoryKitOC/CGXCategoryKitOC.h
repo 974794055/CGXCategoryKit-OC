@@ -179,5 +179,6 @@
 
 #import "UISplitViewController+CGXQuickAccess.h"
 
+
 #endif /* CGXCategoryKitOC_h */
 
