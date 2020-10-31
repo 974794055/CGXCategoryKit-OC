@@ -24,48 +24,8 @@
 
 //// ****  UIWindow   **** /
 #import "UIWindow+CGXHierarchy.h"
-
-//// ****  UISegmentedControl   **** /
-#import "UISegmentedControl+CGXCategory.h"
-
-//// ****  UIView   **** /
-#import "UIView+CGXBlockGesture.h"
-#import "UIView+CGXExtension.h"
-#import "UIView+CGXFindSubclass.h"
-#import "UIView+CGXNib.h"
-#import "UIView+CGXParentController.h"
-#import "UIView+CGXRounded.h"
-#import "UIView+CGXRoundedRadius.h"
-#import "UIView+CGXRoundedCorners.h"
-#import "UIView+CGXShake.h"
-#import "UIView+CGXSnapshot.h"
-
-
-//// ****  UITableViewCell   **** /
-#import "UITableViewCell+CGXDelaysClick.h"
-
 //// ****  WKWebView   **** /
 #import "WKWebView+CGXExtension.h"
-
-//// ****  UITableView   **** /
-#import "UITableView+CGXExtension.h"
-#import "UITableView+CGXiOS7Style.h"
-
-//// ****  UISplitViewController   **** /
-#import "UISplitViewController+CGXQuickAccess.h"
-
-//// ****  UINavigationItem   **** /
-#import "UINavigationItem+CGXLock.h"
-#import "UINavigationItem+CGXLoading.h"
-
-//// ****  UINavigationBar   **** /
-#import "UINavigationBar+CGXAwesome.h"
-
-// ****  UIScrollView   **** /
-#import "UIScrollView+CGXStopScroll.h"
-#import "UIScrollView+CGXPages.h"
-#import "UIScrollView+CGXExtension.h"
-#import "UIScrollView+CGXAddition.h"
 
 //// ****  NSTimer   **** /
 #import "NSTimer+CGXExtension.h"
@@ -168,67 +128,6 @@
 
 #import "CAMediaTimingFunction+CGXAdditionalEquations.h"
 
-#import "UIResponder+CGXFirstResponder.h"
-#import "UIResponder+CGXChain.h"
-
-// ****  UIBarButtonItem   **** /
-#import "UIBarButtonItem+CGXAction.h"
-
-// ****  UIApplication   **** /
-#import "UIApplication+CGXApplicationSize.h"
-#import "UIApplication+CGXNetworkActivityIndicator.h"
-#import "UIApplication+CGXUrl.h"
-
-// ****  UIScreen   **** /
-#import "UIScreen+CGXExtension.h"
-
-// ****  UIImageView   **** /
-#import "UIImageView+CGXFaceAwareFill.h"
-#import "UIImageView+CGXLetters.h"
-#import "UIImageView+CGXReflect.h"
-
-
-// ****  UILabel   **** /
-#import "UILabel+CGXAttributeTap.h"
-#import "UILabel+CGXExtensions.h"
-#import "UILabel+CGXAutoSize.h"
-#import "UILabel+CGXAdaptive.h"
-
-// ****  UITextView   **** /
-#import "UITextView+CGXSelect.h"
-#import "UITextView+CGXExtension.h"
-#import "UITextView+CGXPlaceholder.h"
-#import "UITextView+CGXHighLighted.h"
-
-// ****  UIButton   **** /
-#import "UIButton+CGXEdgeInsets.h"
-#import "UIButton+CGXBadge.h"
-#import "UIButton+CGXHighlightEffect.h"
-#import "UIButton+CGXClickArea.h"
-#import "UIButton+CGXTouch.h"
-#import "UIButton+CGXBtnBlock.h"
-#import "UIButton+CGXExtension.h"
-#import "UIButton+CGXIndicator.h"
-
-
-// ****  UITextField   **** /
-#import "UITextField+CGXHistory.h"
-#import "UITextField+CGXExtension.h"
-#import "UITextField+CGXSelect.h"
-#import "UITextField+CGXShake.h"
-#import "UITextField+CGXAddView.h"
-#import "UITextField+CGXHighLighted.h"
-
-
-// ****  UINavigationController   **** /
-#import "UINavigationController+CGXExtension.h"
-#import "UINavigationController+CGXStackManager.h"
-
-
-// ****  UIViewController   **** /
-#import "UIViewController+CGXViewController.h"
-#import "UIViewController+CGXExtension.h"
-#import "UIViewController+CGXAppStore.h"
 
 
 #import "NSHTTPCookieStorage+CGXFreezeDry.h"

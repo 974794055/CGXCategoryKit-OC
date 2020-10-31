@@ -1,1 +1,0 @@
-../../../../../CGXCategoryKitOC/UIKit/UINavigationController/UINavigationController+CGXStackManager.h
