@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+CGXExtension.h"
+//#import "NSObject+CGXExtension.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSUserDefaults (CGXExtension)
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @param value                The object to be saved.
  *    @param key          The only key.
  */
-- (BOOL)gx_saveSafeObject:(id)value forKey:(NSString *)key;
+//- (BOOL)gx_saveSafeObject:(id)value forKey:(NSString *)key;
 /**
  *注意：
  *使用以下方法的自定义对象，必须实现decode和encode方法，否则会导致崩溃。
