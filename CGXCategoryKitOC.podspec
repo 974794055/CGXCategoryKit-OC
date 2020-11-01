@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     
+    
     s.subspec 'Foundation' do |ss|
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'

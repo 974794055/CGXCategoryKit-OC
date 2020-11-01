@@ -55,7 +55,6 @@
     label.text = @"对巨大的激动d基督教三IE看呢短裤呃呃囧 温柔>>";
     [label gx_addAttributeTapWithStrings:@[@"激动",@"温柔"] delegate:self];
 
-    
 //    NSLog(@"%@",[NSString gx_UUID]);
 //    NSLog(@"%@",[NSString gx_UUIDString]);
 //

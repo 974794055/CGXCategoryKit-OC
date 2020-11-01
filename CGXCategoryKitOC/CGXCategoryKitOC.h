@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.0.8
+ 版本： 0.0.9
  */
 
 #ifndef CGXCategoryKitOC_h
