@@ -56,7 +56,6 @@
     [label gx_addAttributeTapWithStrings:@[@"激动",@"温柔"] delegate:self];
 
     
-    
 //    NSLog(@"%@",[NSString gx_UUID]);
 //    NSLog(@"%@",[NSString gx_UUIDString]);
 //
