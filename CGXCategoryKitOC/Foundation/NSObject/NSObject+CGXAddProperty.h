@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 //objc_getAssociatedObject和objc_setAssociatedObject都需要指定一个固定的地址，这个固定的地址值用来表示属性的key，起到一个常量的作用。
 //static const void *CGXStringProperty = &CGXStringProperty;
@@ -48,7 +49,7 @@
 /**
  *  为类添加基础类型的属性，如：int,float,CGPoint,CGRect等
  *  @param name 属性的name
- *  @param type 属性的encodingType，如int类型的属性，type为@encode(int)
+ *  @param type 属性的encodingType，如int类型的属性，type为@  encode(int)
  */
 + (void)gx_addBasicProperty:(NSString *)name encodingType:(char *)type;
 

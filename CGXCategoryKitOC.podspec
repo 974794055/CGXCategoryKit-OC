@@ -84,9 +84,11 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSObject' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'
+            sss.public_header_files = 'CGXCategoryKitOC/Foundation/NSObject/*.h'
         end
         ss.subspec 'NSUserDefaults' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
     end
     

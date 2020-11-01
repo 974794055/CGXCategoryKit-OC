@@ -123,15 +123,22 @@
         },
         {
           "name": "NSString",
-          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}",
+          "public_header_files": "CGXCategoryKitOC/Foundation/NSString/*.h"
         },
         {
           "name": "NSObject",
-          "source_files": "CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}",
+          "public_header_files": "CGXCategoryKitOC/Foundation/NSObject/*.h"
         },
         {
           "name": "NSUserDefaults",
-          "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         }
       ]
     },

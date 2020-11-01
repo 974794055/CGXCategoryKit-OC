@@ -50,7 +50,8 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSString (0.0.9)
   - CGXCategoryKitOC/Foundation/NSTimer (0.0.9)
   - CGXCategoryKitOC/Foundation/NSURL (0.0.9)
-  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.9)
+  - CGXCategoryKitOC/Foundation/NSUserDefaults (0.0.9):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/UIColor (0.0.9)
   - CGXCategoryKitOC/Foundation/UIDevice (0.0.9)
   - CGXCategoryKitOC/Foundation/UIFont (0.0.9)
@@ -123,7 +124,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 63300a8c823f6922c4e33742208f16155772aeaa
+  CGXCategoryKitOC: 17a8d0c0db160b8774904b7108039170250b4b6f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

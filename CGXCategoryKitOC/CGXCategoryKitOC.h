@@ -121,7 +121,6 @@
 #import "NSNull+CGXSafe.h"
 
 
-
 #import "UISegmentedControl+CGXCategory.h"
 
 //// ****  UITableView   **** /
@@ -164,6 +163,22 @@
 #import "UIButton+CGXBtnBlock.h"
 #import "UIButton+CGXExtension.h"
 #import "UIButton+CGXIndicator.h"
+
+// ****  UIImage   **** /
+#import "UIImage+CGXColor.h"
+#import "UIImage+CGXAlpha.h"
+#import "UIImage+CGXFileName.h"
+#import "UIImage+CGXCapture.h"
+#import "UIImage+CGXMerge.h"
+#import "UIImage+CGXExtension.h"
+#import "UIImage+CGXUserAvatar.h"
+#import "UIImage+CGXRemoteSize.h"
+#import "UIImage+CGXOrientation.h"
+#import "UIImage+CGXAnimatedGIF.h"
+#import "UIImage+CGXVector.h"
+#import "UIImage+CGXCompress.h"
+
+
 
 //// ****  UIView   **** /
 #import "UIView+CGXBlockGesture.h"
