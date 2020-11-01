@@ -191,7 +191,6 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'CoreLocation' do |ss|
-        
         ss.subspec 'CLLocation' do |sss|
             sss.source_files = 'CGXCategoryKitOC/CoreLocation/CLLocation/**/*.{h,m}'
         end

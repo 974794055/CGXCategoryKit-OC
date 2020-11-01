@@ -9,12 +9,16 @@
 
 #import "UIViewController+CGXExtension.h"
 
-@implementation NSString (CGXExtensionPPP)
+@interface NSString(CGXExtensionUIViewController)
+
+@end
+
+@implementation NSString (CGXExtensionUIViewController)
 
 /**
  验证非空字符串  如果为空 转换成 @"";
  */
-+ (NSString *)gx_emptyStr:(NSString *)str
++ (NSString *)gx_emptyString:(NSString *)str
  {
     if(([str isKindOfClass:[NSNull class]]) || ([str isEqual:[NSNull null]]) || (str == nil) || (!str)) {
 
@@ -30,7 +34,7 @@
 
 - (UIViewController *)gx_findViewController:(NSString *)className {
     
-    if([NSString gx_emptyStr:className].length <= 0) return nil;
+    if([NSString gx_emptyString:className].length <= 0) return nil;
     
     Class class = NSClassFromString(className);
     
@@ -48,7 +52,7 @@
 
 - (void)gx_deleteViewController:(NSString *)className complete:(void (^)(void))complete {
     
-    if([NSString gx_emptyStr:className].length <= 0) return;
+    if([NSString gx_emptyString:className].length <= 0) return;
     
     Class class = NSClassFromString(className);
     
@@ -76,7 +80,7 @@
 
 - (void)gx_pushViewController:(NSString *)className animated:(BOOL)animated {
     
-    if([NSString gx_emptyStr:className].length <= 0) return;
+    if([NSString gx_emptyString:className].length <= 0) return;
     
     Class class = NSClassFromString(className);
     
@@ -91,7 +95,7 @@
 
 - (void)gx_preventCirculationPushViewController:(NSString *)className animated:(BOOL)animated {
     
-    if([NSString gx_emptyStr:className].length <= 0) return;
+    if([NSString gx_emptyString:className].length <= 0) return;
     
     Class class = NSClassFromString(className);
     
@@ -109,7 +113,7 @@
 
 - (void)gx_popViewController:(NSString *)className animated:(BOOL)animated {
     
-    if([NSString gx_emptyStr:className].length <= 0) return;
+    if([NSString gx_emptyString:className].length <= 0) return;
     
     Class class = NSClassFromString(className);
     
