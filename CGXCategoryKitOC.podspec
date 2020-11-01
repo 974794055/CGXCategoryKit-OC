@@ -80,6 +80,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
+            sss.public_header_files = 'CGXCategoryKitOC/Foundation/NSString/*.h'
         end
         ss.subspec 'NSObject' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'

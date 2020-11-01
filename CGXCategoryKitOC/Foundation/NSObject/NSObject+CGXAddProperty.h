@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <objc/runtime.h>
 
 //objc_getAssociatedObject和objc_setAssociatedObject都需要指定一个固定的地址，这个固定的地址值用来表示属性的key，起到一个常量的作用。
 //static const void *CGXStringProperty = &CGXStringProperty;
