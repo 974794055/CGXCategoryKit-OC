@@ -136,7 +136,7 @@
         },
         {
           "name": "UISegmentedControl",
-          "source_files": "CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/UIKit/UISegmentedControl/**/*.{h,m}"
         },
         {
           "name": "UITableView",

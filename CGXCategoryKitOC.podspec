@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}'
         end
         ss.subspec 'UISegmentedControl' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/WKWebView/**/*.{h,m}'
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UISegmentedControl/**/*.{h,m}'
         end
         ss.subspec 'UITableView' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UITableView/**/*.{h,m}'
