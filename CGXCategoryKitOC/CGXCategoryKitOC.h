@@ -216,8 +216,20 @@
 #import "UIViewController+CGXAppStore.h"
 
 #import "NSURL+CGXParam.h"
-#import "NSURL+CGXQueryDictionary.h"
 
+// ****  NSString   **** /
+#import "NSString+CGX.h"
+#import "NSString+CGXExtension.h"
+#import "NSString+CGXSize.h"
+#import "NSString+CGXRegex.h"
+#import "NSString+CGXCrypto.h"
+#import "NSString+CGXSecurity.h"
+#import "NSString+CGXURLEncode.h"
+#import "NSString+CGXMIME.h"
+#import "NSString+CGXTrims.h"
+#import "NSString+CGXScore.h"
+#import "NSString+CGXUUID.h"
+#import "NSString+CGXMD5.h"
 
 #endif /* CGXCategoryKitOC_h */
 
