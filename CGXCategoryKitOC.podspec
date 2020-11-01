@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     
-    
     s.subspec 'Foundation' do |ss|
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'
@@ -79,6 +78,10 @@ Pod::Spec.new do |s|
         ss.subspec 'NSURL' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
         end
+        ss.subspec 'NSString' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
+        end
+        
     end
     
     s.subspec 'UIKit' do |ss|
