@@ -81,7 +81,12 @@ Pod::Spec.new do |s|
         ss.subspec 'NSString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
         end
-        
+        ss.subspec 'NSObject' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'
+        end
+        ss.subspec 'NSUserDefaults' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}'
+        end
     end
     
     s.subspec 'UIKit' do |ss|

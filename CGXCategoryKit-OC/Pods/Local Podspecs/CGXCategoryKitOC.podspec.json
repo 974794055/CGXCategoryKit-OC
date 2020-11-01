@@ -124,6 +124,14 @@
         {
           "name": "NSString",
           "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}"
+        },
+        {
+          "name": "NSObject",
+          "source_files": "CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}"
+        },
+        {
+          "name": "NSUserDefaults",
+          "source_files": "CGXCategoryKitOC/Foundation/NSUserDefaults/**/*.{h,m}"
         }
       ]
     },

@@ -17,7 +17,6 @@
 #ifndef CGXCategoryKitOC_h
 #define CGXCategoryKitOC_h
 
-
 //// ****  UIControl   **** /
 #import "UIControl+CGXClicks.h"
 #import "UIControl+CGXSound.h"
@@ -231,6 +230,23 @@
 #import "NSString+CGXScore.h"
 #import "NSString+CGXUUID.h"
 #import "NSString+CGXMD5.h"
+
+// ****  NSUserDefaults   **** /
+#import "NSUserDefaults+CGXExtension.h"
+#import "NSUserDefaults+CGXSafeAccess.h"
+
+// ****  NSObject   **** /
+//#import "NSObject+CGXMainRuntime.h"
+#import "NSObject+CGXModelParse.h"
+#import "NSObject+CGXExtension.h"
+#import "NSObject+CGXObject.h"
+//#import "NSObject+CGXRuntime.h"
+#import "NSObject+CGXGCD.h"
+#import "NSObject+CGXKVOBlocks.h"
+#import "NSObject+CGXEasyCopy.h"
+#import "NSObject+CGXAddProperty.h"
+#import "NSObject+CGXAssociatedObject.h"
+#import "NSObject+CGXSafe.h"
 
 #endif /* CGXCategoryKitOC_h */
 
