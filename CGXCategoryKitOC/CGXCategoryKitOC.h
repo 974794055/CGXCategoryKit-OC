@@ -218,13 +218,6 @@
 #import "NSURL+CGXParam.h"
 #import "NSURL+CGXQueryDictionary.h"
 
-// ****  NSString   **** /
-#import "NSString+CGXImage.h"
-#import "NSString+CGXSize.h"
-#import "NSString+CGXUUID.h"
-#import "NSString+CGXMD5.h"
-
-
 
 #endif /* CGXCategoryKitOC_h */
 
