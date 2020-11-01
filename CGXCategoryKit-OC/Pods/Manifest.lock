@@ -23,6 +23,7 @@ PODS:
     - CGXCategoryKitOC/Foundation/NSNull (= 0.0.9)
     - CGXCategoryKitOC/Foundation/NSNumber (= 0.0.9)
     - CGXCategoryKitOC/Foundation/NSRunLoop (= 0.0.9)
+    - CGXCategoryKitOC/Foundation/NSString (= 0.0.9)
     - CGXCategoryKitOC/Foundation/NSTimer (= 0.0.9)
     - CGXCategoryKitOC/Foundation/NSURL (= 0.0.9)
     - CGXCategoryKitOC/Foundation/UIColor (= 0.0.9)
@@ -43,6 +44,7 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSNull (0.0.9)
   - CGXCategoryKitOC/Foundation/NSNumber (0.0.9)
   - CGXCategoryKitOC/Foundation/NSRunLoop (0.0.9)
+  - CGXCategoryKitOC/Foundation/NSString (0.0.9)
   - CGXCategoryKitOC/Foundation/NSTimer (0.0.9)
   - CGXCategoryKitOC/Foundation/NSURL (0.0.9)
   - CGXCategoryKitOC/Foundation/UIColor (0.0.9)
@@ -117,7 +119,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: d1885b8ea60d9e7b59bd765c76a2a6b8ca44542d
+  CGXCategoryKitOC: e2df09fb56f046ede22f2e776a520ea00c205fac
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

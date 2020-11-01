@@ -120,6 +120,10 @@
         {
           "name": "NSURL",
           "source_files": "CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}"
+        },
+        {
+          "name": "NSString",
+          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}"
         }
       ]
     },
