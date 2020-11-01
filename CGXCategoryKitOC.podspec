@@ -156,10 +156,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}'
         end
-        ss.subspec 'NSDate' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/NSDate/**/*.{h,m}'
-        end
-        
     end
     
     s.subspec 'UIControl' do |ss|
