@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -12,11 +12,11 @@
     "974794055": "974794055@qq.com"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "8.0"
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.0.8"
+    "tag": "0.0.9"
   },
   "requires_arc": true,
   "frameworks": [
@@ -40,7 +40,6 @@
   "subspecs": [
     {
       "name": "Foundation",
-      "source_files": "CGXCategoryKitOC/Foundation/**/*.{h,m}",
       "subspecs": [
         {
           "name": "NSTimer",
@@ -120,18 +119,12 @@
         },
         {
           "name": "NSURL",
-          "source_files": "CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}"
         }
       ]
     },
     {
       "name": "UIKit",
-      "dependencies": {
-        "CGXCategoryKitOC/Foundation": [
-
-        ]
-      },
-      "source_files": "CGXCategoryKitOC/UIKit/**/*.{h,m}",
       "subspecs": [
         {
           "name": "UIWindow",
@@ -229,7 +222,6 @@
     },
     {
       "name": "QuartzCore",
-      "source_files": "CGXCategoryKitOC/QuartzCore/**/*.{h,m}",
       "subspecs": [
         {
           "name": "CALayer",
