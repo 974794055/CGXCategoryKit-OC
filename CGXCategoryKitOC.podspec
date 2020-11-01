@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
     
     #需要托管的源代码路径
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
-    
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     
