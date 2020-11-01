@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}'
         end
         ss.subspec 'NSURL' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}'
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSURL/**/*.{h,m}'
         end
     end
     
