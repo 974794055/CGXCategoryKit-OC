@@ -153,9 +153,6 @@ Pod::Spec.new do |s|
         ss.subspec 'NSURL' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}'
         end
-        ss.subspec 'NSUserDefaults' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/NSUserDefaults/**/*.{h,m}'
-        end
         ss.subspec 'NSString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}'
         end

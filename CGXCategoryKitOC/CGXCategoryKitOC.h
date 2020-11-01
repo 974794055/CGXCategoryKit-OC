@@ -218,9 +218,6 @@
 #import "NSURL+CGXParam.h"
 #import "NSURL+CGXQueryDictionary.h"
 
-#import "NSUserDefaults+CGXExtension.h"
-#import "NSUserDefaults+CGXSafeAccess.h"
-
 // ****  NSString   **** /
 #import "NSString+CGX.h"
 #import "NSString+CGXExtension.h"

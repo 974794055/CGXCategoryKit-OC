@@ -41,7 +41,6 @@
 		1BFA137C3E896E3CD9201B89B5C300A8 /* CALayer+CGXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D1D6885927325043C959FC418999E /* CALayer+CGXExtension.m */; };
 		1C2EBA37B834B0887ABB60980E7B22D6 /* UIView+CGXRoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD53FEFC285C6A36650BF7A5AD87EA /* UIView+CGXRoundedCorners.m */; };
 		1CAACD6E0127E92A3FA71893E78D4A00 /* NSDate+CGXYear.h in Headers */ = {isa = PBXBuildFile; fileRef = D781263227FE1B4494231622A546FF0B /* NSDate+CGXYear.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1E346FB38DBCE5B4273374A9722E401C /* NSUserDefaults+CGXSafeAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = D32CA4382090D810902B40BDB85B727F /* NSUserDefaults+CGXSafeAccess.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1E480D373DB8CFA964AB0C6C83B0DF92 /* UITextView+CGXHighLighted.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1B0CFA439B0700734CA0A42094BAD /* UITextView+CGXHighLighted.m */; };
 		1E5D56FF58658F9F45723CA2940489EE /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 935171CB319C057FAEE8F843F46825FE /* MASConstraintMaker.m */; };
 		20167741E8DB4803815764B4BCC30E4E /* NSMutableArray+CGXAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D4B7874B82F7FC5A9D237A2E96F9A28 /* NSMutableArray+CGXAdditional.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -50,7 +49,6 @@
 		213549E37AAB0C6B1A44A27E99F9FD0C /* NSData+CGXAPNSToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CB39A32F3B232D5DB04A5143ABD66D /* NSData+CGXAPNSToken.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		22ACD80ED3114F6A09F4BB7A0C7B41A6 /* NSDate+CGXLunarCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C9F2E3F95C4DFC1D38C7166EA5A05E /* NSDate+CGXLunarCalendar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		23A07B9AA1B03AEDDDE0F2A122C38714 /* NSString+CGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 78738096D9454719B6DBC471A093CF71 /* NSString+CGX.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		23D66A0A786501A9F4DE60020817C644 /* NSUserDefaults+CGXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FD0844337FB06B57A6F93C604A533 /* NSUserDefaults+CGXExtension.m */; };
 		241A4C588D3C8E11549687ABC1941ADD /* UIImage+CGXColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3449EE5941B28FEA8A901D9590398B01 /* UIImage+CGXColor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2600D68B782A594D6A15D2A5FE2D24C3 /* UIImage+CGXCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F468D57D684D3176628A17010FFE2C /* UIImage+CGXCompress.m */; };
 		264BEEF0DC46A21FBD4F0B7044BA4A00 /* NSBundle+CGXAppIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26ABBCCA0DC41A5A10981C1BB9AE27 /* NSBundle+CGXAppIcon.m */; };
@@ -70,7 +68,6 @@
 		2DD410130DFE2FF90A9C9E52B3541DB5 /* UIView+CGXSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D1B27D68DD2E3A4D574616BC5F559FD /* UIView+CGXSnapshot.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2E0BAEE133711EB0CFED4E9032BD3742 /* NSURL+CGXQueryDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 921479389BD54EC75F0E11E8D5ADF69B /* NSURL+CGXQueryDictionary.m */; };
 		2E2887159B0873EE47D0D2ABABC94A57 /* NSArray+CGXAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = EC399854F59726FBEDF33ECE7CE07127 /* NSArray+CGXAdditional.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2EB53D35AC9918C036837A7BE48EF9B5 /* NSUserDefaults+CGXExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 428BCEC56351A88F41A76F35FCFE07CA /* NSUserDefaults+CGXExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		30D1C9C8E85099D816E53392232635AC /* UIButton+CGXIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB7936ECD407197F69FB6636EB0C06D /* UIButton+CGXIndicator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		31FD97C808B5B71B9426F42EE216CC59 /* NSString+CGXExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD69D03DF9FF898B6772623E630BAC2 /* NSString+CGXExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		32AFDE497C5DE70AEB38D7C482543072 /* UITextField+CGXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2C2C9DDD7859717EE63A1E17CE34D /* UITextField+CGXExtension.m */; };
@@ -115,7 +112,6 @@
 		48C9A2BE7E30DCFCB2659BFA167BD780 /* NSDate+CGXCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 0597F6689F71767BA7F7D805E830455D /* NSDate+CGXCompare.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		490894794AE0D54405F7EA32A7CE81E0 /* NSData+CGXRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = FD33306BEC4927B00ED4439BE1217E4F /* NSData+CGXRSA.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		490896C79454FC77C15588B4B6C54382 /* NSRunLoop+CGXPerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 17262DCB77D57D4855166EEEA1A252BE /* NSRunLoop+CGXPerformBlock.m */; };
-		493BC8D76A031CC8FD8107BAFB29EF7E /* NSUserDefaults+CGXSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 61630D89247DD8A452475B2243AFDB06 /* NSUserDefaults+CGXSafeAccess.m */; };
 		49E38B75652E003F2E01EBBC3762D3F9 /* UIViewController+CGXViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C427C4DD888D54F1EC5FFA6E470829 /* UIViewController+CGXViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4B35D80F96F90DF227F29A7753142DF3 /* NSString+CGX.m in Sources */ = {isa = PBXBuildFile; fileRef = E672B85699CE94D0890929C117F2E6EC /* NSString+CGX.m */; };
 		4B380D45A55BD3B11CFF1FB8C56BE0D3 /* NSString+CGXSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E947B2AA9E36E1E7434F34C171CC5C /* NSString+CGXSecurity.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -420,7 +416,7 @@
 		0FEB5B745B04AF965BE18693A839ADA8 /* UIImage+CGXRadius.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CGXRadius.h"; sourceTree = "<group>"; };
 		11631E7B5C7316C81034B3795B75A179 /* NSString+CGXUUID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CGXUUID.h"; sourceTree = "<group>"; };
 		11B4032194A15125FC7FB80FCBDB2220 /* WKWebView+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CGXExtension.h"; sourceTree = "<group>"; };
-		11D332D5AA5A0C40259EB8083E2E1ED5 /* libCGXCategoryKitOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCGXCategoryKitOC.a; path = libCGXCategoryKitOC.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D332D5AA5A0C40259EB8083E2E1ED5 /* libCGXCategoryKitOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCGXCategoryKitOC.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		136F613139FCB7078FB2A9C03C7AAB28 /* CATransaction+CGXAnimate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CATransaction+CGXAnimate.h"; sourceTree = "<group>"; };
 		138D1D6885927325043C959FC418999E /* CALayer+CGXExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CGXExtension.m"; sourceTree = "<group>"; };
 		145B885F9A6A84304A95AA1BF794AD08 /* UIScreen+CGXExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+CGXExtension.m"; sourceTree = "<group>"; };
@@ -450,7 +446,7 @@
 		1F3D0E71EDA7ACF8551EF20466DD0BAA /* NSRunLoop+CGXPerformBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+CGXPerformBlock.h"; sourceTree = "<group>"; };
 		1F4BD2B377B52F1E649F5D41843218E5 /* UINavigationController+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CGXExtension.h"; sourceTree = "<group>"; };
 		1F608ACFA4CBAAD87957BEE84C1255C3 /* NSData+CGXBase64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+CGXBase64.m"; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		201C126B7D42312E1CB464F50BC69174 /* UIControl+CGXClicks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+CGXClicks.m"; path = "CGXCategoryKitOC/UIControl/UIControl+CGXClicks.m"; sourceTree = "<group>"; };
 		239B14E817432B470FE66551F7976698 /* NSObject+CGXSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CGXSafe.m"; sourceTree = "<group>"; };
 		2514E4DC823A647E1510ABEDFDC98446 /* NSIndexPath+CGXOffset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+CGXOffset.h"; sourceTree = "<group>"; };
@@ -479,7 +475,7 @@
 		2F22E9F79DC617E8AADB4DF18AEB9454 /* NSCalendar+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+CGXExtension.h"; sourceTree = "<group>"; };
 		2F8160CD72114EFF3597CD4BF6F7F1F7 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		3010AE19AC4134ADAC3CBABA76A5A3D4 /* UIScrollView+CGXExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CGXExtension.m"; sourceTree = "<group>"; };
-		318DDC88653A722371F2F386298307C0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		318DDC88653A722371F2F386298307C0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3281A794E4C79FCE524F953FD3589062 /* UIImage+CGXAnimatedGIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CGXAnimatedGIF.h"; sourceTree = "<group>"; };
 		32F128F2B39DCE7DF93B40300388565B /* UIImageView+CGXReflect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CGXReflect.h"; sourceTree = "<group>"; };
 		33890766718EF6089E135335C418BE27 /* CAMediaTimingFunction+CGXAdditionalEquations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CAMediaTimingFunction+CGXAdditionalEquations.m"; sourceTree = "<group>"; };
@@ -502,7 +498,6 @@
 		3F9A526840B8024FF4F89F0885B7D409 /* UILabel+CGXAutoSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UILabel+CGXAutoSize.h"; sourceTree = "<group>"; };
 		411CCCE6A707DDA02AF236A6F4DD8B74 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		427BE1BF502E4663BBA964C7C5478AD7 /* NSString+CGXMIME.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+CGXMIME.m"; sourceTree = "<group>"; };
-		428BCEC56351A88F41A76F35FCFE07CA /* NSUserDefaults+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CGXExtension.h"; sourceTree = "<group>"; };
 		4498D1D41B99B497C900140186F69053 /* UITextField+CGXShake.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextField+CGXShake.h"; sourceTree = "<group>"; };
 		44AEC6462659DC0098D6E58E0470E73F /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		4577F74D57EFD380C7B7796579D47394 /* NSString+CGXTrims.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+CGXTrims.m"; sourceTree = "<group>"; };
@@ -538,7 +533,7 @@
 		558B2763E324B8D237D904287AE7A690 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		55A66399CF61233FD2D892C65AEDF9A0 /* UIApplication+CGXUrl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+CGXUrl.m"; sourceTree = "<group>"; };
 		55CB39A32F3B232D5DB04A5143ABD66D /* NSData+CGXAPNSToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CGXAPNSToken.h"; sourceTree = "<group>"; };
-		56A1B291DD98CF8D5FF119D6A87AF76F /* CGXCategoryKitOC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = CGXCategoryKitOC.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		56A1B291DD98CF8D5FF119D6A87AF76F /* CGXCategoryKitOC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CGXCategoryKitOC.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		57B611FA542C90908634B3EAF41A8875 /* NSMutableAttributedString+CGX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CGX.h"; sourceTree = "<group>"; };
 		583FDAC2802120FD2D07F9F74FCE6E39 /* NSMutableDictionary+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+CGXExtension.h"; sourceTree = "<group>"; };
 		5843619E7FAA7433DC419FCBCA1CECF5 /* UIView+CGXShake.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+CGXShake.h"; sourceTree = "<group>"; };
@@ -553,7 +548,6 @@
 		5EFBC84794916D9E47078837CD4BF15C /* UIButton+CGXBadge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIButton+CGXBadge.h"; sourceTree = "<group>"; };
 		5EFED6E52B374EE53B8B532C8A65A293 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		5F51A408D3D4AEFE18244DE1276912A7 /* NSData+CGXGzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CGXGzip.h"; sourceTree = "<group>"; };
-		61630D89247DD8A452475B2243AFDB06 /* NSUserDefaults+CGXSafeAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CGXSafeAccess.m"; sourceTree = "<group>"; };
 		627C71984BFAF196DB923C2CBA927AFD /* UIImage+CGXQrCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CGXQrCode.h"; sourceTree = "<group>"; };
 		63CE7D007F3806F280885C76D5B20D71 /* UIColor+CGXWeb.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CGXWeb.m"; sourceTree = "<group>"; };
 		63FC2CF637E74A1262F84496F1E722C4 /* NSFileManager+CGXData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CGXData.h"; sourceTree = "<group>"; };
@@ -564,7 +558,7 @@
 		653EEFA3B33B44A6311E8EE75AFE3981 /* UIImage+CGXMerge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CGXMerge.m"; sourceTree = "<group>"; };
 		6611634B7DF9A0AAC5FF9E267E7B6F7B /* UIImage+CGXOrientation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CGXOrientation.h"; sourceTree = "<group>"; };
 		66459DF5CEAF0A7886ECD34DF3723FB8 /* UIImage+CGXBlurred.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CGXBlurred.m"; sourceTree = "<group>"; };
-		6663366D33A83182218C4E83291E026D /* libPods-CGXCategoryKit-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CGXCategoryKit-OC.a"; path = "libPods-CGXCategoryKit-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6663366D33A83182218C4E83291E026D /* libPods-CGXCategoryKit-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCategoryKit-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B6AF88D056A3F5EDD4B15CA68D4969 /* UIImage+CGXCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CGXCapture.m"; sourceTree = "<group>"; };
 		684566ED5B756B7412B964BBFE1457D3 /* NSDate+CGXTransTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+CGXTransTime.h"; sourceTree = "<group>"; };
 		686CF3B17CB77378FD958A5061540C80 /* UISplitViewController+CGXQuickAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+CGXQuickAccess.h"; sourceTree = "<group>"; };
@@ -589,7 +583,7 @@
 		72D98643BA30A79011275CBE433EF86F /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
 		734CE3A86006D20193A56184A7001CDD /* CLLocation+CGXCH1903.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+CGXCH1903.m"; path = "CGXCategoryKitOC/CoreLocation/CLLocation/CLLocation+CGXCH1903.m"; sourceTree = "<group>"; };
 		74138D106FDF867660B69D8A465C6F80 /* CLLocation+CGXCH1903.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLLocation+CGXCH1903.h"; path = "CGXCategoryKitOC/CoreLocation/CLLocation/CLLocation+CGXCH1903.h"; sourceTree = "<group>"; };
-		74BD04B2C25C66E3B63112C33BC6AB04 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		74BD04B2C25C66E3B63112C33BC6AB04 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		74F468D57D684D3176628A17010FFE2C /* UIImage+CGXCompress.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CGXCompress.m"; sourceTree = "<group>"; };
 		77012B139CD3F9CFB3C1623C6D7FCD59 /* UIColor+CGXLightDark.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+CGXLightDark.h"; sourceTree = "<group>"; };
 		77878B9E4601DF49C92996C470AB2136 /* NSString+CGXCrypto.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+CGXCrypto.m"; sourceTree = "<group>"; };
@@ -628,7 +622,6 @@
 		8C6E39CF679EAC694D99899B73059FC1 /* NSFileManager+CGXFilePath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CGXFilePath.m"; sourceTree = "<group>"; };
 		8CAA416FC6FCF5EEAE7A635E4BF96C79 /* UIResponder+CGXFirstResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIResponder+CGXFirstResponder.h"; sourceTree = "<group>"; };
 		8D89900DA660BDFF53DC034B58CB26C5 /* NSNumber+CGXRound.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+CGXRound.h"; sourceTree = "<group>"; };
-		8E3FD0844337FB06B57A6F93C604A533 /* NSUserDefaults+CGXExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CGXExtension.m"; sourceTree = "<group>"; };
 		8E91A6EDB3801FDD763D159D33F6DBE7 /* NSDate+CGX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+CGX.h"; sourceTree = "<group>"; };
 		8FDD15BDFBEE2752A0CE4D9CA42BDFC5 /* NSDictionary+CGXURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CGXURL.h"; sourceTree = "<group>"; };
 		91F10A7E4BAA437E4DF7B3CED9B560B4 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
@@ -651,7 +644,7 @@
 		9BD69D03DF9FF898B6772623E630BAC2 /* NSString+CGXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CGXExtension.h"; sourceTree = "<group>"; };
 		9BEC90CEB818B788C6E946B4F665425A /* UIView+CGXFindSubclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+CGXFindSubclass.h"; sourceTree = "<group>"; };
 		9CC021C4360892E929BA6ADBD80820BE /* NSString+CGXTrims.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CGXTrims.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FC5A12F8E32D37A503ED2A9D61B41ED /* UILabel+CGXAdaptive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CGXAdaptive.m"; sourceTree = "<group>"; };
 		A0203FD4967B145329BC2B74D3245C88 /* UIFont+CGXDynamicFontControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CGXDynamicFontControl.m"; sourceTree = "<group>"; };
 		A10AD327F3D3D29F2181B01CEDD81D5A /* CGXCategoryDateFormatterPool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CGXCategoryDateFormatterPool.h; sourceTree = "<group>"; };
@@ -718,7 +711,6 @@
 		D152EE88B4F269C0B71C1A0E9D873127 /* CLLocation+CGXCalculation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+CGXCalculation.m"; path = "CGXCategoryKitOC/CoreLocation/CLLocation/CLLocation+CGXCalculation.m"; sourceTree = "<group>"; };
 		D178082D564B5AF609AA7D56217478C2 /* UIWindow+CGXHierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CGXHierarchy.m"; sourceTree = "<group>"; };
 		D1C427C4DD888D54F1EC5FFA6E470829 /* UIViewController+CGXViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CGXViewController.h"; sourceTree = "<group>"; };
-		D32CA4382090D810902B40BDB85B727F /* NSUserDefaults+CGXSafeAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CGXSafeAccess.h"; sourceTree = "<group>"; };
 		D33DB7D31896AE9A8D4D906BEE94ACD9 /* NSData+CGXEncrypt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+CGXEncrypt.m"; sourceTree = "<group>"; };
 		D35EF1D38BB12ECB3A72BAFD650324D0 /* CAShapeLayer+CGXBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+CGXBezierPath.m"; sourceTree = "<group>"; };
 		D3902E47F3A2DE346D5EDE6F699A6CF1 /* UIScrollView+CGXPages.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CGXPages.h"; sourceTree = "<group>"; };
@@ -1395,18 +1387,6 @@
 			path = CGXCategoryKitOC/UIKit/UILabel;
 			sourceTree = "<group>";
 		};
-		9717C0FB1687E0F74ADD201C43136400 /* NSUserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				428BCEC56351A88F41A76F35FCFE07CA /* NSUserDefaults+CGXExtension.h */,
-				8E3FD0844337FB06B57A6F93C604A533 /* NSUserDefaults+CGXExtension.m */,
-				D32CA4382090D810902B40BDB85B727F /* NSUserDefaults+CGXSafeAccess.h */,
-				61630D89247DD8A452475B2243AFDB06 /* NSUserDefaults+CGXSafeAccess.m */,
-			);
-			name = NSUserDefaults;
-			path = CGXCategoryKitOC/Foundation/NSUserDefaults;
-			sourceTree = "<group>";
-		};
 		9B149FDD43A08D3508A503C48BB8FDDF /* CALayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1682,7 +1662,6 @@
 				1681F6437D0723DD1849263F97C9AD10 /* NSString */,
 				8BD6EF81364D76A096FA6B3EC3CAFCA3 /* NSTimer */,
 				FD6A74CE50AB55FAF03376B70680A55E /* NSURL */,
-				9717C0FB1687E0F74ADD201C43136400 /* NSUserDefaults */,
 				D34883268E8244FDB3FD02C3A6AC68F1 /* UIColor */,
 				5C23BFEB4FA99BE32C9F62238B1DE71B /* UIDevice */,
 				B0B25D8CCA714CF3E52F2824AE852736 /* UIFont */,
@@ -1747,7 +1726,6 @@
 				553DA097256D24886D70E33FBA786911 /* ViewController+MASAdditions.m */,
 				4357C9F6652A94DC2CBCC1A30010EE33 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1900,8 +1878,6 @@
 				54E56A1A4F73898EA03A5BCBDC08C7D1 /* NSTimer+CGXExtension.h in Headers */,
 				F6DAF019C700CA89628E035EA62FD524 /* NSURL+CGXParam.h in Headers */,
 				461A272D4D9E00BCBB682BBC87A90D7F /* NSURL+CGXQueryDictionary.h in Headers */,
-				2EB53D35AC9918C036837A7BE48EF9B5 /* NSUserDefaults+CGXExtension.h in Headers */,
-				1E346FB38DBCE5B4273374A9722E401C /* NSUserDefaults+CGXSafeAccess.h in Headers */,
 				54699884F20D6B23889AA91E1B9F9AAB /* UIApplication+CGXApplicationSize.h in Headers */,
 				62E41FA20965382E122765DFC0FB6E77 /* UIApplication+CGXNetworkActivityIndicator.h in Headers */,
 				34B03662015511F7382AF65C02103FC7 /* UIApplication+CGXUrl.h in Headers */,
@@ -2182,8 +2158,6 @@
 				CD5A52533FA6EDE14887853BC95060F6 /* NSTimer+CGXExtension.m in Sources */,
 				FA4E2286F4484720E0F67339DF975A50 /* NSURL+CGXParam.m in Sources */,
 				2E0BAEE133711EB0CFED4E9032BD3742 /* NSURL+CGXQueryDictionary.m in Sources */,
-				23D66A0A786501A9F4DE60020817C644 /* NSUserDefaults+CGXExtension.m in Sources */,
-				493BC8D76A031CC8FD8107BAFB29EF7E /* NSUserDefaults+CGXSafeAccess.m in Sources */,
 				2AC17A388DF49B66255FB9FC16D51B19 /* UIApplication+CGXApplicationSize.m in Sources */,
 				E6616A6027B5596E82B437F53D64AC1C /* UIApplication+CGXNetworkActivityIndicator.m in Sources */,
 				8EC95AC194964AC39539F55521262765 /* UIApplication+CGXUrl.m in Sources */,
