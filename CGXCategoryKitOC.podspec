@@ -163,7 +163,6 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'QuartzCore' do |ss|
-        
         ss.source_files = 'CGXCategoryKitOC/QuartzCore/**/*.{h,m}'
         ss.subspec 'CALayer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}'

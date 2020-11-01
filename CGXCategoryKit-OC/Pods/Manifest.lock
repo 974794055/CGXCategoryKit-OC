@@ -59,11 +59,8 @@ PODS:
   - CGXCategoryKitOC/UIControl (0.0.8)
   - CGXCategoryKitOC/UIKit (0.0.8):
     - CGXCategoryKitOC/Foundation
-    - CGXCategoryKitOC/UIKit/NSDate (= 0.0.8)
-    - CGXCategoryKitOC/UIKit/NSObject (= 0.0.8)
     - CGXCategoryKitOC/UIKit/NSString (= 0.0.8)
     - CGXCategoryKitOC/UIKit/NSURL (= 0.0.8)
-    - CGXCategoryKitOC/UIKit/NSUserDefaults (= 0.0.8)
     - CGXCategoryKitOC/UIKit/UIApplication (= 0.0.8)
     - CGXCategoryKitOC/UIKit/UIBarButtonItem (= 0.0.8)
     - CGXCategoryKitOC/UIKit/UIButton (= 0.0.8)
@@ -85,15 +82,9 @@ PODS:
     - CGXCategoryKitOC/UIKit/UIViewController (= 0.0.8)
     - CGXCategoryKitOC/UIKit/UIWindow (= 0.0.8)
     - CGXCategoryKitOC/UIKit/WKWebView (= 0.0.8)
-  - CGXCategoryKitOC/UIKit/NSDate (0.0.8):
-    - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/NSObject (0.0.8):
-    - CGXCategoryKitOC/Foundation
   - CGXCategoryKitOC/UIKit/NSString (0.0.8):
     - CGXCategoryKitOC/Foundation
   - CGXCategoryKitOC/UIKit/NSURL (0.0.8):
-    - CGXCategoryKitOC/Foundation
-  - CGXCategoryKitOC/UIKit/NSUserDefaults (0.0.8):
     - CGXCategoryKitOC/Foundation
   - CGXCategoryKitOC/UIKit/UIApplication (0.0.8):
     - CGXCategoryKitOC/Foundation
@@ -152,7 +143,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 15dc844e13d62291fdf48e05e5535051ed417f58
+  CGXCategoryKitOC: 7f2d7207e0f0caf0060be61e86d813f24b8f821e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

@@ -222,20 +222,8 @@
           "source_files": "CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}"
         },
         {
-          "name": "NSUserDefaults",
-          "source_files": "CGXCategoryKitOC/UIKit/NSUserDefaults/**/*.{h,m}"
-        },
-        {
           "name": "NSString",
           "source_files": "CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}"
-        },
-        {
-          "name": "NSObject",
-          "source_files": "CGXCategoryKitOC/UIKit/NSObject/**/*.{h,m}"
-        },
-        {
-          "name": "NSDate",
-          "source_files": "CGXCategoryKitOC/UIKit/NSDate/**/*.{h,m}"
         }
       ]
     },
