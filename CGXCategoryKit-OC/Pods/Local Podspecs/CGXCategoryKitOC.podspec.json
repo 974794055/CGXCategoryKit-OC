@@ -117,6 +117,10 @@
         {
           "name": "NSNumber",
           "source_files": "CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}"
+        },
+        {
+          "name": "NSURL",
+          "source_files": "CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}"
         }
       ]
     },
@@ -216,14 +220,6 @@
         {
           "name": "UIViewController",
           "source_files": "CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}"
-        },
-        {
-          "name": "NSURL",
-          "source_files": "CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}"
-        },
-        {
-          "name": "NSString",
-          "source_files": "CGXCategoryKitOC/UIKit/NSString/**/*.{h,m}"
         }
       ]
     },

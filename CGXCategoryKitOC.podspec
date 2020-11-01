@@ -76,7 +76,9 @@ Pod::Spec.new do |s|
         ss.subspec 'NSNumber' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}'
         end
-        
+        ss.subspec 'NSURL' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}'
+        end
     end
     
     s.subspec 'UIKit' do |ss|
@@ -149,9 +151,7 @@ Pod::Spec.new do |s|
         ss.subspec 'UIViewController' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}'
         end
-        ss.subspec 'NSURL' do |sss|
-            sss.source_files = 'CGXCategoryKitOC/UIKit/NSURL/**/*.{h,m}'
-        end
+
     end
     
     s.subspec 'UIControl' do |ss|
