@@ -11,10 +11,8 @@
 -  群名称：
 -  群   号：
 -  版本： 0.1.0
-
 ## 功能：    
 -  Foundation、UIKit、UIControl、CoreLocation、QuartzCored等延展
-
  ## 优点：
 -  1、使用延展封装方法，减少代码重复度；
 -  2、提供更加全面丰富、高度的方法； 

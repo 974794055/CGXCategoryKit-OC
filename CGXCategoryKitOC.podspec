@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true #是否支持ARC
     s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
     
+    
     #需要托管的源代码路径
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     #开源库头文件

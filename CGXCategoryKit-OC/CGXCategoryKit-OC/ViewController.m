@@ -47,6 +47,7 @@
         NSLog(@"哈哈");
     }];
 
+    
     UILabel *label = [[UILabel alloc] init];
     [self.view addSubview:label];
     label.frame = CGRectMake(20, 560, [UIScreen mainScreen].bounds.size.width-40, 100);

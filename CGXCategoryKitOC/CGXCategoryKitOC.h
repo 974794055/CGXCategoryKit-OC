@@ -234,7 +234,7 @@
 #import "UIViewController+CGXAppStore.h"
 
 #import "NSURL+CGXParam.h"
-#import "NSURL+CGXQueryDictionary.h"
+
 
 // ****  NSString   **** /
 #import "NSString+CGX.h"
