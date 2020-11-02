@@ -48,14 +48,5 @@
 
 #pragma mark -
 
-@interface NSString (CGXURLQuery)
 
-/**
- *  @return If the receiver is a valid URL query component, returns
- *  components as key/value pairs. If couldn't split into *any* pairs,
- *  returns nil.
- */
-- (NSDictionary*)gx_URLQueryDictionary;
-
-@end
 
