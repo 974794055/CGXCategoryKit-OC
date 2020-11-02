@@ -58,6 +58,7 @@
     NSLog(@"%@",[NSString gx_UUID]);
     NSLog(@"%@",[NSString gx_UUIDString]);
 
+    
 //    NSLog(@"%@",[NSString gx_likeStringWithNum:@"9999"]);
 //    NSLog(@"%@",[NSString gx_likeStringWithNum:@"99999"]);
 //    NSLog(@"%@",[NSString gx_likeStringWithNum:@"99999999"]);

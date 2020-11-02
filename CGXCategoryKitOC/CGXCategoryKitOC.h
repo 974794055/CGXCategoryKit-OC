@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.0.9
+ 版本： 0.1.0
  */
 
 #ifndef CGXCategoryKitOC_h
@@ -34,7 +34,7 @@
 #import "UIColor+CGXGradient.h"
 #import "UIColor+CGXWeb.h"
 #import "UIColor+CGXLightDark.h"
-
+#import "UIColor+CGXMoreColor.h"
 
 // ****  CLLocation   **** /
 #import "CATransaction+CGXAnimate.h"
@@ -191,6 +191,9 @@
 #import "UIView+CGXRoundedCorners.h"
 #import "UIView+CGXShake.h"
 #import "UIView+CGXSnapshot.h"
+#import "UIView+CGXDraggable.h"
+#import "UIView+CGXAnimation.h"
+
 
 #import "UISplitViewController+CGXQuickAccess.h"
 
@@ -231,6 +234,7 @@
 #import "UIViewController+CGXAppStore.h"
 
 #import "NSURL+CGXParam.h"
+#import "NSURL+CGXQueryDictionary.h"
 
 // ****  NSString   **** /
 #import "NSString+CGX.h"
@@ -245,6 +249,7 @@
 #import "NSString+CGXScore.h"
 #import "NSString+CGXUUID.h"
 #import "NSString+CGXMD5.h"
+#import "NSString+CGXDate.h"
 
 // ****  NSUserDefaults   **** /
 #import "NSUserDefaults+CGXExtension.h"
@@ -262,6 +267,23 @@
 #import "NSObject+CGXAddProperty.h"
 #import "NSObject+CGXAssociatedObject.h"
 #import "NSObject+CGXSafe.h"
+
+
+//*  NSDate   **** /
+#import "NSDate+CGX.h"
+#import "NSDate+CGXTime.h"
+#import "NSDate+CGXDay.h"
+#import "NSDate+CGXYear.h"
+#import "NSDate+CGXMonth.h"
+#import "NSDate+CGXWeek.h"
+#import "NSDate+CGXCompare.h"
+#import "NSDate+CGXExtension.h"
+#import "NSDate+CGXComponents.h"
+#import "NSDate+CGXTransTime.h"
+#import "NSDate+CGXLunarCalendar.h"
+#import "CGXCategoryDateFormatterPool.h"
+
+#import "NSCalendar+CGXExtension.h"
 
 #endif /* CGXCategoryKitOC_h */
 
