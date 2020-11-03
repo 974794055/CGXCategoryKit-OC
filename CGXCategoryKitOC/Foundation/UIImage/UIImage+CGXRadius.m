@@ -72,4 +72,40 @@
     return imageCut;
     
 }
+
+
++ (UIImage *)gx_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor
+{
+    UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
+    
+    CGRect targetRect = (CGRect){0, 0, targetSize.width, targetSize.height};
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [tintColor CGColor]);
+    CGContextFillRect(context, targetRect);
+
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    if (cornerRadius != 0 && cornerRadius > 0) {
+        UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
+
+        if (backgroundColor) {
+            [backgroundColor setFill];
+            CGContextFillRect(UIGraphicsGetCurrentContext(), targetRect);
+        }
+
+        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:targetRect
+                                                   byRoundingCorners:corners
+                                                         cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+        CGContextAddPath(UIGraphicsGetCurrentContext(), path.CGPath);
+        CGContextClip(UIGraphicsGetCurrentContext());
+        [finalImage drawInRect:targetRect];
+        finalImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+
+    return finalImage;
+}
+
 @end

@@ -128,6 +128,8 @@
 #import "UITableView+CGXiOS7Style.h"
 //// ****  UITableViewCell   **** /
 #import "UITableViewCell+CGXDelaysClick.h"
+#import "UITableViewCell+CGXExtension.h"
+
 //// ****  UINavigationItem   **** /
 #import "UINavigationItem+CGXLock.h"
 #import "UINavigationItem+CGXLoading.h"
@@ -149,6 +151,8 @@
 #import "UINavigationController+CGXExtension.h"
 #import "UINavigationController+CGXStackManager.h"
 
+#import "UITabBarController+CGXGeneral.h"
+#import "UITabBarController+CGXAnimation.h"
 
 // ****  UIImageView   **** /
 #import "UIImageView+CGXFaceAwareFill.h"
@@ -193,7 +197,7 @@
 #import "UIView+CGXSnapshot.h"
 #import "UIView+CGXDraggable.h"
 #import "UIView+CGXAnimation.h"
-
+#import "UIView+CGXDraw.h"
 
 #import "UISplitViewController+CGXQuickAccess.h"
 

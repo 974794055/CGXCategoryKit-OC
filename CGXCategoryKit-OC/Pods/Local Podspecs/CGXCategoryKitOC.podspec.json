@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "requires_arc": true,
   "frameworks": [
@@ -298,6 +298,16 @@
           "name": "UIViewController",
           "source_files": "CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}",
           "public_header_files": "CGXCategoryKitOC/UIKit/UIViewController/*.h"
+        },
+        {
+          "name": "UITabBarController",
+          "source_files": "CGXCategoryKitOC/UIKit/UITabBarController/**/*.{h,m}",
+          "public_header_files": "CGXCategoryKitOC/UIKit/UITabBarController/*.h",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/UIImage": [
+
+            ]
+          }
         }
       ]
     },

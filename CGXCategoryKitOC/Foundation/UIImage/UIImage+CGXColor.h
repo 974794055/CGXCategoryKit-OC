@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, TriangleDirection) { // 生成三角图片方向
+    TriangleDirection_Down,
+    TriangleDirection_Left,
+    TriangleDirection_Right,
+    TriangleDirection_Up
+};
+
 @interface UIImage (CGXColor)
 /**
  *  @brief  根据颜色生成纯色图片
@@ -15,6 +22,7 @@
  *  @return 纯色图片
  */
 + (UIImage *)gx_imageWithColor:(UIColor *)color;
++ (UIImage *)gx_imageWithColor:(UIColor *)color Size:(CGSize)size;
 /**
  *  @brief  取图片某一点的颜色
  *  @param point 某一点
@@ -49,9 +57,22 @@
 
 -(UIImage *)gx_updateImageWithTintColor:(UIColor*)color;
 -(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha;
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color rect:(CGRect)rect;
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color insets:(UIEdgeInsets)insets;
 -(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha insets:(UIEdgeInsets)insets;
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha rect:(CGRect)rect;
+-(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha insets:(UIEdgeInsets)insets rect:(CGRect)rect;
+
+
+
+
+/// 生成三角图片
+/// @param size 尺寸
+/// @param color 颜色
+/// @param direction 三角方向
++ (UIImage *)gx_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(TriangleDirection)direction;
+
+/// 从苹果表情符号创建图像
+/// @param emoji 表情符号
+/// @param size 尺寸
++ (nullable UIImage *)gx_imageWithEmoji:(NSString *_Nonnull)emoji size:(CGFloat)size;
+
 
 @end

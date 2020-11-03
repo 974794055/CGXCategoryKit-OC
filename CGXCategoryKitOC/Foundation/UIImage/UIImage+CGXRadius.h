@@ -21,6 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** 圆形图片 */
 + (UIImage *)gx_imageWithRoundImage:(UIImage *)image;
 
+/**
+ 生成带圆角的颜色图片
+
+ @param tintColor 图片颜色
+ @param targetSize 生成尺寸
+ @param cornerRadius 圆角大小
+ @param backgroundColor 背景颜色
+ */
++ (UIImage *)gx_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

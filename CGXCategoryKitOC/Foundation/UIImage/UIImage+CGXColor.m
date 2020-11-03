@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+CGXColor.h"
+#import <CoreText/CoreText.h>
 
 @implementation UIImage (CGXColor)
 /**
@@ -16,7 +17,15 @@
  *
  *  @return 纯色图片
  */
-+ (UIImage *)gx_imageWithColor:(UIColor *)color {
++ (UIImage *)gx_imageWithColor:(UIColor *)color
+{
+    return [self gx_imageWithColor:color Size:CGSizeMake(1, 1)];
+}
++ (UIImage *)gx_imageWithColor:(UIColor *)color Size:(CGSize)size
+{
+    if (!color) {
+        color = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    }
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -186,26 +195,17 @@
 }
 -(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha
 {
-    CGRect rect = CGRectMake(.0f, .0f, self.size.width, self.size.height);
-    return [self gx_updateImageWithTintColor:color alpha:alpha rect:rect];
-}
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color rect:(CGRect)rect
-{
-    return [self gx_updateImageWithTintColor:color alpha:1.0f rect:rect];
-}
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color insets:(UIEdgeInsets)insets
-{
-    return [self gx_updateImageWithTintColor:color alpha:1.0f insets:insets];
+    return [self gx_updateImageWithTintColor:color alpha:alpha insets:UIEdgeInsetsMake(0, 0, 0, 0)];
 }
 -(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha insets:(UIEdgeInsets)insets
 {
     CGRect originRect = CGRectMake(.0f, .0f, self.size.width, self.size.height);
     CGRect tintImageRect = UIEdgeInsetsInsetRect(originRect, insets);
-    return [self gx_updateImageWithTintColor:color alpha:alpha rect:tintImageRect];
+    return [self gx_updateImageWithTintColor:color alpha:alpha insets:UIEdgeInsetsMake(0, 0, 0, 0) rect:tintImageRect];
 }
 
 #pragma mark - 全能初始化方法
--(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha rect:(CGRect)rect
+-(UIImage *)gx_updateImageWithTintColor:(UIColor*)color alpha:(CGFloat)alpha insets:(UIEdgeInsets)insets rect:(CGRect)rect
 {
     CGRect imageRect = CGRectMake(.0f, .0f, self.size.width, self.size.height);
     
@@ -234,4 +234,74 @@
     
     return tintedImage;
 }
+
+
+
++ (UIImage *)gx_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(TriangleDirection)direction
+{
+    size = CGSizeMake(size.width*[UIScreen mainScreen].scale, size.height*[UIScreen mainScreen].scale);
+    
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIImage *myImage = [UIImage gx_imageWithColor:color Size:size];
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGPoint sPoints[3];//坐标点
+    if (direction == TriangleDirection_Down) {
+        sPoints[0] =CGPointMake(0, 0);//坐标1
+        sPoints[1] =CGPointMake(size.width, 0);//坐标2
+        sPoints[2] =CGPointMake(size.width/2, size.height);//坐标3
+    } else if (direction == TriangleDirection_Up) {
+        sPoints[0] =CGPointMake(size.width/2, 0);//坐标1
+        sPoints[1] =CGPointMake(0, size.height);//坐标2
+        sPoints[2] =CGPointMake(size.width, size.height);//坐标3
+    } else if (direction == TriangleDirection_Left) {
+        sPoints[0] =CGPointMake(size.width, 0);//坐标1
+        sPoints[1] =CGPointMake(0, size.height/2);//坐标2
+        sPoints[2] =CGPointMake(size.width, size.height);//坐标3
+    } else if (direction == TriangleDirection_Right) {
+        sPoints[0] =CGPointMake(0, 0);//坐标1
+        sPoints[1] =CGPointMake(0, size.height);//坐标2
+        sPoints[2] =CGPointMake(size.width, size.height/2);//坐标3
+    }
+    
+    CGContextAddLines(context, sPoints, 3);//添加线
+    CGContextClosePath(context);//封起来
+    CGContextClip(context);
+    [myImage drawInRect:rect];
+    
+    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newimg;
+}
+
++ (nullable UIImage *)gx_imageWithEmoji:(NSString *_Nonnull)emoji size:(CGFloat)size
+{
+    if (emoji.length == 0) return nil;
+    if (size < 1) return nil;
+    
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CTFontRef font = CTFontCreateWithName(CFSTR("AppleColorEmoji"), size * scale, NULL);
+    if (!font) return nil;
+    
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:emoji attributes:@{ (__bridge id)kCTFontAttributeName:(__bridge id)font, (__bridge id)kCTForegroundColorAttributeName:(__bridge id)[UIColor whiteColor].CGColor }];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(NULL, size * scale, size * scale, 8, 0, colorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
+    CTLineRef line = CTLineCreateWithAttributedString((__bridge CFTypeRef)str);
+    CGRect bounds = CTLineGetBoundsWithOptions(line, kCTLineBoundsUseGlyphPathBounds);
+    CGContextSetTextPosition(ctx, 0, -bounds.origin.y);
+    CTLineDraw(line, ctx);
+    CGImageRef imageRef = CGBitmapContextCreateImage(ctx);
+    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp];
+    
+    CFRelease(font);
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(ctx);
+    if (line)CFRelease(line);
+    if (imageRef) CFRelease(imageRef);
+    
+    return image;
+}
+
+
 @end

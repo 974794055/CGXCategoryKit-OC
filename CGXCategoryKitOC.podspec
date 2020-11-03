@@ -221,7 +221,13 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIViewController/**/*.{h,m}'
             sss.public_header_files = 'CGXCategoryKitOC/UIKit/UIViewController/*.h'
         end
-
+        ss.subspec 'UITabBarController' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UITabBarController/**/*.{h,m}'
+            sss.public_header_files = 'CGXCategoryKitOC/UIKit/UITabBarController/*.h'
+            sss.dependency 'CGXCategoryKitOC/Foundation/UIImage'
+        end
+        
+        
     end
     
     s.subspec 'UIControl' do |ss|
