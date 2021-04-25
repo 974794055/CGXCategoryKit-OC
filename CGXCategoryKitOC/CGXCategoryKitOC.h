@@ -145,6 +145,18 @@
 // ****  UIDevice   **** /
 #import "UIDevice+CGXExtension.h"
 
+// ****  NSObject   **** /
+#import "NSObject+CGXModelParse.h"
+#import "NSObject+CGXExtension.h"
+#import "NSObject+CGXObject.h"
+#import "NSObject+CGXGCD.h"
+#import "NSObject+CGXKVOBlocks.h"
+#import "NSObject+CGXEasyCopy.h"
+#import "NSObject+CGXAddProperty.h"
+#import "NSObject+CGXAssociatedObject.h"
+#import "NSObject+CGXSafe.h"
+#import "NSObject+CGXRuntime.h"
+
 // ****  NSDictionary   **** /
 #import "NSDictionary+CGXMerge.h"
 #import "NSDictionary+CGXExtension.h"
@@ -275,17 +287,7 @@
 #import "NSUserDefaults+CGXExtension.h"
 #import "NSUserDefaults+CGXSafeAccess.h"
 
-// ****  NSObject   **** /
-#import "NSObject+CGXModelParse.h"
-#import "NSObject+CGXExtension.h"
-#import "NSObject+CGXObject.h"
-#import "NSObject+CGXGCD.h"
-#import "NSObject+CGXKVOBlocks.h"
-#import "NSObject+CGXEasyCopy.h"
-#import "NSObject+CGXAddProperty.h"
-#import "NSObject+CGXAssociatedObject.h"
-#import "NSObject+CGXSafe.h"
-#import "NSObject+CGXRuntime.h"
+
 
 #endif /* CGXCategoryKitOC_h */
 
