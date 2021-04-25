@@ -287,7 +287,5 @@
 #import "NSUserDefaults+CGXExtension.h"
 #import "NSUserDefaults+CGXSafeAccess.h"
 
-
-
 #endif /* CGXCategoryKitOC_h */
 
