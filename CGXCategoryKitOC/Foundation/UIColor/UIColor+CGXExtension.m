@@ -185,4 +185,69 @@
 + (UIColor *)gx_colorWithRed:(uint8_t)red green:(uint8_t)green blue:(uint8_t)blue {
     return [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1.0];
 }
+
+
+- (UIColor *)gx_ColorWithComplementary
+{
+    UIColor *selfColor = self;
+    if ([selfColor isEqual:[UIColor blackColor]])
+    {
+        selfColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+    }
+    else if ([selfColor isEqual:[UIColor darkGrayColor]])
+    {
+        selfColor = [UIColor colorWithRed:84.915/255.f green:84.915/255.f blue:84.915/255.f alpha:1];
+    }
+    else if ([selfColor isEqual:[UIColor lightGrayColor]])
+    {
+        selfColor = [UIColor colorWithRed:170.085/255.f green:170.085/255.f blue:170.085/255.f alpha:1];
+    }
+    else if ([selfColor isEqual:[UIColor whiteColor]])
+    {
+        selfColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    }
+    else if ([selfColor isEqual:[UIColor grayColor]])
+    {
+        selfColor = [UIColor colorWithRed:127.5/255.f green:127.5/255.f blue:127.5/255.f alpha:1];
+    }
+    
+    const CGFloat *componentColors = CGColorGetComponents(selfColor.CGColor);
+    
+    UIColor *convertedColor = [[UIColor alloc] initWithRed:(1.0 - componentColors[0])
+                                                     green:(1.0 - componentColors[1])
+                                                      blue:(1.0 - componentColors[2])
+                                                     alpha:componentColors[3]];
+    return convertedColor;
+}
+
+- (NSString *)gx_HexValues
+{
+    UIColor *selfColor = self;
+    if (!selfColor)
+    {
+        return nil;
+    }
+    
+    if (selfColor == [UIColor whiteColor])
+    {
+        // Special case, as white doesn't fall into the RGB color space
+        return @"ffffff";
+    }
+    
+    CGFloat red;
+    CGFloat blue;
+    CGFloat green;
+    CGFloat alpha;
+    
+    [selfColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    int redDec = (int)(red * 255);
+    int greenDec = (int)(green * 255);
+    int blueDec = (int)(blue * 255);
+    
+    NSString *hexString = [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)redDec, (unsigned int)greenDec, (unsigned int)blueDec];
+    
+    return hexString;
+}
+
 @end

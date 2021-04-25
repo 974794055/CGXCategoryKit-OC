@@ -10,7 +10,7 @@
 @implementation NSMutableArray (CGXSort)
 
 /// 交换两个元素
-- (void)gx_exchangeWithIndexA:(NSInteger)indexA indexB:(NSInteger)indexB didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_exchangeWithIndexA:(NSInteger)indexA indexB:(NSInteger)indexB didExchange:(CGXSortExchangeCallback)exchangeCallback {
     id temp = self[indexA];
     self[indexA] = self[indexB];
     self[indexB] = temp;
@@ -21,7 +21,7 @@
 }
 
 #pragma mark - 选择排序
-- (void)gx_selectionSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_selectionSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     if (self.count == 0) {
         return;
     }
@@ -35,7 +35,7 @@
 }
 
 #pragma mark - 冒泡排序
-- (void)gx_bubbleSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_bubbleSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     if (self.count == 0) {
         return;
     }
@@ -49,7 +49,7 @@
 }
 
 #pragma mark - 插入排序
-- (void)gx_insertionSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_insertionSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     for (NSInteger i = 1; i < self.count; i ++) {
         for (NSInteger j = i; j > 0 && comparator(self[j], self[j - 1]) == NSOrderedAscending; j --) {
             [self gx_exchangeWithIndexA:j indexB:j - 1 didExchange:exchangeCallback];
@@ -58,14 +58,14 @@
 }
 
 #pragma mark - 快速排序
-- (void)gx_quickSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_quickSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     if (self.count == 0) {
         return;
     }
     [self gx_quickSortWithLowIndex:0 highIndex:self.count - 1 usingComparator:comparator didExchange:exchangeCallback];
 }
 
-- (void)gx_quickSortWithLowIndex:(NSInteger)low highIndex:(NSInteger)high usingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_quickSortWithLowIndex:(NSInteger)low highIndex:(NSInteger)high usingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     if (low >= high) {
         return;
     }
@@ -74,7 +74,7 @@
     [self gx_quickSortWithLowIndex:pivotIndex + 1 highIndex:high usingComparator:comparator didExchange:exchangeCallback];
 }
 
-- (NSInteger)gx_quickPartitionWithLowIndex:(NSInteger)low highIndex:(NSInteger)high usingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (NSInteger)gx_quickPartitionWithLowIndex:(NSInteger)low highIndex:(NSInteger)high usingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     id pivot = self[low];
     NSInteger i = low;
     NSInteger j = high;
@@ -104,7 +104,7 @@
 }
 
 #pragma mark - 堆排序
-- (void)gx_heapSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_heapSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     // 排序过程中不使用第0位
     [self insertObject:[NSNull null] atIndex:0];
     
@@ -130,7 +130,7 @@
 }
 
 /// 下沉，传入需要下沉的元素位置，以及允许下沉的最底位置
-- (void)gx_sinkIndex:(NSInteger)index bottomIndex:(NSInteger)bottomIndex usingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback {
+- (void)gx_sinkIndex:(NSInteger)index bottomIndex:(NSInteger)bottomIndex usingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback {
     for (NSInteger maxChildIndex = index * 2; maxChildIndex <= bottomIndex; maxChildIndex *= 2) {
         // 如果存在右子结点，并且左子结点比右子结点小
         if (maxChildIndex < bottomIndex && (comparator(self[maxChildIndex], self[maxChildIndex + 1]) == NSOrderedAscending)) {

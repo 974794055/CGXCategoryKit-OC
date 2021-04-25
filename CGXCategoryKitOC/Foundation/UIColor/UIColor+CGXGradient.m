@@ -20,7 +20,7 @@
  */
 + (UIColor*)gx_gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(int)height
 {
-    CGSize size = CGSizeMake(1, height);
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, height);
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();

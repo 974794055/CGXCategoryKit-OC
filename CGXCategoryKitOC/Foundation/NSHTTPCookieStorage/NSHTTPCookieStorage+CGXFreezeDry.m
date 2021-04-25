@@ -9,7 +9,7 @@
 
 @implementation NSHTTPCookieStorage (CGXFreezeDry)
 /**
- *  @brief  /Persists UIWebView cookies to disk
+ *  @brief  /Persists WKWebView cookies to disk
  */
 - (void)gx_saveCookie {
     NSMutableArray* cookieData = [NSMutableArray new];
@@ -31,7 +31,7 @@
     [cookieData writeToFile:[self storagePath] atomically:TRUE];
 }
 /**
- *  @brief  /load UIWebView cookies from disk
+ *  @brief  /load WKWebView cookies from disk
  */
 - (void)gx_loadCookie {
     NSMutableArray* cookies = [NSMutableArray arrayWithContentsOfFile:[self storagePath]];

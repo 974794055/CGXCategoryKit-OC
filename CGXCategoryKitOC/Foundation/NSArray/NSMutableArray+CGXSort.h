@@ -8,24 +8,24 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef NSComparisonResult(^HDSortComparator)(id obj1, id obj2);
-typedef void(^HDSortExchangeCallback)(id obj1, id obj2);
+typedef NSComparisonResult(^CGXSortComparator)(id obj1, id obj2);
+typedef void(^CGXSortExchangeCallback)(id obj1, id obj2);
 @interface NSMutableArray (CGXSort)
 
 // 选择排序
-- (void)gx_selectionSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback;
+- (void)gx_selectionSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback;
 
 // 冒泡排序
-- (void)gx_bubbleSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback;
+- (void)gx_bubbleSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback;
 
 // 插入排序
-- (void)gx_insertionSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback;
+- (void)gx_insertionSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback;
 
 // 快速排序
-- (void)gx_quickSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback;
+- (void)gx_quickSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback;
 
 // 堆排序
-- (void)gx_heapSortUsingComparator:(HDSortComparator)comparator didExchange:(HDSortExchangeCallback)exchangeCallback;
+- (void)gx_heapSortUsingComparator:(CGXSortComparator)comparator didExchange:(CGXSortExchangeCallback)exchangeCallback;
 
 /**
  *  把联系人按首字母进行排序

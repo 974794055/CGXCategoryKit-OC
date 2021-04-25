@@ -30,7 +30,19 @@ NS_ASSUME_NONNULL_BEGIN
 /** RGB颜色 */
 + (UIColor *)gx_colorWithRed:(uint8_t)red green:(uint8_t)green blue:(uint8_t)blue;
 
+/**
+ *  通过当前颜色，获取它的互补色
+ *
+ *  @return 互补色
+ */
+- (UIColor *)gx_ColorWithComplementary;
 
+/**
+ *  获取当前颜色的Hex值
+ *
+ *  @return 返回当前颜色的Hex值
+ */
+- (NSString *)gx_HexValues;
 @end
 
 NS_ASSUME_NONNULL_END

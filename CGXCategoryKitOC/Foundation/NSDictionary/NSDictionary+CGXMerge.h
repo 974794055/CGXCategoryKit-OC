@@ -27,5 +27,14 @@
  */
 - (NSDictionary *)gx_dictionaryByMergingWith:(NSDictionary *)dict;
 
+/**
+ 合并两个字典
+ 
+ @param dict       被合并的字典
+ @param ignoredKeyArr 忽略的Key
+ */
+- (NSDictionary *)gx_mergingWithDictionary:(NSDictionary *)dict ignoredKeyArr:(NSArray *)ignoredKeyArr;
 
+/**转成可变型数据，包括里面的字典、数组*/
+- (NSMutableDictionary *)gx_Mutable;
 @end
