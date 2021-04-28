@@ -104,7 +104,7 @@ static const void *gx_private_currentCountTime = "gx_private_currentCountTime";
         [timer gx_invalidate];
     }
 }
-- (void)resumeTimerAfterTimeInterval:(NSTimeInterval)interval
+- (void)gx_resumeTimerAfterTimeInterval:(NSTimeInterval)interval
 {
     if (![self isValid])
     {

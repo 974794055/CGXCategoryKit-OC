@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.1.2"      #版本号，与tag值一致
+    s.version      = "0.1.3"      #版本号，与tag值一致
     s.summary      = "APP的Foundation、UIKit的延展库"  #简介
     s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址

@@ -26,8 +26,6 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        // 变化方法实现
         [self gx_swizzleMethod:[self class] orgSel:@selector(layoutSubviews) swizzSel:@selector(gx_CGXRoundedCornerslayoutSubviews)];
     });
 }

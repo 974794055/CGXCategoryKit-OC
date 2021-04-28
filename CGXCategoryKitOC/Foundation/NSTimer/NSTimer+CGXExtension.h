@@ -55,7 +55,7 @@ typedef void(^GXTimerCallback)(NSTimer *timer);
 - (void)gx_invalidate;
 
 /** 延迟开始NSTimer */
-- (void)resumeTimerAfterTimeInterval:(NSTimeInterval)interval;
+- (void)gx_resumeTimerAfterTimeInterval:(NSTimeInterval)interval;
 
 
 @end

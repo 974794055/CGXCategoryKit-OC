@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, TriangleDirection) { // 生成三角图片方向
     TriangleDirection_Down,
     TriangleDirection_Left,
@@ -76,3 +78,4 @@ typedef NS_ENUM(NSInteger, TriangleDirection) { // 生成三角图片方向
 
 
 @end
+NS_ASSUME_NONNULL_END

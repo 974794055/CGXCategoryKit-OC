@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.1.2
+ 版本： 0.1.3
  */
 
 #ifndef CGXCategoryKitOC_h
@@ -79,7 +79,6 @@
 #import "UIScreen+CGXExtension.h"
 
 // ****  UIScrollView   **** /
-#import "UIScrollView+CGXStopScroll.h"
 #import "UIScrollView+CGXPages.h"
 #import "UIScrollView+CGXExtension.h"
 #import "UIScrollView+CGXAddition.h"
@@ -118,9 +117,8 @@
 #import "UIView+CGXFindSubclass.h"
 #import "UIView+CGXNib.h"
 #import "UIView+CGXParentController.h"
-#import "UIView+CGXRounded.h"
-#import "UIView+CGXRoundedRadius.h"
 #import "UIView+CGXRoundedCorners.h"
+#import "UIView+CGXRounded.h"
 #import "UIView+CGXShake.h"
 #import "UIView+CGXSnapshot.h"
 #import "UIView+CGXDraggable.h"
@@ -162,16 +160,13 @@
 #import "NSDictionary+CGXExtension.h"
 #import "NSDictionary+CGXURL.h"
 #import "NSMutableDictionary+CGXExtension.h"
-#import "NSDictionary+CGXSafe.h"
-#import "NSMutableDictionary+CGXSafe.h"
 
 //****  NSArray   **** /
 #import "NSArray+CGXExtension.h"
 #import "NSArray+CGXAdditional.h"
 #import "NSMutableArray+CGXAdditional.h"
 #import "NSMutableArray+CGXSort.h"
-#import "NSArray+CGXSafe.h"
-#import "NSMutableArray+CGXSafe.h"
+
 
 //// ****  NSBundle   **** /
 #import "NSBundle+CGXAppIcon.h"

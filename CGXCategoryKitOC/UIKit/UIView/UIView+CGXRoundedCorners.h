@@ -64,6 +64,5 @@ typedef NS_OPTIONS (NSUInteger, CGXRoundedClipType) {
  */
 - (void)gx_BorderWithColor:(UIColor *)color borderWidth:(CGFloat)borderWidth;
 
-
 @end
 

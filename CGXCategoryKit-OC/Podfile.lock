@@ -36,7 +36,8 @@ PODS:
     - CGXCategoryKitOC/Foundation/UIDevice (= 0.1.2)
     - CGXCategoryKitOC/Foundation/UIFont (= 0.1.2)
     - CGXCategoryKitOC/Foundation/UIImage (= 0.1.2)
-  - CGXCategoryKitOC/Foundation/NSArray (0.1.2)
+  - CGXCategoryKitOC/Foundation/NSArray (0.1.2):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSBundle (0.1.2)
   - CGXCategoryKitOC/Foundation/NSCalendar (0.1.2)
   - CGXCategoryKitOC/Foundation/NSData (0.1.2)
@@ -137,7 +138,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: c65183e34fa48c840719bb737c3b18529facb413
+  CGXCategoryKitOC: 1697b775110de162734e08fa8b1c00232f6a70ba
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

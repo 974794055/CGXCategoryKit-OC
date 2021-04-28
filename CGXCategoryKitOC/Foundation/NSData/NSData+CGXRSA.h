@@ -33,10 +33,10 @@
  */
 @interface NSData (CGXRSA)
 
-- (NSData *)RSAEncryptWithPublicKey:(NSString *)publicKey;
-- (NSData *)RSAEncryptWithPublicKeyData:(NSData *)publicKeyData;
+- (NSData *)gx_RSAEncryptWithPublicKey:(NSString *)publicKey;
+- (NSData *)gx_RSAEncryptWithPublicKeyData:(NSData *)publicKeyData;
 
-- (NSData *)RSADecryptWithPrivateKey:(NSString *)privateKey password:(NSString *)password;
-- (NSData *)RSADecryptWithPrivateKeyData:(NSData *)privateKeyData password:(NSString *)password;
+- (NSData *)gx_RSADecryptWithPrivateKey:(NSString *)privateKey password:(NSString *)password;
+- (NSData *)gx_RSADecryptWithPrivateKeyData:(NSData *)privateKeyData password:(NSString *)password;
 
 @end

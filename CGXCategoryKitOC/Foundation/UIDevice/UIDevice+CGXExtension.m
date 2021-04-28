@@ -72,6 +72,14 @@ static NSString * const BFUniqueIdentifierDefaultsKey = @"BFUniqueIdentifier";
     if([platform isEqualToString:@"iPhone12,3"]) return @"iPhone 11 Pro";
     if([platform isEqualToString:@"iPhone12,5"]) return @"iPhone 11 Pro Max";
     
+    // 新版SE2
+    if ([platform isEqualToString:@"iPhone12,8"])     return @"iPhone_SE_2";
+    // iPhone 12
+    if ([platform isEqualToString:@"iPhone13,1"])     return @"iPhone_12_mini";
+    if ([platform isEqualToString:@"iPhone13,2"])     return @"iPhone_12";
+    if ([platform isEqualToString:@"iPhone13,3"])     return @"iPhone_12_Pro";
+    if ([platform isEqualToString:@"iPhone13,4"])     return @"iPhone_12_Pro_Max";
+    
     if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1G";
     if ([platform isEqualToString:@"iPod2,1"])   return @"iPod Touch 2G";
     if ([platform isEqualToString:@"iPod3,1"])   return @"iPod Touch 3G";

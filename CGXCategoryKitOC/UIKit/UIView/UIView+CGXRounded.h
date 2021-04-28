@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, CGXRoundedPosition) {
  设置一个四角圆角
  
  @param radius 圆角半径
+ @param color   圆角背景色
  */
 - (void)gx_cornerRadius:(CGFloat)radius cornerColor:(UIColor *)color;
 
@@ -51,7 +52,7 @@ typedef NS_ENUM(NSInteger, CGXRoundedPosition) {
 
 @interface CALayer (CGXRounded)
 
-@property (nonatomic, strong) UIImage *contentImage;//contents的便捷设置
+@property (nonatomic, strong) UIImage *gx_contentImage;//contents的便捷设置
 
 /**如下分别对应UIView的相应API*/
 

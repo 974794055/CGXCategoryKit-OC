@@ -47,7 +47,7 @@ static NSMutableDictionary *appRegisteredCustomFonts = nil;
  
  @return Registration result
  */
-+ (BOOL) registerFromURL:(NSURL *)fontURL {
++ (BOOL)registerFromURL:(NSURL *)fontURL {
     
     CFErrorRef error;
     BOOL registrationResult = YES;
@@ -70,7 +70,7 @@ static NSMutableDictionary *appRegisteredCustomFonts = nil;
  
  @return Registration result
  */
-+ (BOOL) registerFromCGFont:(CGFontRef)fontRef {
++ (BOOL)registerFromCGFont:(CGFontRef)fontRef {
 
     CFErrorRef error;
     BOOL registrationResult = YES;

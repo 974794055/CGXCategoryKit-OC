@@ -11,13 +11,13 @@
 
 @implementation NSData (CGXRSA)
 
-- (NSData *)RSAEncryptWithPublicKey:(NSString *)publicKey
+- (NSData *)gx_RSAEncryptWithPublicKey:(NSString *)publicKey
 {
     NSData *publicKeyData = [NSData gx_dataWithBase64EncodedString:publicKey];
-    return [self RSAEncryptWithPublicKeyData:publicKeyData];
+    return [self gx_RSAEncryptWithPublicKeyData:publicKeyData];
 }
 
-- (NSData *)RSAEncryptWithPublicKeyData:(NSData *)publicKeyData
+- (NSData *)gx_RSAEncryptWithPublicKeyData:(NSData *)publicKeyData
 {
     SecKeyRef publicKeyRef = [self checkCreatePublicSecKey:publicKeyData];
     
@@ -78,13 +78,13 @@
     return publicKeyRef;
 }
 
-- (NSData *)RSADecryptWithPrivateKey:(NSString *)privateKey password:(NSString *)password
+- (NSData *)gx_RSADecryptWithPrivateKey:(NSString *)privateKey password:(NSString *)password
 {
     NSData *privateKeyData = [NSData gx_dataWithBase64EncodedString:privateKey];
-    return [self RSADecryptWithPrivateKeyData:privateKeyData password:password];
+    return [self gx_RSADecryptWithPrivateKeyData:privateKeyData password:password];
 }
 
-- (NSData *)RSADecryptWithPrivateKeyData:(NSData *)privateKeyData password:(NSString *)password
+- (NSData *)gx_RSADecryptWithPrivateKeyData:(NSData *)privateKeyData password:(NSString *)password
 {
     SecKeyRef privateKeyRef = [self checkCreatePrivateSecKey:privateKeyData password:password];
     

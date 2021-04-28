@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSBundle (CGXAppIcon)
+
 - (NSString *)gx_appIconPath;
+
 - (UIImage*)gx_appIcon;
 
 /**
@@ -158,4 +163,6 @@
  @return 路径
  */
 + (NSString *)gx_getPodResourcePathWith:(Class)cla fileName:(NSString *)fileName;
+
 @end
+NS_ASSUME_NONNULL_END

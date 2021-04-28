@@ -56,7 +56,7 @@ typedef void(^CGXSortExchangeCallback)(id obj1, id obj2);
  *  @param subSize 指定长度
  *
  */
-NSArray * splitArray(NSArray *array, int subSize);
++ (NSMutableArray*)gx_splitSectionsArray:(NSMutableArray*)array SubSize:(int)subSize;
 
 @end
 

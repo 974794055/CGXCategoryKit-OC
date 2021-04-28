@@ -259,7 +259,8 @@
  *  @param subSize 指定长度
  *
  */
-NSArray * splitArray(NSArray *array, int subSize) {
++ (NSMutableArray*)gx_splitSectionsArray:(NSMutableArray*)array SubSize:(int)subSize
+{
     //  数组将被拆分成指定长度数组的个数
     unsigned long count = array.count % subSize == 0 ? (array.count / subSize) : (array.count / subSize + 1);
     //  用来保存指定长度数组的可变数组对象

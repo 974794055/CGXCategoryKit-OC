@@ -84,15 +84,15 @@ static NSMutableSet<UIImage *> *maskCornerRaidusImageSet;
 @implementation CALayer (CGXRounded)
 
 + (void)load{
-    [CALayer gx_swizzleInstanceMethod:@selector(layoutSublayers) with:@selector(_gx_layoutSublayers)];
+    [CALayer gx_swizzleInstanceMethod:@selector(layoutSublayers) with:@selector(gx_RoundedlayoutSublayers)];
 }
 
-- (UIImage *)contentImage{
+- (UIImage *)gx_contentImage{
     return [UIImage imageWithCGImage:(__bridge CGImageRef)self.contents];
 }
 
-- (void)setContentImage:(UIImage *)contentImage{
-    self.contents = (__bridge id)contentImage.CGImage;
+- (void)setGx_contentImage:(UIImage *)gx_contentImage{
+    self.contents = (__bridge id)gx_contentImage.CGImage;
 }
 
 - (void)gx_cornerRadius:(CGFloat)radius cornerColor:(UIColor *)color {
@@ -132,7 +132,7 @@ static NSMutableSet<UIImage *> *maskCornerRaidusImageSet;
     if (image) {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        cornerRadiusLayer.contentImage = image;
+        cornerRadiusLayer.gx_contentImage = image;
         [CATransaction commit];
     }
     
@@ -182,15 +182,16 @@ static NSMutableSet<UIImage *> *maskCornerRaidusImageSet;
 
 #pragma mark - exchage Methods
 
-- (void)_gx_layoutSublayers {
+- (void)gx_RoundedlayoutSublayers {
     
-    [self _gx_layoutSublayers];
+    [self gx_RoundedlayoutSublayers];
+    [self layoutIfNeeded];//这句代码很重要，不能忘了
     CALayer *cornerRadiusLayer = [self gx_getAssociatedValueForKey:_GXMaskCornerRadiusLayerKey];
     if (cornerRadiusLayer) {
         UIImage *aImage = [self gx_getCornerRadiusImageFromSet];
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        cornerRadiusLayer.contentImage = aImage;
+        cornerRadiusLayer.gx_contentImage = aImage;
         cornerRadiusLayer.frame = self.bounds;
         [CATransaction commit];
         [self addSublayer:cornerRadiusLayer];
