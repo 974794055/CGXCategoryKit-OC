@@ -29,32 +29,20 @@ typedef void(^CGXSortExchangeCallback)(id obj1, id obj2);
 
 /**
  *  把联系人按首字母进行排序
- *
  *  @param array 需要排序的数组
- *
  *  @return 返回按各个字母排序好数组（数组中包含数组）
  */
 + (NSMutableArray*)gx_sortArrayByFirstLetterWithArray:(NSMutableArray*)array;
-
-
 /**
  *  拖过排序好的数组获取索引
- *
  *  @param sortSecionsArray 字母排序好的数组
- *
  *  @return 索引数组
  */
 + (NSMutableArray*)gx_getSectionIndexsArrayWithSortSecionsArray:(NSMutableArray*)sortSecionsArray;
-
-#pragma mark -- 将数组拆分成固定长度
-
 /**
  *  将数组拆分成固定长度的子数组
- *
  *  @param array 需要拆分的数组
- *
  *  @param subSize 指定长度
- *
  */
 + (NSMutableArray*)gx_splitSectionsArray:(NSMutableArray*)array SubSize:(int)subSize;
 

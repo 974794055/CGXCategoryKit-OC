@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.1.3
+ 版本： 0.1.4
  */
 
 #ifndef CGXCategoryKitOC_h
@@ -160,13 +160,16 @@
 #import "NSDictionary+CGXExtension.h"
 #import "NSDictionary+CGXURL.h"
 #import "NSMutableDictionary+CGXExtension.h"
+#import "NSDictionary+CGXSafe.h"
+#import "NSMutableDictionary+CGXSafe.h"
 
 //****  NSArray   **** /
 #import "NSArray+CGXExtension.h"
 #import "NSArray+CGXAdditional.h"
 #import "NSMutableArray+CGXAdditional.h"
 #import "NSMutableArray+CGXSort.h"
-
+#import "NSArray+CGXSafe.h"
+#import "NSMutableArray+CGXSafe.h"
 
 //// ****  NSBundle   **** /
 #import "NSBundle+CGXAppIcon.h"
@@ -277,6 +280,7 @@
 #import "NSString+CGXURLEncode.h"
 #import "NSString+CGXTrims.h"
 #import "NSString+CGXUUID.h"
+#import "NSString+CGXSafe.h"
 
 // ****  NSUserDefaults   **** /
 #import "NSUserDefaults+CGXExtension.h"

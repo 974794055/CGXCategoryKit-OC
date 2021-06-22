@@ -25,4 +25,5 @@
 - (NSString *)gx_URLQueryString;
 
 - (NSString*)gx_URLQueryStringWithSortedKeys:(BOOL)sortedKeys;
+
 @end

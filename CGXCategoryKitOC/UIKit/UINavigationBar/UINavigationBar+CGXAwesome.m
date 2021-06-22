@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 static char CGXDefaultStatusBarStyleKey;
-static char CGXStatusBarStyleKey;
 
 @implementation UINavigationBar (CGXAwesome)
 static char gx_overlayKey;

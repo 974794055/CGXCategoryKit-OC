@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)gx_backgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
 
+
+- (void)gx_roundedRadius:(CGFloat)radius BorderColor:(UIColor *)color BorderWidth:(CGFloat)borderWidth RectCorner:(UIRectCorner)corners;
 @end
 
 NS_ASSUME_NONNULL_END

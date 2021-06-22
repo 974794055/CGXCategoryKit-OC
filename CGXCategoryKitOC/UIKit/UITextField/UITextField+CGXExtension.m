@@ -21,8 +21,14 @@
 
 @implementation UITextField (CGXExtension)
 - (void)setGx_placeholderColor:(UIColor *)gx_placeholderColor {
-    
-    [self setValue:gx_placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+    if (@available(iOS 13, *)) {
+        NSDictionary *attributes = [self.attributedPlaceholder attributesAtIndex:0 effectiveRange:nil];
+        NSMutableAttributedString *attPlace = [[NSMutableAttributedString alloc] initWithString:self.placeholder attributes:attributes];
+        [attPlace addAttribute:NSForegroundColorAttributeName value:gx_placeholderColor range:NSMakeRange(0, attPlace.length)];
+        self.attributedPlaceholder = attPlace;
+    } else{
+        [self setValue:gx_placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+    }
 }
 
 - (UIColor *)gx_placeholderColor {
@@ -31,7 +37,14 @@
 }
 - (void)setGx_placeholderFont:(UIFont *)gx_placeholderFont
 {
-     [self setValue:gx_placeholderFont forKeyPath:@"_placeholderLabel.font"];
+    if (@available(iOS 13, *)) {
+        NSDictionary *attributes = [self.attributedPlaceholder attributesAtIndex:0 effectiveRange:nil];
+        NSMutableAttributedString *attPlace = [[NSMutableAttributedString alloc] initWithString:self.placeholder attributes:attributes];
+        [attPlace addAttribute:NSFontAttributeName value:gx_placeholderFont range:NSMakeRange(0, attPlace.length)];
+        self.attributedPlaceholder = attPlace;
+    } else{
+        [self setValue:gx_placeholderFont forKeyPath:@"_placeholderLabel.font"];
+    }
 }
 - (UIFont *)gx_placeholderFont
 {

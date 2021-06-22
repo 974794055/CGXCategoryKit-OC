@@ -80,9 +80,6 @@
 + (NSString *)gx_getNetworkTimeSp;
 // -- 获取当前日期时间 2018-09-18 16:13:55
 + (NSString *)gx_currentDateTime;
-// 根据格式获取当前时间,年月日/星期/
-+ (NSString*)gx_currentDateTimesWithFormat:(NSString *)format;
-
 
 
 @end

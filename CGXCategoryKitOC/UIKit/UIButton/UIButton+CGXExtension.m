@@ -85,4 +85,22 @@
     return image;
 }
 
+
+- (void)gx_roundedRadius:(CGFloat)radius BorderColor:(UIColor *)color BorderWidth:(CGFloat)borderWidth RectCorner:(UIRectCorner)corners
+{
+//    [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.bounds;
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.frame = self.bounds;
+    borderLayer.lineWidth = borderWidth;
+    borderLayer.strokeColor = color.CGColor;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
+    UIBezierPath *bezierPath =  [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+    maskLayer.path = bezierPath.CGPath;
+    borderLayer.path = bezierPath.CGPath;
+    [self.layer insertSublayer:borderLayer atIndex:0];
+    [self.layer setMask:maskLayer];
+}
+
 @end

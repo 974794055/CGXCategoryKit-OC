@@ -47,9 +47,6 @@
     UITextRange *selectionRange = [self textRangeFromPosition:startPosition toPosition:endPosition];
     [self setSelectedTextRange:selectionRange];
 }
-//https://github.com/pclion/TextViewCalculateLength
-// 用于计算textview输入情况下的字符数，解决实现限制字符数时，计算不准的问题
-
 - (NSInteger)getInputLengthWithText:(NSString *)text
 {
     NSInteger textLength = 0;

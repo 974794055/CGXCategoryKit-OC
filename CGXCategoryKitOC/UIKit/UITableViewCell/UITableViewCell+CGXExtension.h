@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 隐藏分割线
 - (void)gx_hiddenCellBottomLine;
 
+- (void)gx_SectionCornerWithTableView:(UITableView *)tableView AtIndexPath:(NSIndexPath *)indexPath CornerRadius:(CGFloat)cornerRadius;
+
 @end
 
 NS_ASSUME_NONNULL_END
