@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSDictionary' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
         
         ss.subspec 'NSNotificationCenter' do |sss|
@@ -57,6 +58,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSMutableAttributedString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSMutableAttributedString/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
         ss.subspec 'UIImage' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/UIImage/**/*.{h,m}'
@@ -86,6 +88,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSString' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
         ss.subspec 'NSObject' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSObject/**/*.{h,m}'
@@ -104,6 +107,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSSet' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
         
         
@@ -180,8 +184,7 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UITabBarController/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/UIImage'
         end
-        
-        
+
     end
     
     s.subspec 'UIControl' do |ss|
