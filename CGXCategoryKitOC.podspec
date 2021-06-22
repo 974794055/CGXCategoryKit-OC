@@ -11,12 +11,11 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }         #存储库的git地址，以及tag值
     s.requires_arc = true #是否支持ARC
     s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
-    
     #需要托管的源代码路径
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
-    
+
     s.subspec 'Tools' do |ss|
         ss.source_files = 'CGXCategoryKitOC/Tools/**/*.{h,m}'
     end
