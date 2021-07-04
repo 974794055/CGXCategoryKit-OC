@@ -15,6 +15,7 @@
  * 获取高亮部分
  */
 - (NSInteger)gx_getInputLengthWithText:(NSString *)text;
+
 /** 是否高亮 */
 @property (nonatomic, readonly) BOOL gx_isHighLighted;
 /**
@@ -22,4 +23,5 @@
  @param curContent 希望当前的显示内容
  */
 - (void)gx_invalidTextFieldCurContent:(NSString*)curContent;
+
 @end

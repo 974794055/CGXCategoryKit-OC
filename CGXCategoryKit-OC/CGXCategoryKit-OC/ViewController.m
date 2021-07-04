@@ -59,7 +59,7 @@
     UITextView *textView = [[UITextView alloc] init];
     textView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:textView];
-    textView.placeholder = @"温柔温柔";
+    textView.gx_placeholder = @"温柔温柔";
     [textView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(10);
         make.right.equalTo(self.view.mas_right).offset(-10);

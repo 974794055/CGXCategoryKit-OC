@@ -67,7 +67,12 @@
         },
         {
           "name": "NSDictionary",
-          "source_files": "CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         },
         {
           "name": "NSNotificationCenter",
@@ -91,7 +96,12 @@
         },
         {
           "name": "NSMutableAttributedString",
-          "source_files": "CGXCategoryKitOC/Foundation/NSMutableAttributedString/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSMutableAttributedString/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         },
         {
           "name": "UIImage",
@@ -132,7 +142,12 @@
         },
         {
           "name": "NSString",
-          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSString/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         },
         {
           "name": "NSObject",
@@ -165,7 +180,12 @@
         },
         {
           "name": "NSSet",
-          "source_files": "CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         }
       ]
     },

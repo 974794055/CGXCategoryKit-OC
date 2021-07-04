@@ -11,7 +11,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 0.1.4
+ 版本： 0.1.5
  */
 
 #ifndef CGXCategoryKitOC_h
@@ -118,7 +118,6 @@
 #import "UIView+CGXNib.h"
 #import "UIView+CGXParentController.h"
 #import "UIView+CGXRoundedCorners.h"
-#import "UIView+CGXRounded.h"
 #import "UIView+CGXShake.h"
 #import "UIView+CGXSnapshot.h"
 #import "UIView+CGXDraggable.h"

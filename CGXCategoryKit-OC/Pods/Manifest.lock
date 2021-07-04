@@ -44,20 +44,24 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSDate (0.1.4):
     - CGXCategoryKitOC/Foundation/NSCalendar
     - CGXCategoryKitOC/Tools
-  - CGXCategoryKitOC/Foundation/NSDictionary (0.1.4)
+  - CGXCategoryKitOC/Foundation/NSDictionary (0.1.4):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSException (0.1.4)
   - CGXCategoryKitOC/Foundation/NSFileHandle (0.1.4)
   - CGXCategoryKitOC/Foundation/NSFileManager (0.1.4)
   - CGXCategoryKitOC/Foundation/NSHTTPCookieStorage (0.1.4)
   - CGXCategoryKitOC/Foundation/NSIndexPath (0.1.4)
-  - CGXCategoryKitOC/Foundation/NSMutableAttributedString (0.1.4)
+  - CGXCategoryKitOC/Foundation/NSMutableAttributedString (0.1.4):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSNotificationCenter (0.1.4)
   - CGXCategoryKitOC/Foundation/NSNull (0.1.4)
   - CGXCategoryKitOC/Foundation/NSNumber (0.1.4)
   - CGXCategoryKitOC/Foundation/NSObject (0.1.4)
   - CGXCategoryKitOC/Foundation/NSRunLoop (0.1.4)
-  - CGXCategoryKitOC/Foundation/NSSet (0.1.4)
-  - CGXCategoryKitOC/Foundation/NSString (0.1.4)
+  - CGXCategoryKitOC/Foundation/NSSet (0.1.4):
+    - CGXCategoryKitOC/Foundation/NSObject
+  - CGXCategoryKitOC/Foundation/NSString (0.1.4):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSTimer (0.1.4)
   - CGXCategoryKitOC/Foundation/NSURL (0.1.4)
   - CGXCategoryKitOC/Foundation/NSUserDefaults (0.1.4):
@@ -138,7 +142,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 2047fe15a2e092146b99522c9a22181fbf938242
+  CGXCategoryKitOC: 251631a2a10329b8308d758fb586a52abdb84acf
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4

@@ -23,9 +23,10 @@
 }
 + (UIImage *)gx_imageWithColor:(UIColor *)color Size:(CGSize)size
 {
-    if (!color) {
+    if (!color || ![color CGColor]) {
         color = [[UIColor whiteColor] colorWithAlphaComponent:0];
     }
+    UIGraphicsBeginImageContextWithOptions(size, YES, [UIScreen mainScreen].scale);
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -101,9 +102,6 @@
     if (!CGRectContainsPoint(CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), point)) {
         return nil;
     }
-    
-    // Create a 1x1 pixel byte array and bitmap context to draw the pixel into.
-    // Reference: http://stackoverflow.com/questions/1042830/retrieving-a-pixel-alpha-value-for-a-uiimage
     NSInteger pointX = trunc(point.x);
     NSInteger pointY = trunc(point.y);
     CGImageRef cgImage = self.CGImage;

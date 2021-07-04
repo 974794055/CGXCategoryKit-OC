@@ -13,19 +13,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextView (CGXPlaceholder)
 
-@property(nonatomic,readonly)  UILabel *placeholdLabel;
+@property(nonatomic,readonly)  UILabel *gx_placeholdLabel;
 
-@property(nonatomic,strong) IBInspectable NSString *placeholder;
+@property(nonatomic,strong) IBInspectable NSString *gx_placeholder;
 
-@property(nonatomic,strong) IBInspectable UIColor *placeholderColor;
+@property(nonatomic,strong) IBInspectable UIColor *gx_placeholderColor;
 
-@property (nonatomic,strong) IBInspectable UIFont *placeholderFont;
+@property (nonatomic,strong) IBInspectable UIFont *gx_placeholderFont;
 
-@property(nonnull,strong) NSAttributedString *attributePlaceholder;
+@property(nonnull,strong) NSAttributedString *gx_attributePlaceholder;
 
-@property(nonatomic,assign) CGPoint location;
 
-+ (UIColor *)defaultColor;
++ (UIColor *)gx_defaultColor;
 
 @end
 

@@ -10,43 +10,83 @@
 #import "UITextView+CGXPlaceholder.h"
 #import <objc/runtime.h>
 
-static char *labelKey = "placeholderKey";
 static char *needAdjust = "needAdjust";
-static char *changeLocation = "location";
 
 @implementation UITextView (CGXPlaceholder)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self.class,NSSelectorFromString(@"dealloc") ),class_getInstanceMethod(self.class, NSSelectorFromString(@"swizzledDealloc")));
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        method_exchangeImplementations(class_getInstanceMethod(self.class,NSSelectorFromString(@"dealloc") ),class_getInstanceMethod(self.class, NSSelectorFromString(@"gx_textViewswizzledDealloc")));
+    });
 }
 
-+ (void)swizzledDealloc {
+- (void)gx_textViewswizzledDealloc {
     //移除监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self swizzledDealloc];
+    UILabel *label = objc_getAssociatedObject(self, @selector(gx_placeholdLabel));
+    if (label) {
+        for (NSString *key in self.class.observingKeys) {
+            @try {
+                [self removeObserver:self forKeyPath:key];
+            }
+            @catch (NSException *exception) {
+                // Do nothing
+            }
+        }
+    }
+    [self gx_textViewswizzledDealloc];
 }
+#pragma mark - `observingKeys`
 
++ (NSArray *)observingKeys {
+    return @[@"attributedText",
+             @"bounds",
+             @"font",
+             @"frame",
+             @"text",
+             @"textAlignment",
+             @"textContainerInset"];
+}
 /***  设置placeholderLabel */
-- (UILabel *)placeholdLabel
+- (UILabel *)gx_placeholdLabel
 {
-    UILabel *label = objc_getAssociatedObject(self, labelKey);
+    UILabel *label = objc_getAssociatedObject(self, @selector(gx_placeholdLabel));
     if (!label) {
         label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentLeft;
+        NSAttributedString *originalText = self.attributedText;
+        self.text = @" ";
+        self.attributedText = originalText;
+
+        label = [[UILabel alloc] init];
+        label.textColor = [self.class gx_defaultColor];
         label.numberOfLines = 0;
-        label.textColor = [self.class defaultColor];
-        label.font = self.placeholderFont ? self.placeholderFont : self.font;
-        objc_setAssociatedObject(self, labelKey, label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        //添加通知
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel) name:UITextViewTextDidChangeNotification object:nil];
-        //监听font的变化
-        [self addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:nil];
+        label.textColor = [self.class gx_defaultColor];
+        label.font = self.gx_placeholderFont ? self.gx_placeholderFont : self.font;
+        
+        label.userInteractionEnabled = NO;
+        objc_setAssociatedObject(self, @selector(gx_placeholdLabel), label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+        self.needAdjustFont = YES;
+        [self updateLabel];
+        self.needAdjustFont = NO;
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateLabel)
+                                                     name:UITextViewTextDidChangeNotification
+                                                   object:self];
+
+        for (NSString *key in self.class.observingKeys) {
+            [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:nil];
+        }
+        
     }
     return label;
 }
 
 /***  设置默认颜色 */
-+ (UIColor *)defaultColor{
++ (UIColor *)gx_defaultColor{
     
     if (@available(iOS 13, *)) {
         SEL selector = NSSelectorFromString(@"placeholderTextColor");
@@ -69,59 +109,50 @@ static char *changeLocation = "location";
 }
 
 #pragma mark - set get methods
-- (void)setPlaceholder:(NSString *)placeholder{
+- (void)setGx_placeholder:(NSString *)gx_placeholder{
     
-    self.placeholdLabel.text = placeholder;
+    self.gx_placeholdLabel.text = gx_placeholder;
     [self updateLabel];
 }
 
-- (NSString *)placeholder
+- (NSString *)gx_placeholder
 {
-    return self.placeholdLabel.text;
+    return self.gx_placeholdLabel.text;
 }
 
-- (void)setPlaceholderColor:(UIColor *)placeholderColor
+- (void)setGx_placeholderColor:(UIColor *)gx_placeholderColor
 {
-    self.placeholdLabel.textColor = placeholderColor;
+    self.gx_placeholdLabel.textColor = gx_placeholderColor;
     [self updateLabel];
 }
 
-- (UIColor *)placeholderColor
+- (UIColor *)gx_placeholderColor
 {
-    return self.placeholdLabel.textColor;
+    return self.gx_placeholdLabel.textColor;
 }
 
-- (void)setAttributePlaceholder:(NSAttributedString *)attributePlaceholder
+- (void)setGx_attributePlaceholder:(NSAttributedString *)gx_attributePlaceholder
 {
-    self.placeholdLabel.attributedText = attributePlaceholder;
+    self.gx_placeholdLabel.attributedText = gx_attributePlaceholder;
     [self updateLabel];
 }
 
-- (NSAttributedString *)attributePlaceholder
+- (NSAttributedString *)gx_attributePlaceholder
 {
-    return self.placeholdLabel.attributedText;
+    return self.gx_placeholdLabel.attributedText;
 }
-- (void)setPlaceholderFont:(UIFont *)placeholderFont{
+- (void)setGx_placeholderFont:(UIFont *)gx_placeholderFont{
     
-    objc_setAssociatedObject(self, &@selector(placeholderFont), placeholderFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.placeholdLabel.backgroundColor = [UIColor clearColor];
+    objc_setAssociatedObject(self, &@selector(gx_placeholderFont), gx_placeholderFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.gx_placeholdLabel.backgroundColor = [UIColor clearColor];
 }
 
-- (UIFont *)placeholderFont {
+- (UIFont *)gx_placeholderFont {
     
-    UIFont *obj = objc_getAssociatedObject(self, &@selector(placeholderFont));
+    UIFont *obj = objc_getAssociatedObject(self, &@selector(gx_placeholderFont));
     return obj;
 }
-- (void)setLocation:(CGPoint)location{
-    
-    objc_setAssociatedObject(self, changeLocation,NSStringFromCGPoint(location), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self updateLabel];
-}
 
--(CGPoint)location{
-    
-    return CGPointFromString(objc_getAssociatedObject(self, changeLocation));
-}
 
 //是否需要调整字体
 - (BOOL)needAdjustFont{
@@ -137,58 +168,53 @@ static char *changeLocation = "location";
 #pragma mark - observer font KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"font"])
-    {
-        self.needAdjustFont = YES;
-        [self updateLabel];
+    if ([keyPath isEqualToString:@"font"]) {
+        self.needAdjustFont = (change[NSKeyValueChangeNewKey] != nil);
     }
-}
-
-- (void)dealloc{
+    [self updateLabel];
     
-    //    NSLog(@"font dealloc");
-    [self removeObserver:self forKeyPath:@"font"];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 /**
  *  更新label信息
  */
 - (void)updateLabel{
     
     if (self.text.length) {
-        [self.placeholdLabel removeFromSuperview];
-        return;
+        [self.gx_placeholdLabel removeFromSuperview];
+    }else {
+        [self insertSubview:self.gx_placeholdLabel atIndex:0];
     }
-    
-    //显示label
-    [self insertSubview:self.placeholdLabel atIndex:0];
+
     
     //是否需要更新字体（NO 采用默认字体大小）
     if (self.needAdjustFont) {
-        self.placeholdLabel.font = self.font;
+        self.gx_placeholdLabel.font = self.font;
         self.needAdjustFont = NO;
     }
+    self.gx_placeholdLabel.textAlignment = self.textAlignment;
     
-    CGFloat  lineFragmentPadding =  self.textContainer.lineFragmentPadding;  //边距
-    UIEdgeInsets contentInset = self.textContainerInset;
-    
-    //设置label frame
-    CGFloat labelX = lineFragmentPadding + contentInset.left;
-    CGFloat labelY = contentInset.top;
-    
-    if (self.location.x != 0 || self.location.y != 0) {
-        if (self.location.x < 0 || self.location.x > CGRectGetWidth(self.bounds) - lineFragmentPadding - contentInset.right || self.location.y< 0) {
-            // 不做处理
-        }else{
-            labelX += self.location.x;
-            labelY += self.location.y;
-        }
+    // `NSTextContainer` is available since iOS 7
+    CGFloat lineFragmentPadding;
+    UIEdgeInsets textContainerInset;
+
+#pragma deploymate push "ignored-api-availability"
+    // iOS 7+
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+        lineFragmentPadding = self.textContainer.lineFragmentPadding;
+        textContainerInset = self.textContainerInset;
     }
-    
-    CGFloat labelW = CGRectGetWidth(self.bounds) - contentInset.right - labelX;
-    CGFloat labelH = [self.placeholdLabel sizeThatFits:CGSizeMake(labelW, MAXFLOAT)].height;
-    self.placeholdLabel.frame = CGRectMake(labelX, labelY, labelW, labelH);
+#pragma deploymate pop
+
+    // iOS 6
+    else {
+        lineFragmentPadding = 5;
+        textContainerInset = UIEdgeInsetsMake(8, 0, 8, 0);
+    }
+    CGFloat x = lineFragmentPadding + textContainerInset.left;
+    CGFloat y = textContainerInset.top;
+    CGFloat width = CGRectGetWidth(self.bounds) - x - lineFragmentPadding - textContainerInset.right;
+    CGFloat height = [self.gx_placeholdLabel sizeThatFits:CGSizeMake(width, 0)].height;
+    self.gx_placeholdLabel.frame = CGRectMake(x, y, width, height);
 }
 
 @end
