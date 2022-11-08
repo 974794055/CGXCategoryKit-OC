@@ -184,7 +184,10 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UITabBarController/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/UIImage'
         end
-
+        ss.subspec 'UIGestureRecognizer' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/UIKit/UIGestureRecognizer/**/*.{h,m}'
+        end
+        
     end
     
     s.subspec 'UIControl' do |ss|

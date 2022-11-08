@@ -45,6 +45,7 @@
     label.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     label.numberOfLines = 0;
     label.textAlignment =  NSTextAlignmentCenter;
+    label.textColor = [UIColor redColor];
     label.text = @"激动-激动-激动\n激动-激动-温柔";
     [label gx_addAttributeTapWithStrings:@[@"激动",@"温柔"] delegate:self];
     [label mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +55,9 @@
     }];
     [label gx_roundedCornerWithAllRadius:100];
     [label gx_BorderWithColor:[UIColor orangeColor] borderWidth:1];
-
+//    [label.superview layoutIfNeeded];
+//    [label gx_cornerRadius:100];
+//    [label gx_cornerRadius:100 borderWidth:1 borderColor:[UIColor redColor]];
     
     UITextView *textView = [[UITextView alloc] init];
     textView.backgroundColor = [UIColor orangeColor];
@@ -66,6 +69,9 @@
         make.top.equalTo(label.mas_bottom).offset(10);
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
     }];
+    
+    NSDictionary *dataDic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dataArr" ofType:@"plist"]];
+    NSLog(@"\n%@",dataDic);
 }
 - (void)gx_tapAttributeInLabel:(UILabel *)label
                         string:(NSString *)string

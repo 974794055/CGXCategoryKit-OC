@@ -51,11 +51,7 @@
 #pragma mark - 
 - (void)gx_CGXRoundedCornerslayoutSubviews
 {
-    // 调用本身的实现
-    [self gx_CGXRoundedCornerslayoutSubviews];
-    
     [self layoutIfNeeded];//这句代码很重要，不能忘了
-    
     BOOL isFrameChange = NO;;
     if(!CGRectEqualToRect(self.oldBounds, self.bounds)){
         isFrameChange = YES;
@@ -117,6 +113,8 @@
 //        self.layer.shadowRadius = 4;
 //        [self.layer addSublayer:self.borderLayer];
 //    }
+    // 调用本身的实现
+    [self gx_CGXRoundedCornerslayoutSubviews];
 }
 #pragma mark - getter && setter
 #pragma mark - radisu

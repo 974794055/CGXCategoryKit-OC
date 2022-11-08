@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^CGXGestureActionBlock)(UIGestureRecognizer *gestureRecoginzer);
 
-@interface UIView (CGXBlockGesture)
+@interface UIView (CGXBlockGesture)<UIGestureRecognizerDelegate>
 /**
  *  @brief  添加tap手势
  *

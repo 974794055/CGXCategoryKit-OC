@@ -16,6 +16,8 @@
 // 早安、午安、晚安
 + (NSString *)gx_helloStringByLocalTime;
 
+- (NSUInteger)gx_charactorNumber;
+
 @end
 
 

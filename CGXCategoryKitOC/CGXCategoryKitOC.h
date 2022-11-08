@@ -123,7 +123,11 @@
 #import "UIView+CGXDraggable.h"
 #import "UIView+CGXAnimation.h"
 #import "UIView+CGXDraw.h"
+#import "UIView+CGXRound.h"
 
+// ****  UIGestureRecognizer   **** /
+#import "UIGestureRecognizer+CGXCategoryBlock.h"
+ 
 // ****  UIViewController   **** /
 #import "UIViewController+CGXViewController.h"
 #import "UIViewController+CGXExtension.h"
@@ -161,6 +165,7 @@
 #import "NSMutableDictionary+CGXExtension.h"
 #import "NSDictionary+CGXSafe.h"
 #import "NSMutableDictionary+CGXSafe.h"
+#import "NSDictionary+CGXLog.h"
 
 //****  NSArray   **** /
 #import "NSArray+CGXExtension.h"
@@ -169,6 +174,7 @@
 #import "NSMutableArray+CGXSort.h"
 #import "NSArray+CGXSafe.h"
 #import "NSMutableArray+CGXSafe.h"
+#import "NSArray+CGXLog.h"
 
 //// ****  NSBundle   **** /
 #import "NSBundle+CGXAppIcon.h"
@@ -251,6 +257,7 @@
 #import "UIImage+CGXRemoteSize.h"
 #import "UIImage+CGXUserAvatar.h"
 #import "UIImage+CGXVector.h"
+#import "UIImage+CGXClip.h"
 
 // ****  UIFont   **** /
 #import "UIFont+CGXCustomLoader.h"

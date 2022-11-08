@@ -21,6 +21,7 @@ static char kActionHandlerPanGestureKey;
     if (!gesture)
     {
         gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForTapGesture:)];
+        gesture.delegate = self;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerTapGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -43,6 +44,7 @@ static char kActionHandlerPanGestureKey;
     if (!gesture)
     {
         gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForLongPressGesture:)];
+        gesture.delegate = self;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerLongPressGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -67,6 +69,7 @@ static char kActionHandlerPanGestureKey;
     if (!gesture)
     {
         gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForPanGesture:)];
+        gesture.delegate = self;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerPanGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -83,5 +86,24 @@ static char kActionHandlerPanGestureKey;
             block(gesture);
         }
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+//    NSLog(@"\n%@\n%@\n%@" , NSStringFromClass([touch.view class]),NSStringFromClass([touch.view.superview class]),NSStringFromClass([touch.view.superview.superview class]));
+    if([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]){
+        return NO;
+    }
+    if([NSStringFromClass([touch.view class]) isEqualToString:@"_UITableViewHeaderFooterContentView"]){
+        return NO;
+    }
+
+    if([touch.view.superview isKindOfClass:[UICollectionViewCell class]]){
+        return NO;
+    }
+    if([touch.view.superview isKindOfClass:[UICollectionReusableView class]]){
+        return NO;
+    }
+    return YES;
 }
 @end

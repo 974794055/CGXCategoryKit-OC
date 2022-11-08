@@ -17,6 +17,7 @@
 		9E2DABFB24D1BAAD006E1712 /* CGXCategoryKitOC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9E2DABFA24D1BAAD006E1712 /* CGXCategoryKitOC.podspec */; };
 		B5CEAB362513A76A00D4D26B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CEAB342513A76A00D4D26B /* README.md */; };
 		B5CEAB372513A76A00D4D26B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B5CEAB352513A76A00D4D26B /* LICENSE */; };
+		E092AE1627D66700003E2EEF /* dataArr.plist in Resources */ = {isa = PBXBuildFile; fileRef = E092AE1527D66700003E2EEF /* dataArr.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B5CEAB332513A6B800D4D26B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B5CEAB342513A76A00D4D26B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		B5CEAB352513A76A00D4D26B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		E092AE1527D66700003E2EEF /* dataArr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dataArr.plist; sourceTree = "<group>"; };
 		E6F00C21FB8F84DC1A15EBF9 /* Pods-CGXCategoryKit-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCategoryKit-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXCategoryKit-OC/Pods-CGXCategoryKit-OC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				9E2DABDF24D1B065006E1712 /* AppDelegate.m */,
 				9E2DABE424D1B065006E1712 /* ViewController.h */,
 				9E2DABE524D1B065006E1712 /* ViewController.m */,
+				E092AE1527D66700003E2EEF /* dataArr.plist */,
 				B5CEAB332513A6B800D4D26B /* PrefixHeader.pch */,
 				9E2DABE724D1B065006E1712 /* Main.storyboard */,
 				9E2DABEA24D1B067006E1712 /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 			files = (
 				B5CEAB372513A76A00D4D26B /* LICENSE in Resources */,
 				9E2DABEE24D1B067006E1712 /* LaunchScreen.storyboard in Resources */,
+				E092AE1627D66700003E2EEF /* dataArr.plist in Resources */,
 				9E2DABEB24D1B067006E1712 /* Assets.xcassets in Resources */,
 				B5CEAB362513A76A00D4D26B /* README.md in Resources */,
 				9E2DABFB24D1BAAD006E1712 /* CGXCategoryKitOC.podspec in Resources */,
