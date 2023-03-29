@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.author             = { "974794055" => "974794055@qq.com" }  #作者
     s.platform     = :ios, "9.0"                  #支持的平台和版本号
     s.ios.deployment_target = '9.0'
-    s.source       = { :git => "git@github.com:974794055/CGXCategoryKit-OC.git", :tag => s.version }         #存储库的git地址，以及tag值
+    s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }         #存储库的git地址，以及tag值
     s.requires_arc = true #是否支持ARC
     s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
     #需要托管的源代码路径
