@@ -154,8 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 获取设备ip地址*/
 + (NSString *)gx_getDeviceIpAddress;
 
-
-
 /**
  获取当前硬件体系类型
  */

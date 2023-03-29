@@ -10,6 +10,11 @@
 
 @implementation NSFileManager (CGXExtension)
 
+- (NSString *)gx_dirPathOfPreferences
+{
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    return [libraryPath stringByAppendingPathComponent:@"Preferences"];
+}
 + (NSURL *)gx_URLForDirectory:(NSSearchPathDirectory)directory
 {
     return [self.defaultManager URLsForDirectory:directory inDomains:NSUserDomainMask].lastObject;

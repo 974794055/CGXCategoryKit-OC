@@ -123,7 +123,7 @@
 #import "UIView+CGXDraggable.h"
 #import "UIView+CGXAnimation.h"
 #import "UIView+CGXDraw.h"
-#import "UIView+CGXRound.h"
+
 
 // ****  UIGestureRecognizer   **** /
 #import "UIGestureRecognizer+CGXCategoryBlock.h"
@@ -145,6 +145,7 @@
 #import "UIColor+CGXMoreColor.h"
 // ****  UIDevice   **** /
 #import "UIDevice+CGXExtension.h"
+#import "UIDevice+CGXAddition.h"
 
 // ****  NSObject   **** /
 #import "NSObject+CGXModelParse.h"

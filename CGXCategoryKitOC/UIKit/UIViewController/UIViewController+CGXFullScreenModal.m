@@ -29,7 +29,7 @@
             viewControllerToPresent.modalPresentationStyle = UIModalPresentationFullScreen;
         }
     }
-    [self override_presentViewController:viewControllerToPresent animated: animated completion:completion];
+    [self gx_override_presentViewController:viewControllerToPresent animated: animated completion:completion];
 }
    
 @end

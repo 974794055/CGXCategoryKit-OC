@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSFileManager (CGXExtension)
+/** iTunes 备份与恢复，存用户偏好设置 */
+- (NSString *)gx_dirPathOfPreferences;
 /**
  Get URL of Documents directory.
  @return Documents directory URL.
@@ -19,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get path of Documents directory.
  @return Documents directory path.
+ iTunes 备份与恢复
  */
 + (NSString *)gx_documentsPath;
 /**
@@ -29,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get path of Library directory.
  @return Library directory path.
+ Preferences 和 Caches 的父目录
  */
 + (NSString *)gx_libraryPath;
 /**
@@ -39,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get path of Caches directory.
  @return Caches directory path.
+ iTunes 不会备份，存缓存文件
  */
 + (NSString *)gx_cachesPath;
 /**

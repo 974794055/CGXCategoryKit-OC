@@ -11,9 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^CGXSubviewBlock) (UIView* view);
-typedef void (^CGXSuperviewBlock) (UIView* superview);
-
 @interface UIView (CGXFindSubclass)
 
 // 查找子视图
@@ -29,8 +26,9 @@ typedef void (^CGXSuperviewBlock) (UIView* superview);
  */
 - (UIView*)gx_findViewRecursively:(BOOL(^)(UIView* subview, BOOL* stop))recurse;
 
--(void)gx_runBlockOnAllSubviews:(CGXSubviewBlock)block;
--(void)gx_runBlockOnAllSuperviews:(CGXSuperviewBlock)block;
+-(void)gx_runBlockOnAllSubviews:(void (^)(UIView* view))block;
+
+-(void)gx_runBlockOnAllSuperviews:(void (^)(UIView* superview))block;
 
 /**
  *  @brief  启用视图的所有方法

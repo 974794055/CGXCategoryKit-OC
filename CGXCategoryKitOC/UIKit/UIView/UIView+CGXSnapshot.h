@@ -24,6 +24,8 @@
  */
 - (UIImage *)gx_screenshot;
 
+- (NSData *)gx_snapshotPDF;
+
 /**
  *  @author Jakey
  *
@@ -34,5 +36,7 @@
  *  @return 截图
  */
 - (UIImage *)gx_screenshot:(CGFloat)maxWidth;
+
+- (UIImage *)gx_cutoutInViewWithRect:(CGRect)rect;
 
 @end

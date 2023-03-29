@@ -63,6 +63,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)gx_saveImg:(UIImage *)image withImageName:(NSString *)imgName imgType:(NSString *)imgType inDirectory:(NSString *)directoryPath;
 
+/**
+ 绘制图片
+ 
+ @param color 背景色
+ @param size 大小
+ @param text 文字
+ @param textAttributes 字体设置
+ @param isCircular 是否圆形
+ @return 图片
+ */
++ (UIImage *)gx_imageWithColor:(UIColor *)color
+                          size:(CGSize)size
+                          text:(NSString *)text
+                textAttributes:(NSDictionary *)textAttributes
+                      circular:(BOOL)isCircular;
 @end
 
 NS_ASSUME_NONNULL_END

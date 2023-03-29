@@ -86,4 +86,143 @@
     });
 }
 
+#pragma mark 统计文件夹大小，指定忽略的文件扩展名，extensions = @[@"txt", @"mp4"]
+- (NSUInteger)gx_sizeOfBitWithFolderPath :(NSString *)path ignore:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfByteWithFolderPath:path ignore:extensions error:error] * 8;
+}
+- (NSUInteger)gx_sizeOfByteWithFolderPath:(NSString *)path ignore:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    NSString *filePath;
+    NSDictionary *fileDict;
+    BOOL isExist = NO;
+    BOOL isDirectory = NO;
+    BOOL isIgnore = NO;
+    NSUInteger byteSize = 0;
+    
+    for ( NSString *subPath in [self subpathsAtPath:path] ) {
+        
+        // 忽略某些扩展名的文件
+        for ( NSString *igonreExtension in extensions ) {
+            isIgnore = [subPath hasSuffix:igonreExtension];
+            if ( isIgnore ) break; // 找到-跳出
+        }
+        if ( isIgnore ) continue; // 略过
+        
+        // 继续
+        filePath = [path stringByAppendingPathComponent:subPath];
+        isExist = [self fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if ( isExist && isDirectory == NO ) {
+            
+            fileDict = [self attributesOfItemAtPath:filePath error:error];
+            if ( nil == error ) {
+                byteSize += [[fileDict objectForKey:NSFileSize] unsignedIntegerValue];
+            }
+        }
+    }
+    return byteSize;
+}
+- (double)gx_sizeOfKiloByteWithFolderPath:(NSString *)path ignore:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfByteWithFolderPath:path ignore:extensions error:error] / 1000.f;
+}
+- (double)gx_sizeOfMegaByteWithFolderPath:(NSString *)path ignore:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfKiloByteWithFolderPath:path ignore:extensions error:error] / 1000.f;
+}
+- (double)gx_sizeOfGigaByteWithFolderPath:(NSString *)path ignore:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfMegaByteWithFolderPath:path ignore:extensions error:error] / 1000.f;
+}
+
+
+#pragma mark 统计文件夹大小，指定包含的文件扩展名，extensions = @[@"txt", @"mp4"]
+- (NSUInteger)gx_sizeOfBitWithFolderPath :(NSString *)path contain:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfByteWithFolderPath:path contain:extensions error:error] * 8;
+}
+- (NSUInteger)gx_sizeOfByteWithFolderPath:(NSString *)path contain:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    NSString *filePath;
+    NSDictionary *fileDict;
+    BOOL isExist = NO;
+    BOOL isDirectory = NO;
+    BOOL isIgnore = YES;
+    NSUInteger byteSize = 0;
+    
+    for ( NSString *subPath in [self subpathsAtPath:path] ) {
+        
+        // 统计指定扩展名的文件
+        for ( NSString *containExtension in extensions ) {
+            isIgnore = ! [subPath hasSuffix:containExtension];
+            if ( NO == isIgnore ) break; // 找到-跳出
+        }
+        if ( isIgnore ) continue; // 略过
+        
+        // 继续
+        filePath = [path stringByAppendingPathComponent:subPath];
+        isExist = [self fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if ( isExist && isDirectory == NO ) {
+            
+            fileDict = [self attributesOfItemAtPath:filePath error:error];
+            if ( nil == error ) {
+                byteSize += [[fileDict objectForKey:NSFileSize] unsignedIntegerValue];
+            }
+        }
+    }
+    return byteSize;
+}
+- (double)gx_sizeOfKiloByteWithFolderPath:(NSString *)path contain:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfByteWithFolderPath:path contain:extensions error:error] / 1000.f;
+}
+- (double)gx_sizeOfMegaByteWithFolderPath:(NSString *)path contain:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfKiloByteWithFolderPath:path contain:extensions error:error] / 1000.f;
+}
+- (double)gx_sizeOfGigaByteWithFolderPath:(NSString *)path contain:(NSArray<NSString *> *)extensions error:(NSError **)error
+{
+    return [self gx_sizeOfMegaByteWithFolderPath:path contain:extensions error:error] / 1000.f;
+}
+
+
+#pragma mark 统计文件夹大小
+- (NSUInteger)gx_sizeOfBitWithFolderPath:(NSString *)path error:(NSError **)error
+{
+    return [self gx_sizeOfBitWithFolderPath:path ignore:nil error:error];
+}
+- (NSUInteger)gx_sizeOfByteWithFolderPath:(NSString *)path error:(NSError **)error
+{
+    return [self gx_sizeOfByteWithFolderPath:path ignore:nil error:error];
+}
+- (double)gx_sizeOfKiloByteWithFolderPath:(NSString *)path error:(NSError **)error
+{
+    return [self gx_sizeOfKiloByteWithFolderPath:path ignore:nil error:error];
+}
+- (double)gx_sizeOfMegaByteWithFolderPath:(NSString *)path error:(NSError **)error
+{
+    return [self gx_sizeOfMegaByteWithFolderPath:path ignore:nil error:error];
+}
+- (double)gx_sizeOfGigaByteWithFolderPath:(NSString *)path error:(NSError **)error
+{
+    return [self gx_sizeOfGigaByteWithFolderPath:path ignore:nil error:error];
+}
+
+
+#pragma mark 删除文件夹
+- (void)gx_clearFolderWithPath:(NSString *)path error:(NSError **)error
+{
+    NSString *dirPath;
+    BOOL success = YES;
+    
+    NSArray *dirs = [self contentsOfDirectoryAtPath:path error:error];
+    if ( error ) return;
+    
+    for ( NSString *dir in dirs ) {
+        dirPath = [path stringByAppendingPathComponent:dir];
+        success = [self removeItemAtPath:dirPath error:error];
+        if ( success == NO || error ) return;
+    }
+}
+
 @end

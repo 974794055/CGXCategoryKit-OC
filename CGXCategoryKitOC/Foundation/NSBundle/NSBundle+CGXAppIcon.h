@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)gx_appIconPath;
 
-- (UIImage*)gx_appIcon;
+- (UIImage *)gx_appIcon;
 
 /**
  获取app应用名称

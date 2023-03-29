@@ -67,21 +67,29 @@ const char *FF_FIND_VIEW_KEY;
 }
 
 
--(void)gx_runBlockOnAllSubviews:(CGXSubviewBlock)block
+-(void)gx_runBlockOnAllSubviews:(void (^)(UIView* view))block
 {
-    block(self);
+    if(block){
+        block(self);
+    }
     for (UIView* view in [self subviews])
     {
-        [view gx_runBlockOnAllSubviews:block];
+        if(block){
+            [view gx_runBlockOnAllSubviews:block];
+        }
     }
 }
 
--(void)gx_runBlockOnAllSuperviews:(CGXSuperviewBlock)block
+-(void)gx_runBlockOnAllSuperviews:(void (^)(UIView* superview))block
 {
-    block(self);
+    if(block){
+        block(self);
+    }
     if (self.superview)
     {
-        [self.superview gx_runBlockOnAllSuperviews:block];
+        if(block){
+            [self.superview gx_runBlockOnAllSuperviews:block];
+        }
     }
 }
 

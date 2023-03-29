@@ -166,13 +166,10 @@ static NSString * const BFUniqueIdentifierDefaultsKey = @"BFUniqueIdentifier";
     if ([platform isEqualToString:@"Watch5,2"])     return @"Apple Watch Series 5 44mm case (GPS)";
     if ([platform isEqualToString:@"Watch5,3"])     return @"Apple Watch Series 5 40mm case (GPS+Cellular)";
     if ([platform isEqualToString:@"Watch5,4"])     return @"Apple Watch Series 5 44mm case (GPS+Cellular)";
-    
-    
+
 //    [UIDevice currentDevice].model;
     if ([platform isEqualToString:@"i386"])         return @"iPhone Simulator";
     if ([platform isEqualToString:@"x86_64"])       return @"iPhone Simulator";
-    
-    
     
     return platform;
 }
