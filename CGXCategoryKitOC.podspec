@@ -15,11 +15,10 @@ Pod::Spec.new do |s|
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
-
+    
     s.subspec 'Tools' do |ss|
         ss.source_files = 'CGXCategoryKitOC/Tools/**/*.{h,m}'
     end
-    
     s.subspec 'Foundation' do |ss|
         ss.subspec 'NSTimer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSTimer/**/*.{h,m}'
@@ -40,7 +39,6 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSDictionary/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
-        
         ss.subspec 'NSNotificationCenter' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNotificationCenter/**/*.{h,m}'
         end
@@ -76,7 +74,6 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSArray/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
-        
         ss.subspec 'NSData' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}'
         end
@@ -109,10 +106,7 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
-        
-        
     end
-    
     s.subspec 'UIKit' do |ss|
         ss.subspec 'UIWindow' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIWindow/**/*.{h,m}'
@@ -187,13 +181,10 @@ Pod::Spec.new do |s|
         ss.subspec 'UIGestureRecognizer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/UIKit/UIGestureRecognizer/**/*.{h,m}'
         end
-        
     end
-    
     s.subspec 'UIControl' do |ss|
         ss.source_files = 'CGXCategoryKitOC/UIControl/**/*.{h,m}'
     end
-    
     s.subspec 'QuartzCore' do |ss|
         ss.subspec 'CALayer' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CALayer/**/*.{h,m}'
@@ -207,14 +198,12 @@ Pod::Spec.new do |s|
         ss.subspec 'CAMediaTimingFunction' do |sss|
             sss.source_files = 'CGXCategoryKitOC/QuartzCore/CAMediaTimingFunction/**/*.{h,m}'
         end
-        
     end
     s.subspec 'CoreLocation' do |ss|
         ss.subspec 'CLLocation' do |sss|
             sss.source_files = 'CGXCategoryKitOC/CoreLocation/CLLocation/**/*.{h,m}'
         end
     end
-    
 end
 
 

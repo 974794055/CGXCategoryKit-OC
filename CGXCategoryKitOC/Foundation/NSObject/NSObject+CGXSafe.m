@@ -11,20 +11,20 @@
 
 @implementation UIWindow (CGXSafe)
 
-+ (UIViewController *)objectSafeTopViewController {
-    return [self privateObjectSafeGetVisibleViewControllerFrom:UIApplication.sharedApplication.keyWindow.rootViewController];
++ (UIViewController *)gx_objectSafeTopViewController {
+    return [self gx_privateObjectSafeGetVisibleViewControllerFrom:UIApplication.sharedApplication.keyWindow.rootViewController];
 }
 
-+ (UIViewController *)privateObjectSafeGetVisibleViewControllerFrom:(UIViewController *)viewController {
++ (UIViewController *)gx_privateObjectSafeGetVisibleViewControllerFrom:(UIViewController *)viewController {
     if ([viewController isKindOfClass:UINavigationController.class]) {
-        return [self privateObjectSafeGetVisibleViewControllerFrom:[(UINavigationController *)viewController visibleViewController]];
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UINavigationController *)viewController visibleViewController]];
     } else if ([viewController isKindOfClass:UITabBarController.class]) {
-        return [self privateObjectSafeGetVisibleViewControllerFrom:[(UITabBarController *)viewController selectedViewController]];
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UITabBarController *)viewController selectedViewController]];
     } else if ([viewController isKindOfClass:UISplitViewController.class]) {
-        return [self privateObjectSafeGetVisibleViewControllerFrom:[(UISplitViewController *)viewController viewControllers].lastObject];
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UISplitViewController *)viewController viewControllers].lastObject];
     } else {
         if (viewController.presentedViewController) {
-            return [self privateObjectSafeGetVisibleViewControllerFrom:viewController.presentedViewController];
+            return [self gx_privateObjectSafeGetVisibleViewControllerFrom:viewController.presentedViewController];
         } else {
             return viewController;
         }
@@ -35,7 +35,7 @@
 
 static NSString *_errorFoundationName;
 
-void privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
+void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
 #ifdef DEBUG
     NSString *className = NSStringFromClass([self class]);
     NSString *errMsg = [NSString stringWithFormat:@"异常类名：%@\n异常方法名：%@", className, _errorFoundationName];
@@ -43,7 +43,7 @@ void privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"debug，方法缺失异常" message:errMsg preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"秒懂" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
-    [[UIWindow objectSafeTopViewController] presentViewController:alert animated:YES completion:nil];
+    [[UIWindow gx_objectSafeTopViewController] presentViewController:alert animated:YES completion:nil];
 #else
     // debug handle, not handle at release, catch
 #endif
@@ -81,7 +81,7 @@ void privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
     }
     _errorFoundationName = NSStringFromSelector(aSelector);
     NSMethodSignature *signature = [self gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:aSelector];
-    if (class_addMethod([self class], aSelector, (IMP)privateObjectSafeMSafeCategorySafeMethodIMP, "v@:")) {
+    if (class_addMethod([self class], aSelector, (IMP)gx_privateObjectSafeMSafeCategorySafeMethodIMP, "v@:")) {
         NSLog(@"成功添加临时方法");
     }
     if (!signature) {
