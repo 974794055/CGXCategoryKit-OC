@@ -76,6 +76,7 @@ Pod::Spec.new do |s|
         end
         ss.subspec 'NSData' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
         ss.subspec 'NSNumber' do |sss|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSNumber/**/*.{h,m}'

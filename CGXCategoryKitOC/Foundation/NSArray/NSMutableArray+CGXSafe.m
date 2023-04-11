@@ -11,7 +11,7 @@
 #import <objc/runtime.h>
 
 static const char *NSArrayM = "__NSArrayM";
-static const char *NSCFArray = "__NSCFArray";
+//static const char *NSCFArray = "__NSCFArray";
 
 @implementation NSMutableArray (CGXSafe)
 

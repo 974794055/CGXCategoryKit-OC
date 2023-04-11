@@ -20,33 +20,6 @@ static const char *NSArray0 = "__NSArray0";
 static const char *NSSingleObjectArrayI = "__NSSingleObjectArrayI";
 static const char *NSArrayI = "__NSArrayI";
 
-static const char *NSFrozenArrayM = "__NSFrozenArrayM";
-static const char *NSArrayI_Transfer = "__NSArrayI_Transfer";
-static const char *NSArrayReversed = "__NSArrayReversed";
-#define SFAssert(condition, ...) \
-if (!(condition)){ SFLog(__FILE__, __FUNCTION__, __LINE__, __VA_ARGS__);} \
-NSAssert(condition, @"%@", __VA_ARGS__);
-
-/**
- * 1: negative value
- *  - NSUInteger  > NSIntegerMax
- * 2: overflow
- *  - (a+ b) > a
- */
-NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
-    // negative or reach limit
-    if (range.location >= NSNotFound
-        || range.length >= NSNotFound){
-        return NSNotFound;
-    }
-    // overflow
-    if ((range.location + range.length) < range.location){
-        return NSNotFound;
-    }
-    return (range.location + range.length);
-}
-
-
 @implementation NSArray (CGXSafe)
 
 
