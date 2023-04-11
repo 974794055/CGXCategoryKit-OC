@@ -68,7 +68,7 @@
 + (CGFloat)gx_tabBarFullHeight {
     return [UIDevice gx_tabBarHeight] + [UIDevice gx_safeDistanceBottom];
 }
-+ (BOOL)dev_IsIphoneX
++ (BOOL)gx_IsIphoneX
 {
     BOOL iPhoneXSeries = NO;
     if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {

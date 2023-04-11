@@ -12,6 +12,76 @@
 #import "CGXCategoryKitOC.h"
 #import "Masonry.h"
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000 // 当前Xcode支持iOS8及以上
+#define ScreenWidth ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.width)
+#define ScreenHeight ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.height)
+#define ScreenSize ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?CGSizeMake([UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale,[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale):[UIScreen mainScreen].bounds.size)
+#else
+#define ScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define ScreenSize    [UIScreen mainScreen].bounds.size
+#endif
+
+//顶部状态栏高度
+static inline CGFloat kNavStatusBarHeight() {
+    if (@available(iOS 13.0, *)) {
+        NSSet *set = [UIApplication sharedApplication].connectedScenes;
+        UIWindowScene *windowScene = [set anyObject];
+        UIStatusBarManager *statusBarManager = windowScene.statusBarManager;
+        return statusBarManager.statusBarFrame.size.height;
+    } else{
+        return [[UIApplication sharedApplication] statusBarFrame].size.height;
+    }
+}
+//顶部安全区高度
+static inline CGFloat kSafeHeightTop() {
+    if (@available(iOS 13.0, *)) {
+        NSSet *set = [UIApplication sharedApplication].connectedScenes;
+        UIWindowScene *windowScene = [set anyObject];
+        UIWindow *window = windowScene.windows.firstObject;
+        return window.safeAreaInsets.top;
+    } else if (@available(iOS 11.0, *)) {
+        UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
+        return window.safeAreaInsets.top;
+    }
+    return 0;
+}
+//底部安全区高度
+static inline CGFloat kSafeHeightBottom() {
+    if (@available(iOS 13.0, *)) {
+            NSSet *set = [UIApplication sharedApplication].connectedScenes;
+            UIWindowScene *windowScene = [set anyObject];
+            UIWindow *window = windowScene.windows.firstObject;
+            return window.safeAreaInsets.bottom;
+        } else if (@available(iOS 11.0, *)) {
+            UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
+            return window.safeAreaInsets.bottom;
+        }
+        return 0;
+}
+///NavBar高度
+#define kStatusBarHeight kNavStatusBarHeight()
+///导航栏高度
+#define kTopHeight  (kNavStatusBarHeight()+44.0)
+///tab安全区域
+#define kSafeHeight    (kSafeHeightBottom())
+
+#define kTabBarHeight  (kSafeHeightBottom()+49.0)
+
+#define kVCHeight (ScreenHeight-kTopHeight-kTabBarHeight)
+
+#define kSizeScale       (k_iPad ? 1.3 : ScreenWidth/375)
+
+#define kFontSpace       (k_iPad ? 1 : 0)
+
+#define kScaleSpace(A) (floor(A * kSizeScale))
+/***  线条高度 */
+#define kLineHeight(height) (height / [UIScreen mainScreen].scale)
+
+#define FontText(font)                [UIFont systemFontOfSize:font*kSizeScale+kFontSpace]
+#define FontBold(font)               [UIFont boldSystemFontOfSize:font*kSizeScale+kFontSpace]//粗体
+#define FontCustom(font, fontName)   [UIFont fontWithName:fontName size:font*kSizeScale+kFontSpace]//自定义
+
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

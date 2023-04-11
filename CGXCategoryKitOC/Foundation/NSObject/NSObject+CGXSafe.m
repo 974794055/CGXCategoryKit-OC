@@ -54,13 +54,21 @@ void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        SEL systemSel = @selector(methodSignatureForSelector:);
-        SEL mySel = @selector(gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:);
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:systemSel mySel:mySel];
+
+        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(forwardInvocation:)
+                                                          mySel:@selector(gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:)];
         
-        SEL systemSel1 = @selector(forwardInvocation:);
-        SEL mySel1 = @selector(gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:);
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:systemSel1 mySel:mySel1];
+        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(addObserver:forKeyPath:options:context:)
+                                                          mySel:@selector(gx_object_AddObserver:forKeyPath:options:context:)];
+        
+        
+        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(removeObserver:forKeyPath:)
+                                                          mySel:@selector(gx_object_removeObserver:forKeyPath:)];
+        
+        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(methodSignatureForSelector:)
+                                                          mySel:@selector(gx_object_methodSignatureForSelector:)];
+        
+        
     });
 }
 
@@ -75,17 +83,17 @@ void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
     }
 }
 
-- (NSMethodSignature *)gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:(SEL)aSelector {
+- (NSMethodSignature *)gx_object_methodSignatureForSelector:(SEL)aSelector {
     if ([self respondsToSelector:aSelector]) {
-        return [self gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:aSelector];
+        return [self gx_object_methodSignatureForSelector:aSelector];
     }
     _errorFoundationName = NSStringFromSelector(aSelector);
-    NSMethodSignature *signature = [self gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:aSelector];
+    NSMethodSignature *signature = [self gx_object_methodSignatureForSelector:aSelector];
     if (class_addMethod([self class], aSelector, (IMP)gx_privateObjectSafeMSafeCategorySafeMethodIMP, "v@:")) {
         NSLog(@"成功添加临时方法");
     }
     if (!signature) {
-        signature = [self gx_objectCategoryRunTimeSafeAlertSwizzleMethodSignatureForSelector:aSelector];
+        signature = [self gx_object_methodSignatureForSelector:aSelector];
     }
     return signature;
 }
@@ -98,5 +106,34 @@ void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
         [self gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:anInvocation];
     }
 }
+- (void)gx_object_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+{
+    if (observer && keyPath.length) {
+        NSLog(@"hookAddObserver invalid args: %@",self);
+        @try {
+            [self gx_object_AddObserver:observer forKeyPath:keyPath options:options context:context];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"hookAddObserver ex: %@", [exception callStackSymbols]);
+        }
+    }
+
+}
+- (void)gx_object_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    if (observer && keyPath.length) {
+        NSLog(@"hookRemoveObserver invalid args: %@",self);
+        @try {
+            [self gx_object_removeObserver:observer forKeyPath:keyPath];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"hookRemoveObserver ex: %@", [exception callStackSymbols]);
+        }
+    }
+}
+
+
+
+
 
 @end

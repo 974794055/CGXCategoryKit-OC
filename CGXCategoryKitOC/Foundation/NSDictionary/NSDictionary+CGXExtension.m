@@ -11,82 +11,6 @@
 
 @implementation NSDictionary (CGXExtension)
 
-#if DEBUG
-- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level {
-    NSMutableString *desc = [NSMutableString string];
-    
-    NSMutableString *tabString = [[NSMutableString alloc] initWithCapacity:level];
-    for (NSUInteger i = 0; i < level; ++i) {
-        [tabString appendString:@"\t"];
-    }
-    
-    NSString *tab = @"";
-    if (level > 0) {
-        tab = tabString;
-    }
-    
-    [desc appendString:@"\t{\n"];
-    
-    // 遍历数组,self就是当前的数组
-    for (id key in self.allKeys) {
-        id obj = [self objectForKey:key];
-        
-        if ([obj isKindOfClass:[NSString class]]) {
-            [desc appendFormat:@"%@\t%@ = \"%@\",\n", tab, key, obj];
-        } else if ([obj isKindOfClass:[NSArray class]]
-                   || [obj isKindOfClass:[NSDictionary class]]
-                   || [obj isKindOfClass:[NSSet class]]) {
-            [desc appendFormat:@"%@\t%@ = %@,\n", tab, key, [obj descriptionWithLocale:locale indent:level + 1]];
-        } else if ([obj isKindOfClass:[NSData class]]) {
-            // 如果是NSData类型，尝试去解析结果，以打印出可阅读的数据
-            NSError *error = nil;
-            NSObject *result =  [NSJSONSerialization JSONObjectWithData:obj
-                                                                options:NSJSONReadingMutableContainers
-                                                                  error:&error];
-            // 解析成功
-            if (error == nil && result != nil) {
-                if ([result isKindOfClass:[NSDictionary class]]
-                    || [result isKindOfClass:[NSArray class]]
-                    || [result isKindOfClass:[NSSet class]]) {
-                    NSString *str = [((NSDictionary *)result) descriptionWithLocale:locale indent:level + 1];
-                    [desc appendFormat:@"%@\t%@ = %@,\n", tab, key, str];
-                } else if ([obj isKindOfClass:[NSString class]]) {
-                    [desc appendFormat:@"%@\t%@ = \"%@\",\n", tab, key, result];
-                }
-            } else {
-                @try {
-                    NSString *str = [[NSString alloc] initWithData:obj encoding:NSUTF8StringEncoding];
-                    if (str != nil) {
-                        [desc appendFormat:@"%@\t%@ = \"%@\",\n", tab, key, str];
-                    } else {
-                        [desc appendFormat:@"%@\t%@ = %@,\n", tab, key, obj];
-                    }
-                }
-                @catch (NSException *exception) {
-                    [desc appendFormat:@"%@\t%@ = %@,\n", tab, key, obj];
-                }
-            }
-        } else {
-            [desc appendFormat:@"%@\t%@ = %@,\n", tab, key, obj];
-        }
-    }
-    
-    [desc appendFormat:@"%@}", tab];
-    
-    return desc;
-}
-#endif
-
-- (NSString *)descriptionWithLocale:(id)locale {
-    
-    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
-    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [strM appendFormat:@"\t%@ = %@;\n", key, obj];
-    }];
-    [strM appendString:@"}\n"];
-    return strM.copy;
-}
-
 /**
  *  判断是否为空或为空格
  *
@@ -242,4 +166,67 @@
     return [self gx_dictionaryWithJsonData:jsonData];
 }
 
+- (NSMutableDictionary *)gx_Mutable {
+    NSMutableDictionary *dicResult = [[NSMutableDictionary alloc] init];
+    for (NSString *key in self.allKeys) {
+        NSObject *obj = self[key];
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSMutableDictionary *mDic = [(NSDictionary *)obj gx_Mutable];
+            [dicResult setValue:mDic forKey:key];
+        } else if ([obj isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = [self gx_MutableWith:(NSArray *)obj];
+            [dicResult setValue:mArr forKey:key];
+        } else {
+            [dicResult setValue:obj forKey:key];
+        }
+        NSLog(@"-------%@",dicResult);
+    }
+    return dicResult;
+}
+#pragma mark - private
+- (NSMutableArray *)gx_MutableWith:(NSArray *)array {
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (NSObject *obj in array) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSMutableDictionary *mDic = [(NSDictionary *)obj gx_Mutable];
+            [tempArray addObject:mDic];
+        } else if ([obj isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = [self gx_MutableWith:(NSArray *)obj];
+            [tempArray addObject:mArr];
+            
+        } else {
+            [tempArray addObject:obj];
+        }
+    }
+    
+    return tempArray;
+}
+
+- (NSDictionary *)gx_dictionaryByReplacingNullsWithBlanks {
+    const NSMutableDictionary *replaced = [self mutableCopy];
+    const id nul = [NSNull null];
+    const NSString *blank = @"";
+    
+    for (NSString *key in self) {
+        id object = [self objectForKey:key];
+        if (object == nul) [replaced setValue:blank forKey:key];
+        else if ([object isKindOfClass:[NSDictionary class]]) [replaced setValue:[object gx_dictionaryByReplacingNullsWithBlanks] forKey:key];
+        else if ([object isKindOfClass:[NSArray class]])
+            [replaced setValue:[self gx_arrayByReplacingNullsWithBlanksWith:object] forKey:key];
+    }
+    return [NSDictionary dictionaryWithDictionary:[replaced copy]];
+}
+- (NSArray *)gx_arrayByReplacingNullsWithBlanksWith:(NSArray *)tempArr
+{
+    NSMutableArray *replaced = [tempArr mutableCopy];
+    const id nul = [NSNull null];
+    const NSString *blank = @"";
+    for (int idx = 0; idx < [replaced count]; idx++) {
+        id object = [replaced objectAtIndex:idx];
+        if (object == nul) [replaced replaceObjectAtIndex:idx withObject:blank];
+        else if ([object isKindOfClass:[NSDictionary class]]) [replaced replaceObjectAtIndex:idx withObject:[object gx_dictionaryByReplacingNullsWithBlanks]];
+        else if ([object isKindOfClass:[NSArray class]]) [replaced replaceObjectAtIndex:idx withObject:[self gx_arrayByReplacingNullsWithBlanksWith:object]];
+    }
+    return [replaced copy];
+}
 @end

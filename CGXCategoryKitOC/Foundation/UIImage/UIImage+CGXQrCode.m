@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+CGXQrCode.h"
-
+#import "UIImage+CGXCompress.h"
 #pragma mark - 私有
 void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);
@@ -17,38 +17,77 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 
 /**
  生成二维码图片
- 
  @param url 二维码中的字符串
- @param size 二维码Size
+ @param outputSize 二维码Size
  @param logo 水印图片
  @return 一个二维码图片，水印在二维码中央
  */
-+ (UIImage *)gx_qrCodeImageForDataUrl:(NSString *)url size:(CGFloat)size logo:(UIImage *)logo
++ (UIImage *)gx_qrCodeImageForDataUrl:(NSString *)url size:(CGFloat)outputSize logo:(UIImage *)logo
 {
-    return [self gx_qrCodeImageForDataObject:url size:size logo:logo];
+    return [UIImage gx_qrCodeQRImageWithDataobject:url outputSize:outputSize Logo:logo QRColor:[UIColor blackColor] bkColor:[UIColor whiteColor] Level:0];
 }
-+ (UIImage *)gx_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGFloat)size logo:(UIImage *)logo {
-    return [self gx_qrCodeImageForDataObject:dataDic size:size logo:logo];
++ (UIImage *)gx_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGFloat)outputSize logo:(UIImage *)logo {
+    return [UIImage gx_qrCodeQRImageWithDataobject:dataDic outputSize:outputSize Logo:logo QRColor:[UIColor blackColor] bkColor:[UIColor whiteColor] Level:0];
 }
-
-+ (UIImage *)gx_qrCodeImageForDataObject:(id)object size:(CGFloat)size logo:(UIImage *)logo
+/// 生成二维码图片（默认大小为400*400）
+/// @param content 内容
++ (UIImage *)gx_qrImageByContent:(NSString *)content
 {
-    
-    //创建名为"CIQRCodeGenerator"的CIFilter
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    //将filter所有属性设置为默认值
-    [filter setDefaults];
-    
-    NSData *data = [NSData data];
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:400 Logo:nil QRColor:[UIColor blackColor] bkColor:[UIColor whiteColor] Level:0];
+}
+/// 生成高清二维码
+/// @param content 内容
+/// @param outputSize 输出尺寸
++ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize
+{
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:nil QRColor:[UIColor blackColor] bkColor:[UIColor whiteColor] Level:0];
+}
+/// 生成高清二维码
+/// @param content 内容
+/// @param outputSize 输出尺寸
+/// @param color 颜色
++ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color
+{
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:nil QRColor:color bkColor:[UIColor whiteColor] Level:0];
+}
+/// 生成高清二维码
+/// @param content 内容
+/// @param logo logo，默认放在中间位置
++ (UIImage *)gx_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize logo:(nullable UIImage *)logo;
+{
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:logo QRColor:nil bkColor:[UIColor whiteColor] Level:0];
+}
+/// 生成高清二维码
+/// @param content 内容
+/// @param logo logo，默认放在中间位置
++ (UIImage *)gx_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color logo:(nullable UIImage *)logo
+{
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:logo QRColor:color bkColor:[UIColor whiteColor] Level:0];
+}
++ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
+{
+    // 校正级别(L,M,Q,H)
+    NSInteger levelString = isHighLevel ? 0:2;
+    return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:logo QRColor:tintColor bkColor:[UIColor whiteColor] Level:levelString];
+}
++ (UIImage* )gx_qrCodeQRImageWithDataobject:(id)object outputSize:(CGFloat)outputSize Logo:(UIImage *)logo QRColor:(UIColor*)qrColor bkColor:(UIColor*)bkColor Level:(NSInteger)level
+{
+    if(outputSize <= 0 && object == nil){
+        return nil;
+    }
+    NSData *stringData = [NSData data];
     if ([object isKindOfClass:[NSString class]]) {
         NSString *string = (NSString *)object;
-        data = [string dataUsingEncoding:NSUTF8StringEncoding];
+        stringData = [string dataUsingEncoding:NSUTF8StringEncoding];
     } else{
         //将所需尽心转为UTF8的数据，并设置给filter
         NSDictionary *dict = (NSDictionary *)object;
-        data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+        stringData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
     }
-    [filter setValue:data forKey:@"inputMessage"];
+    //生成
+    CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [qrFilter setDefaults];
+    [qrFilter setValue:stringData forKey:@"inputMessage"];
     //设置二维码的纠错水平，越高纠错水平越高，可以污损的范围越大
     /*
      * L: 7%
@@ -56,204 +95,93 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
      * Q: 25%
      * H: 30%
      */
-    [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
-    
-    //拿到二维码图片，此时的图片不是很清晰，需要二次加工
-    CIImage *outPutImage = [filter outputImage];
-    
-    //如果有水印图片，那么添加水印后在调整清晰度，
-    //如果没有直接，直接调节清晰度
-    if (!logo) {
-        return [[[self alloc] init] getHDImageWithCIImage:outPutImage size:CGSizeMake(size, size)];
-    } else {
-        
-        return [[[self alloc] init] getHDImageWithCIImage:outPutImage size:CGSizeMake(size, size) waterImage:logo];
+    NSString *inputCorrectionLevel = @"H";
+    if (level == 0) {
+        inputCorrectionLevel = @"H";
+    } else if (level == 1){
+        inputCorrectionLevel = @"Q";
+    }  else if (level == 2){
+        inputCorrectionLevel = @"M";
+    } else if (level == 3){
+        inputCorrectionLevel = @"L";
+    }else{
+        inputCorrectionLevel = @"H";
     }
-}
+    [qrFilter setValue:inputCorrectionLevel forKey:@"inputCorrectionLevel"];
+    
+    UIColor *qrCodeColor = qrColor ? qrColor :[UIColor blackColor];
+    UIColor *bkCodeColor = bkColor ? bkColor :[UIColor whiteColor];
+    //上色
+    CIFilter *colorFilter = [CIFilter filterWithName:@"CIFalseColor"
+                                       keysAndValues:
+                             @"inputImage",qrFilter.outputImage,
+                             @"inputColor0",[CIColor colorWithCGColor:qrCodeColor.CGColor],
+                             @"inputColor1",[CIColor colorWithCGColor:bkCodeColor.CGColor],
+                             nil];
+    CIImage *qrImage = [colorFilter outputImage];
+    
+    //绘制
+    CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:qrImage fromRect:qrImage.extent];
+    UIGraphicsBeginImageContext(CGSizeMake(outputSize, outputSize));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    CGImageRelease(cgImage);
 
-/**
- 调整二维码清晰度
- 
- @param image 模糊的二维码图片
- @param size 二维码的宽高
- @return 清晰的二维码图片
- */
-- (UIImage *)getHDImageWithCIImage:(CIImage *)image size:(CGSize)size {
+//    CGRect extent = CGRectIntegral(qrImage.extent);
+//    CGFloat scale = MIN(outputSize/CGRectGetWidth(extent), outputSize/CGRectGetHeight(extent));
+//
+//    // 1.创建bitmap;
+//    size_t width = CGRectGetWidth(extent) * scale;
+//    size_t height = CGRectGetHeight(extent) * scale;
+//    //创建一个DeviceGray颜色空间
+//    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+//    //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
+//    //width：图片宽度像素
+//    //height：图片高度像素
+//    //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
+//    //bitmapInfo：指定的位图应该包含一个alpha通道。
+//    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+//    CIContext *context = [CIContext contextWithOptions:nil];
+//    //创建CoreGraphics image
+//    CGImageRef bitmapImage = [context createCGImage:qrImage fromRect:extent];
+//    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+//    CGContextScaleCTM(bitmapRef, scale, scale);
+//    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+//    // 2.保存bitmap到图片
+//    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+//    CGContextRelease(bitmapRef); CGImageRelease(bitmapImage);
+//    //原图
+//    UIImage *outputImage = [UIImage imageWithCGImage:scaledImage];
+//    outputImage = [outputImage gx_modifyQRCodeImageTintColor:qrColor];
     
-    CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.height/CGRectGetHeight(extent));
-    
-    // 1.创建bitmap;
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    //创建一个DeviceGray颜色空间
-    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
-    //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
-    //width：图片宽度像素
-    //height：图片高度像素
-    //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-    //bitmapInfo：指定的位图应该包含一个alpha通道。
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    //创建CoreGraphics image
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
-    
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
-    
-    // 2.保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef); CGImageRelease(bitmapImage);
-    
-    //原图
-    UIImage *outputImage = [UIImage imageWithCGImage:scaledImage];
+    // 添加logo
+    if (logo != nil) {
+        CGSize logoSize = logo.size;
+        if (logoSize.width > outputSize || logoSize.height > outputSize) {
+            // 对图片进行压缩
+            UIImage *logoImage = [UIImage gx_compressWithImage:logo scaledToSize:CGSizeMake(outputSize*0.2, outputSize*0.2)];
+            logoSize = CGSizeMake(logoImage.size.width, logoImage.size.height);
+        }
+        //给二维码加 logo 图
+        UIGraphicsBeginImageContextWithOptions(outputImage.size, NO, [[UIScreen mainScreen] scale]);
+        [outputImage drawInRect:CGRectMake(0, 0, outputSize, outputSize)];
+        //logo图
+        //把logo图画到生成的二维码图片上，注意尺寸不要太大（最大不超过二维码图片的%30），太大会造成扫不出来
+        [logo drawInRect:CGRectMake((outputSize-logoSize.width)/2.0, (outputSize-logoSize.height)/2.0, logoSize.width, logoSize.height)];
+        outputImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     return outputImage;
 }
 
-/**
- 调整二维码清晰度，添加水印图片
- 
- @param image 模糊的二维码图片
- @param size 二维码的宽高
- @param waterImage 水印图片
- @return 添加水印图片后，清晰的二维码图片
- */
-- (UIImage *)getHDImageWithCIImage:(CIImage *)image size:(CGSize)size waterImage:(UIImage *)waterImage {
-    
-    CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.height/CGRectGetHeight(extent));
-    
-    // 1.创建bitmap;
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    //创建一个DeviceGray颜色空间
-    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
-    //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
-    //width：图片宽度像素
-    //height：图片高度像素
-    //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-    //bitmapInfo：指定的位图应该包含一个alpha通道。
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    //创建CoreGraphics image
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
-    
-    // 2.保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef); CGImageRelease(bitmapImage);
-    
-    //原图
-    UIImage *outputImage = [UIImage imageWithCGImage:scaledImage];
-    //给二维码加 logo 图
-    UIGraphicsBeginImageContextWithOptions(outputImage.size, NO, [[UIScreen mainScreen] scale]);
-    [outputImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    //logo图
-    //把logo图画到生成的二维码图片上，注意尺寸不要太大（最大不超过二维码图片的%30），太大会造成扫不出来
-    [waterImage drawInRect:CGRectMake((size.width-waterImage.size.width)/2.0, (size.height-waterImage.size.height)/2.0, waterImage.size.width, waterImage.size.height)];
-    UIImage *newPic = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newPic;
-}
 
-/**
- 遍历像素点，修改颜色
- 
- @param rgbImageBuf rgbImageBuf
- @param pixelNum pixelNum
- @param red red
- @param green green
- @param blue blue
- */
-+ (void)changeColorOnPixel: (uint32_t *)rgbImageBuf pixelNum: (int)pixelNum red: (NSUInteger)red green: (NSUInteger)green blue: (NSUInteger)blue {
-    
-    uint32_t * pCurPtr = rgbImageBuf;
-    
-    for (int i = 0; i < pixelNum; i++, pCurPtr++) {
-        
-        if ((*pCurPtr & 0xffffff00) < 0xd0d0d000) {
-            
-            uint8_t * ptr = (uint8_t *)pCurPtr;
-            ptr[3] = red;
-            ptr[2] = green;
-            ptr[1] = blue;
-        } else {
-            //将白色变成透明色
-            uint8_t * ptr = (uint8_t *)pCurPtr;
-            ptr[0] = 0;
-        }
-    }
-}
 
-+ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
-{
-    if (content == nil || content.length == 0) {
-        return nil;
-    }
-    UIImage *resultImage;
-    BOOL openHighCorrection = isHighLevel;
-    
-    if (tintColor != nil || logo != nil) {
-        openHighCorrection = true;
-    }
-    // 创建基础CIImage
-    CIImage *ciImage = [UIImage qrByContent:content correctionHighLevel:openHighCorrection];
-    // 根据尺寸返回image
-    resultImage = [UIImage adjustHDQRCodeImageWith:ciImage output:outputSize];
-    // 修改二维码颜色
-    if (tintColor != nil) {
-        resultImage = [resultImage gx_modifyQRCodeImageTintColor:tintColor];
-    }
-    // 添加logo
-    if (logo != nil && CGRectEqualToRect(logoFrame, CGRectZero)) {
-        resultImage = [resultImage addLogoImage:logo logoFrame:logoFrame];
-    }
-    
-    return resultImage;
-}
 
-/// 生成二维码图片（默认大小为430*430）
-/// @param content 内容
-+ (UIImage *)gx_qrImageByContent:(NSString *)content
-{
-    return [UIImage gx_qrImageByContent:content outputSize:430 tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
-}
 
-/// 生成高清二维码
-/// @param content 内容
-/// @param outputSize 输出尺寸
-+ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize
-{
-    return [UIImage gx_qrImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
-}
-
-/// 生成高清二维码
-/// @param content 内容
-/// @param outputSize 输出尺寸
-/// @param color 颜色
-+ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color
-{
-    return [UIImage gx_qrImageByContent:content outputSize:outputSize tintColor:color logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
-}
-
-/// 生成高清二维码
-/// @param content 内容
-/// @param logo logo，默认放在中间位置
-+ (UIImage *)gx_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize logo:(nullable UIImage *)logo;
-{
-    CGSize logoSize = logo.size;
-    if (logoSize.width > outputSize || logoSize.height > outputSize) {
-        UIImage *resultImage = [UIImage gx_qrImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
-        return resultImage;
-    }
-    CGRect frame = CGRectMake((logoSize.width - outputSize)/2, (logoSize.height - outputSize)/2, logoSize.width, logoSize.height);
-    UIImage *resultImage = [UIImage gx_qrImageByContent:content outputSize:outputSize tintColor:nil logo:logo logoFrame:frame isCorrectionHighLevel:true];
-    return resultImage;
-}
 
 /**
  获取二维码内内容
@@ -275,20 +203,6 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 }
 
 
-
-+ (CIImage *)qrByContent:(NSString *)content correctionHighLevel:(BOOL)isHighLevel
-{
-    // 创建滤镜类
-    CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    NSData *contentData = [content dataUsingEncoding:NSUTF8StringEncoding];
-    // 输出值
-    [qrFilter setValue:contentData forKey:@"inputMessage"];
-    // 校正级别(L,M,Q,H)
-    NSString *levelString = isHighLevel ? @"H":@"M";
-    [qrFilter setValue:levelString forKey:@"inputCorrectionLevel"];
-    CIImage *image = qrFilter.outputImage;
-    return image;
-}
 
 /// 调整二维码图片尺寸
 + (UIImage *)adjustHDQRCodeImageWith:(CIImage *)ciImage output:(CGFloat)output
@@ -379,19 +293,66 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     
     return resultImage;
 }
-
-/// 添加 logo 图像
-/// @param logoImage logo图片
-/// @param logoFrame logo位置
-- (UIImage *)addLogoImage:(UIImage *)logoImage logoFrame:(CGRect)logoFrame
+/*
+ 1.先对画布进行裁切
+ 2.填充背景颜色
+ 3.执行绘制logo
+ 4.添加并绘制白色边框
+ 5.白色边框的基础上进行绘制黑色分割线
+ */
++ (UIImage *)gx_qrClipCornerRadius:(UIImage *)image withSize:(CGSize)size Radius:(CGFloat)radius  FillColor:(UIColor *)fillColor
 {
-    // 添加logo
-    UIGraphicsBeginImageContext(self.size);
-    [self drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
-    [logoImage drawInRect:logoFrame];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    // 白色border的宽度
+    CGFloat outerWidth = size.width/15.0;
+    // 黑色border的宽度
+    CGFloat innerWidth = outerWidth/10.0;
+    // 设置圆角
+    CGFloat corenerRadius = radius;
+    // 为context创建一个区域
+    CGRect areaRect = CGRectMake(0, 0, size.width, size.height);
+    UIBezierPath *areaPath = [UIBezierPath bezierPathWithRoundedRect:areaRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(corenerRadius, corenerRadius)];
+    // 因为UIBezierpath划线是双向扩展的 初始位置就不会是（0，0）
+    // origin position
+    CGFloat outerOrigin = outerWidth/2.0;
+    CGFloat innerOrigin = innerWidth/2.0 + outerOrigin/1.2;
+    CGRect outerRect = CGRectInset(areaRect, outerOrigin, outerOrigin);
+    CGRect innerRect = CGRectInset(outerRect, innerOrigin, innerOrigin);
+    //  外层path
+    UIBezierPath *outerPath = [UIBezierPath bezierPathWithRoundedRect:outerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(outerRect.size.width/5.0, outerRect.size.width/5.0)];
+    //  内层path
+    UIBezierPath *innerPath = [UIBezierPath bezierPathWithRoundedRect:innerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(innerRect.size.width/5.0, innerRect.size.width/5.0)];
+    // 创建上下文
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);{
+        // 翻转context
+        CGContextTranslateCTM(context, 0, size.height);
+        CGContextScaleCTM(context, 1, -1);
+        // 1.先对画布进行裁切
+        CGContextAddPath(context, areaPath.CGPath);
+        CGContextClip(context);
+        // 2.填充背景颜色
+        CGContextAddPath(context, areaPath.CGPath);
+        UIColor *fillColorRR = fillColor ? fillColor:[UIColor whiteColor];
+        CGContextSetFillColorWithColor(context, fillColorRR.CGColor);
+        CGContextFillPath(context);
+        // 3.执行绘制logo
+        CGContextDrawImage(context, innerRect, image.CGImage);
+        // 4.添加并绘制白色边框
+        CGContextAddPath(context, outerPath.CGPath);
+        CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+        CGContextSetLineWidth(context, outerWidth);
+        CGContextStrokePath(context);
+        // 5.白色边框的基础上进行绘制黑色分割线
+        CGContextAddPath(context, innerPath.CGPath);
+        CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+        CGContextSetLineWidth(context, innerWidth);
+        CGContextStrokePath(context);
+    }CGContextRestoreGState(context);
+    UIImage *radiusImage  = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return image;
+    return radiusImage;
 }
+
 
 @end

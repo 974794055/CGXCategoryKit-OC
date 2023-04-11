@@ -12,11 +12,11 @@
 			<key>name</key>
 			<integer>1</integer>
 			<key>img</key>
-			<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130104_57311.png</string>
+			<string></string>
 			<key>small_img</key>
-			<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130111_74911.png</string>
+			<string></string>
 			<key>big_img</key>
-			<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130127_20831.png</string>
+			<string></string>
 			<key>sp_id</key>
 			<integer>58</integer>
 			<key>vip</key>
@@ -24,20 +24,18 @@
 			<key>img_id</key>
 			<integer>3925</integer>
 			<key>person_img</key>
-			<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130123_7061.png</string>
-			<key>p_img</key>
-			<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130148_22491.png</string>
+			<string></string>
 			<key>data</key>
 			<array>
 				<dict>
 					<key>name</key>
 					<integer>1</integer>
 					<key>img</key>
-					<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130104_57311.png</string>
+					<string></string>
 					<key>small_img</key>
-					<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130111_74911.png</string>
+					<string></string>
 					<key>big_img</key>
-					<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130127_20831.png</string>
+					<string></string>
 					<key>sp_id</key>
 					<integer>58</integer>
 					<key>vip</key>
@@ -45,9 +43,9 @@
 					<key>img_id</key>
 					<integer>3925</integer>
 					<key>person_img</key>
-					<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130123_7061.png</string>
+					<string></string>
 					<key>p_img</key>
-					<string>http://app.faxingwu.com/fxwhoutai/202111/02/20211102130148_22491.png</string>
+					<string></string>
 				</dict>
 			</array>
 		</dict>

@@ -36,7 +36,11 @@
  *  @return 截图
  */
 - (UIImage *)gx_screenshot:(CGFloat)maxWidth;
-
+/// 截取 view 上某个位置的图像
 - (UIImage *)gx_cutoutInViewWithRect:(CGRect)rect;
+
+/// 毛玻璃效果
+/// @param blurStyle 模糊程度
+- (void)gx_appaddBlurEffectWith:(UIBlurEffectStyle)blurStyle;
 
 @end

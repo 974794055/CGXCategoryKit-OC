@@ -7,7 +7,8 @@
 //
 
 #import "NSUserDefaults+CGXExtension.h"
-
+#import "NSObject+CGXRuntime.h"
+#import <objc/runtime.h>
 @implementation NSUserDefaults (CGXExtension)
 
 - (BOOL)gx_saveSafeObject:(id)value forKey:(NSString *)key {
@@ -64,6 +65,42 @@
     id object = [NSKeyedUnarchiver unarchiveObjectWithData:customObjectData];
     
     return object;
+}
+
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [NSClassFromString(@"NSUserDefaults") gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectForKey:) swizzleSel:@selector(hookObjectForKey:)];
+        
+        [NSClassFromString(@"NSUserDefaults") gx_swizzleClassInstanceMethodWithOriginSel:@selector(setObject:forKey:) swizzleSel:@selector(hookSetObject:forKey:)];
+        
+        [NSClassFromString(@"NSUserDefaults") gx_swizzleClassInstanceMethodWithOriginSel:@selector(removeObjectForKey:) swizzleSel:@selector(hookRemoveObjectForKey:)];
+    });
+}
+- (id) hookObjectForKey:(NSString *)defaultName
+{
+    if (defaultName) {
+        return [self hookObjectForKey:defaultName];
+    }
+    return nil;
+}
+
+- (void) hookSetObject:(id)value forKey:(NSString*)aKey
+{
+    if (aKey) {
+        [self hookSetObject:value forKey:aKey];
+    } else {
+        NSLog(@"NSUserDefaults invalid args hookSetObject:[%@] forKey:[%@]", value, aKey);
+    }
+}
+- (void) hookRemoveObjectForKey:(NSString*)aKey
+{
+    if (aKey) {
+        [self hookRemoveObjectForKey:aKey];
+    } else {
+        NSLog(@"NSUserDefaults invalid args hookRemoveObjectForKey:[%@]", aKey);
+    }
 }
 
 @end

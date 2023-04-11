@@ -53,11 +53,33 @@
     5屏以上   38.511718M           23.1875M          448.800981ms      565.396011ms
     */
     if ([self isKindOfClass:[UIScrollView class]]) {
-        CGRect rect = self.frame;
-        rect.size = ((UIScrollView *)self).contentSize;
-        UIGraphicsBeginImageContext(rect.size);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [self.layer renderInContext:context];
+        UIScrollView *resurtScrollView =(UIScrollView *)self;
+//        CGRect rect = self.frame;
+//        rect.size = ((UIScrollView *)self).contentSize;
+//        UIGraphicsBeginImageContext(rect.size);
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        [self.layer renderInContext:context];
+        
+        //先保存原来frame 和 偏移量
+        CGPoint savedContentOffset =resurtScrollView.contentOffset;
+        CGRect savedFrame =resurtScrollView.frame;
+        CGSize contentSize =resurtScrollView.contentSize;
+        CGRect oldBounds =resurtScrollView.layer.bounds;
+        if(@available(iOS 13.0, *)){
+            //iOS 13 系统截屏需要改变tableview 的bounds
+             [resurtScrollView.layer setBounds:CGRectMake(oldBounds.origin.x, oldBounds.origin.y, contentSize.width, contentSize.height+20)];
+        }
+        //偏移量归零
+        resurtScrollView.contentOffset = CGPointZero;
+        resurtScrollView.frame = CGRectMake(0, 0, resurtScrollView.contentSize.width, resurtScrollView.contentSize.height+20);
+        //截图
+         [resurtScrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
+        if(@available(iOS 13.0,*)){
+            [resurtScrollView.layer setBounds:oldBounds];
+        }
+        //还原frame 和 偏移量
+        resurtScrollView.frame= savedFrame;
+        resurtScrollView.contentOffset= savedContentOffset;
     } else {
         /*
          * 参数一: 指定将来创建出来的bitmap的大小
@@ -71,6 +93,8 @@
     UIGraphicsEndImageContext();
     return screenshot;
 }
+
+
 
 /**
  *  @author Jakey
@@ -161,11 +185,13 @@
     return img;
 }
 
-- (void)appaddBlurEffectWith:(UIBlurEffectStyle)blurStyle
+- (void)gx_appaddBlurEffectWith:(UIBlurEffectStyle)blurStyle
 {
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:blurStyle];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     effectView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     [self addSubview:effectView];
 }
+
+
 @end

@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryKitOC",
-  "version": "0.1.5",
+  "version": "0.2",
   "summary": "APP的Foundation、UIKit的延展库",
   "description": "APP的Foundation、UIKit控件延展库)",
   "homepage": "https://github.com/974794055/CGXCategoryKit-OC",
@@ -12,11 +12,11 @@
     "974794055": "974794055@qq.com"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryKit-OC.git",
-    "tag": "0.1.5"
+    "tag": "0.2"
   },
   "requires_arc": true,
   "frameworks": [
@@ -181,6 +181,24 @@
         {
           "name": "NSSet",
           "source_files": "CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSCache",
+          "source_files": "CGXCategoryKitOC/Foundation/NSCache/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSOrderedSet",
+          "source_files": "CGXCategoryKitOC/Foundation/NSOrderedSet/**/*.{h,m}",
           "dependencies": {
             "CGXCategoryKitOC/Foundation/NSObject": [
 

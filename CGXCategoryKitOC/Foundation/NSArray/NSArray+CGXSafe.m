@@ -20,6 +20,33 @@ static const char *NSArray0 = "__NSArray0";
 static const char *NSSingleObjectArrayI = "__NSSingleObjectArrayI";
 static const char *NSArrayI = "__NSArrayI";
 
+static const char *NSFrozenArrayM = "__NSFrozenArrayM";
+static const char *NSArrayI_Transfer = "__NSArrayI_Transfer";
+static const char *NSArrayReversed = "__NSArrayReversed";
+#define SFAssert(condition, ...) \
+if (!(condition)){ SFLog(__FILE__, __FUNCTION__, __LINE__, __VA_ARGS__);} \
+NSAssert(condition, @"%@", __VA_ARGS__);
+
+/**
+ * 1: negative value
+ *  - NSUInteger  > NSIntegerMax
+ * 2: overflow
+ *  - (a+ b) > a
+ */
+NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
+    // negative or reach limit
+    if (range.location >= NSNotFound
+        || range.length >= NSNotFound){
+        return NSNotFound;
+    }
+    // overflow
+    if ((range.location + range.length) < range.location){
+        return NSNotFound;
+    }
+    return (range.location + range.length);
+}
+
+
 @implementation NSArray (CGXSafe)
 
 
@@ -145,77 +172,93 @@ static const char *NSArrayI = "__NSArrayI";
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [NSArray swizzleNSArray0Method];
-        [NSArray swizzleNSSingleObjectArrayIMethod];
-        [NSArray swizzleNSArrayIMethod];
+
+         /* 没内容类型是__NSArray0 */
+        SEL selectorsNSArray0[9] = {
+            @selector(objectAtIndex:),
+            @selector(subarrayWithRange:),
+            @selector(objectAtIndexedSubscript:),
+            @selector(indexOfObject:inRange:),
+            @selector(objectsAtIndexes:),
+            @selector(enumerateObjectsAtIndexes:options:usingBlock:),
+            @selector(indexOfObjectAtIndexes:options:passingTest:),
+            @selector(indexesOfObjectsAtIndexes:options:passingTest:),
+            @selector(indexOfObject:inSortedRange:options:usingComparator:)
+        };
+        for (int i = 0; i < 9;  i++) {
+            SEL selector = selectorsNSArray0[i];
+            NSString *newSelectorStr = [[NSString stringWithFormat:@"gx_array0_%@", NSStringFromSelector(selector)] stringByReplacingOccurrencesOfString:@"__" withString:@"_"];
+            [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:selector swizzleSel:NSSelectorFromString(newSelectorStr)];
+        }
+        
+        /* 没内容类型是__NSSingleObjectArrayI */
+       SEL selectorsNSSingleObjectArrayI[9] = {
+           @selector(objectAtIndex:),
+           @selector(subarrayWithRange:),
+           @selector(objectAtIndexedSubscript:),
+           @selector(indexOfObject:inRange:),
+           @selector(objectsAtIndexes:),
+           @selector(enumerateObjectsAtIndexes:options:usingBlock:),
+           @selector(indexOfObjectAtIndexes:options:passingTest:),
+           @selector(indexesOfObjectsAtIndexes:options:passingTest:),
+           @selector(indexOfObject:inSortedRange:options:usingComparator:)
+       };
+       for (int i = 0; i < 9;  i++) {
+           SEL selector = selectorsNSSingleObjectArrayI[i];
+           NSString *newSelectorStr = [[NSString stringWithFormat:@"gx_singleObjectArrayI_%@", NSStringFromSelector(selector)] stringByReplacingOccurrencesOfString:@"__" withString:@"_"];
+           [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:selector swizzleSel:NSSelectorFromString(newSelectorStr)];
+       }
+        
+        /* 没内容类型是__NSArrayI */
+       SEL selectorsNSArrayI[9] = {
+           @selector(objectAtIndex:),
+           @selector(subarrayWithRange:),
+           @selector(objectAtIndexedSubscript:),
+           @selector(indexOfObject:inRange:),
+           @selector(objectsAtIndexes:),
+           @selector(enumerateObjectsAtIndexes:options:usingBlock:),
+           @selector(indexOfObjectAtIndexes:options:passingTest:),
+           @selector(indexesOfObjectsAtIndexes:options:passingTest:),
+           @selector(indexOfObject:inSortedRange:options:usingComparator:)
+       };
+       for (int i = 0; i < 9;  i++) {
+           SEL selector = selectorsNSArrayI[i];
+           NSString *newSelectorStr = [[NSString stringWithFormat:@"gx_arrayI_%@", NSStringFromSelector(selector)] stringByReplacingOccurrencesOfString:@"__" withString:@"_"];
+           [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:selector swizzleSel:NSSelectorFromString(newSelectorStr)];
+       }
     });
 }
-
-+ (void)swizzleNSArray0Method
-{
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndex:) swizzleSel:@selector(gx_array0_objectAtIndex:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subarrayWithRange:) swizzleSel:@selector(gx_array0_subarrayWithRange:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inRange:) swizzleSel:@selector(gx_array0_indexOfObject:inRange:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectsAtIndexes:) swizzleSel:@selector(gx_array0_objectsAtIndexes:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndexedSubscript:) swizzleSel:@selector(gx_array0_objectAtIndexedSubscript:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateObjectsAtIndexes:options:usingBlock:) swizzleSel:@selector(gx_array0_enumerateObjectsAtIndexes:options:usingBlock:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObjectAtIndexes:options:passingTest:) swizzleSel:@selector(gx_array0_indexOfObjectAtIndexes:options:passingTest:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexesOfObjectsAtIndexes:options:passingTest:) swizzleSel:@selector(gx_array0_indexesOfObjectsAtIndexes:options:passingTest:)];
-    [objc_getClass(NSArray0) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inSortedRange:options:usingComparator:) swizzleSel:@selector(gx_array0_indexOfObject:inSortedRange:options:usingComparator:)];
-}
-+ (void)swizzleNSSingleObjectArrayIMethod
-{
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndex:) swizzleSel:@selector(gx_singleObjectArrayI_objectAtIndex:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subarrayWithRange:) swizzleSel:@selector(gx_singleObjectArrayI_subarrayWithRange:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inRange:) swizzleSel:@selector(gx_singleObjectArrayI_indexOfObject:inRange:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectsAtIndexes:) swizzleSel:@selector(gx_singleObjectArrayI_objectsAtIndexes:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndexedSubscript:) swizzleSel:@selector(gx_singleObjectArrayI_objectAtIndexedSubscript:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateObjectsAtIndexes:options:usingBlock:) swizzleSel:@selector(gx_singleObjectArrayI_enumerateObjectsAtIndexes:options:usingBlock:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObjectAtIndexes:options:passingTest:) swizzleSel:@selector(gx_singleObjectArrayI_indexOfObjectAtIndexes:options:passingTest:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexesOfObjectsAtIndexes:options:passingTest:) swizzleSel:@selector(gx_singleObjectArrayI_indexesOfObjectsAtIndexes:options:passingTest:)];
-    [objc_getClass(NSSingleObjectArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inSortedRange:options:usingComparator:) swizzleSel:@selector(gx_singleObjectArrayI_indexOfObject:inSortedRange:options:usingComparator:)];
-}
-
-+ (void)swizzleNSArrayIMethod
-{
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndex:) swizzleSel:@selector(gx_arrayI_objectAtIndex:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subarrayWithRange:) swizzleSel:@selector(gx_arrayI_subarrayWithRange:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inRange:) swizzleSel:@selector(gx_arrayI_indexOfObject:inRange:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectsAtIndexes:) swizzleSel:@selector(gx_arrayI_objectsAtIndexes:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(objectAtIndexedSubscript:) swizzleSel:@selector(gx_arrayI_objectAtIndexedSubscript:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateObjectsAtIndexes:options:usingBlock:) swizzleSel:@selector(gx_arrayI_enumerateObjectsAtIndexes:options:usingBlock:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObjectAtIndexes:options:passingTest:) swizzleSel:@selector(gx_arrayI_indexOfObjectAtIndexes:options:passingTest:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexesOfObjectsAtIndexes:options:passingTest:) swizzleSel:@selector(gx_arrayI_indexesOfObjectsAtIndexes:options:passingTest:)];
-    [objc_getClass(NSArrayI) gx_swizzleClassInstanceMethodWithOriginSel:@selector(indexOfObject:inSortedRange:options:usingComparator:) swizzleSel:@selector(gx_arrayI_indexOfObject:inSortedRange:options:usingComparator:)];
-}
-
 #pragma mark - NSArray0
 - (id)gx_array0_objectAtIndex:(NSUInteger)index
 {
+    if (index <= self.count-1 && self.count > 0) {
+        return [self gx_array0_objectAtIndex:index];
+    }
     return nil;
 }
 - (NSArray *)gx_array0_subarrayWithRange:(NSRange)range
 {
-    return nil;
+    return [self gx_array0_subarrayWithRange:[self gx_getNewRangeWith:range]];
 }
 - (NSUInteger)gx_array0_indexOfObject:(id)anObject inRange:(NSRange)range
 {
-    return NSNotFound;
+    return [self gx_array0_indexOfObject:anObject inRange:[self gx_getNewRangeWith:range]];
 }
-
 - (NSArray *)gx_array0_objectsAtIndexes:(NSIndexSet *)indexes
 {
-    return nil;
+    NSIndexSet *newIndexes = [self filterIndexSetWith:indexes];
+    if (newIndexes.count == 0) {
+        return nil;
+    }
+    return [self gx_array0_objectsAtIndexes:newIndexes];
 }
-
 - (id)gx_array0_objectAtIndexedSubscript:(NSUInteger)idx
 {
-    /*
-    -objectAtIndexedSubscript：提供对obj-c下标的支持的方法。换句话说，这个方法是编译器使用的方法，如果你说数组[3]。但是对于NSArray *，它与-objectAtIndex：完全相同。为什么它是一个不同的方法的原因是其他类可以实现这一点，以便支持obj-c下标，而不必使用通用命名的-objectAtIndex：。
-    */
+    if (idx <= self.count-1 && self.count > 0) {
+        return [self gx_array0_objectAtIndexedSubscript:idx];
+    }
     return nil;
 }
-
 - (void)gx_array0_enumerateObjectsAtIndexes:(NSIndexSet *)s options:(NSEnumerationOptions)opts usingBlock:(void (NS_NOESCAPE ^)(id obj, NSUInteger idx, BOOL *stop))block
 {}
 - (NSUInteger)gx_array0_indexOfObjectAtIndexes:(NSIndexSet *)s options:(NSEnumerationOptions)opts passingTest:(BOOL (NS_NOESCAPE^)(id obj, NSUInteger idx, BOOL *stop))predicate
@@ -234,10 +277,10 @@ static const char *NSArrayI = "__NSArrayI";
 #pragma mark - NSSingleObjectArrayI
 - (id)gx_singleObjectArrayI_objectAtIndex:(NSUInteger)index
 {
-    if (index > self.count || self.count == 0) {
-        return nil;
+    if (index <= self.count-1 && self.count > 0) {
+        return [self gx_singleObjectArrayI_objectAtIndex:index];
     }
-    return [self gx_singleObjectArrayI_objectAtIndex:index];
+    return nil;
 }
 - (NSArray *)gx_singleObjectArrayI_subarrayWithRange:(NSRange)range
 {
@@ -247,7 +290,6 @@ static const char *NSArrayI = "__NSArrayI";
 {
     return [self gx_singleObjectArrayI_indexOfObject:anObject inRange:[self gx_getNewRangeWith:range]];
 }
-
 - (NSArray *)gx_singleObjectArrayI_objectsAtIndexes:(NSIndexSet *)indexes
 {
     NSIndexSet *newIndexes = [self filterIndexSetWith:indexes];
@@ -256,16 +298,12 @@ static const char *NSArrayI = "__NSArrayI";
     }
     return [self gx_singleObjectArrayI_objectsAtIndexes:newIndexes];
 }
-
 - (id)gx_singleObjectArrayI_objectAtIndexedSubscript:(NSUInteger)idx
 {
-    /*
-    -objectAtIndexedSubscript：提供对obj-c下标的支持的方法。换句话说，这个方法是编译器使用的方法，如果你说数组[3]。但是对于NSArray *，它与-objectAtIndex：完全相同。为什么它是一个不同的方法的原因是其他类可以实现这一点，以便支持obj-c下标，而不必使用通用命名的-objectAtIndex：。
-    */
-    if (idx > self.count) {
-        return nil;
+    if (idx <= self.count-1 && self.count > 0) {
+        return [self gx_singleObjectArrayI_objectAtIndexedSubscript:idx];
     }
-    return [self gx_singleObjectArrayI_objectAtIndexedSubscript:idx];
+    return nil;
 }
 
 - (void)gx_singleObjectArrayI_enumerateObjectsAtIndexes:(NSIndexSet *)s options:(NSEnumerationOptions)opts usingBlock:(void (NS_NOESCAPE ^)(id obj, NSUInteger idx, BOOL *stop))block
@@ -298,10 +336,10 @@ static const char *NSArrayI = "__NSArrayI";
 #pragma mark - NSArrayI
 - (id)gx_arrayI_objectAtIndex:(NSUInteger)index
 {
-    if (index > self.count || self.count == 0) {
-        return nil;
+    if (index <= self.count-1 && self.count > 0) {
+        return [self gx_arrayI_objectAtIndex:index];
     }
-    return [self gx_arrayI_objectAtIndex:index];
+    return nil;
 }
 - (NSArray *)gx_arrayI_subarrayWithRange:(NSRange)range
 {
@@ -326,10 +364,10 @@ static const char *NSArrayI = "__NSArrayI";
     /*
     -objectAtIndexedSubscript：提供对obj-c下标的支持的方法。换句话说，这个方法是编译器使用的方法，如果你说数组[3]。但是对于NSArray *，它与-objectAtIndex：完全相同。为什么它是一个不同的方法的原因是其他类可以实现这一点，以便支持obj-c下标，而不必使用通用命名的-objectAtIndex：。
     */
-    if (idx > self.count) {
-        return nil;
+    if (idx <= self.count-1 && self.count > 0) {
+        return [self gx_arrayI_objectAtIndexedSubscript:idx];
     }
-    return [self gx_arrayI_objectAtIndexedSubscript:idx];
+    return nil;
 }
 
 - (void)gx_arrayI_enumerateObjectsAtIndexes:(NSIndexSet *)s options:(NSEnumerationOptions)opts usingBlock:(void (NS_NOESCAPE ^)(id obj, NSUInteger idx, BOOL *stop))block
@@ -399,5 +437,6 @@ static const char *NSArrayI = "__NSArrayI";
     }];
     return mutableIndexSet;
 }
+
 
 @end

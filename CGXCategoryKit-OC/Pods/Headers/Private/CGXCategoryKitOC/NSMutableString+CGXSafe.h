@@ -1,1 +1,1 @@
-../../../../../CGXCategoryKitOC/Foundation/NSMutableAttributedString/NSMutableString+CGXSafe.h
+../../../../../CGXCategoryKitOC/Foundation/NSString/NSMutableString+CGXSafe.h

@@ -9,6 +9,7 @@
 #import "NSCalendar+CGXExtension.h"
 
 @implementation NSCalendar (CGXExtension)
+
 +(NSCalendar*)gx_gregorianCalendar_factory
 {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0

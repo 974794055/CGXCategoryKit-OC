@@ -12,12 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSMutableDictionary (CGXSafe)
 
-/* hook方法如下：
- setObject:forKey:
- 
- 内部做了安全取值处理
-*/
-
 
 @end
 

@@ -57,6 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)gx_dictionaryWithJsonString:(NSString *)jsonString;
 
 
+/// 转成可变型数据，包括里面的字典、数组
+- (NSMutableDictionary *)gx_Mutable;
+
+/// 替换字典中的NSNull为空字符串
+- (NSDictionary *)gx_dictionaryByReplacingNullsWithBlanks;
 
 @end
 

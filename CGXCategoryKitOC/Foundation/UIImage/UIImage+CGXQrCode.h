@@ -16,21 +16,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  生成二维码图片
  @param url 二维码中的字符串
- @param size 二维码Size
+ @param outputSize 二维码Size
  @param logo 水印图片
  @return 一个二维码图片，水印在二维码中央
  */
-+ (UIImage *)gx_qrCodeImageForDataUrl:(NSString *)url size:(CGFloat)size logo:(UIImage *)logo;
++ (UIImage *)gx_qrCodeImageForDataUrl:(NSString *)url size:(CGFloat)outputSize logo:(UIImage *)logo;
 /**
  生成二维码图片
  @param dataDic 二维码中的信息
- @param size 二维码Size
+ @param outputSize 二维码Size
  @param logo 水印图片
  @return 一个二维码图片，水印在二维码中央
  */
-+ (UIImage *)gx_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGFloat)size logo:(UIImage *)logo;
++ (UIImage *)gx_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGFloat)outputSize logo:(UIImage *)logo;
 
-/// 生成高清二维码图片（默认大小为430*430）
+
+/// 生成高清二维码图片（默认大小为400*400）
 /// @param content 内容
 + (UIImage *)gx_qrImageByContent:(NSString *)content;
 
@@ -49,7 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param content 内容
 /// @param logo logo，默认放在中间位置
 + (UIImage *)gx_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize logo:(nullable UIImage *)logo;
-
+/// 生成高清二维码
+/// @param content 内容
+/// @param logo logo，默认放在中间位置
++ (UIImage *)gx_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color logo:(nullable UIImage *)logo;
 /// 生成二维码
 /// @param content 内容
 /// @param outputSize 生成尺寸
@@ -66,6 +70,14 @@ NS_ASSUME_NONNULL_BEGIN
  获取二维码内内容
  */
 - (NSString *)gx_getQRCodeContentString;
+/*
+ 1.先对画布进行裁切
+ 2.填充背景颜色
+ 3.执行绘制logo
+ 4.添加并绘制白色边框
+ 5.白色边框的基础上进行绘制黑色分割线
+ */
++ (UIImage *)gx_qrClipCornerRadius:(UIImage *)image withSize:(CGSize)size Radius:(CGFloat)radius FillColor:(UIColor *)fillColor;
 
 @end
 

@@ -10,8 +10,6 @@
 #import "NSObject+CGXRuntime.h"
 #import <objc/runtime.h>
 
-static const char *NSDictionaryM = "__NSDictionaryM";
-
 @implementation NSMutableDictionary (CGXSafe)
 
 + (void)load
@@ -19,14 +17,40 @@ static const char *NSDictionaryM = "__NSDictionaryM";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        [objc_getClass(NSDictionaryM) gx_swizzleClassInstanceMethodWithOriginSel:@selector(setObject:forKey:) swizzleSel:@selector(gx_dictionaryM_setObject:forKey:)];
+        [NSObject gx_swizzleClassInstanceMethodWithOriginSel:@selector(setObject:forKey:) swizzleSel:@selector(gx_dictionaryM_setObject:forKey:)];
+        
+        [NSObject gx_swizzleClassInstanceMethodWithOriginSel:@selector(removeObjectForKey:) swizzleSel:@selector(gx_dictionaryM_removeObjectForKey:)];
+        
+        [NSObject gx_swizzleClassInstanceMethodWithOriginSel:@selector(setObject:forKeyedSubscript:) swizzleSel:@selector(gx_dictionaryM_setObject:forKeyedSubscript:)];
     });
 }
-
 - (void)gx_dictionaryM_setObject:(id)anObject forKey:(id<NSCopying>)aKey
 {
-    if (anObject != nil) {
-        [self gx_dictionaryM_setObject:anObject forKey:aKey];
+    @synchronized (self) {
+        if (anObject && aKey) {
+            [self gx_dictionaryM_setObject:anObject forKey:aKey];
+        } else {
+            NSLog(@"NSMutableDictionary invalid args hookSetObject:[%@] forKey:[%@]", anObject, aKey);
+        }
+    }
+}
+- (void)gx_dictionaryM_removeObjectForKey:(id)aKey {
+    @synchronized (self) {
+        if (aKey) {
+            [self gx_dictionaryM_removeObjectForKey:aKey];
+        } else {
+            NSLog(@"NSMutableDictionary invalid args hookRemoveObjectForKey:[%@]", aKey);
+        }
+    }
+}
+- (void)gx_dictionaryM_setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key
+{
+    @synchronized (self) {
+        if (key){
+            [self gx_dictionaryM_setObject:obj forKeyedSubscript:key];
+        } else {
+            NSLog(@"NSMutableDictionary invalid args hookSetObject:forKeyedSubscript:");
+        }
     }
 }
 

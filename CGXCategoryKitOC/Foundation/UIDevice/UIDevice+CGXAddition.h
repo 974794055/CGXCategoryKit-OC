@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 底部导航栏高度（包括安全区）
 + (CGFloat)gx_tabBarFullHeight;
 
-+ (BOOL)dev_IsIphoneX;
++ (BOOL)gx_IsIphoneX;
 
 @end
 

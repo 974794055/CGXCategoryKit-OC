@@ -54,7 +54,34 @@
     return [[self class] gx_dictionaryByMerging:self with: dict];
 }
 
-
+/**
+ 合并两个字典
+ 
+ @param dict 被合并的字典
+ */
+- (NSDictionary *)gx_mergingWithDictionary:(NSDictionary *)dict
+{
+    if (dict.count == 0) {
+        return self;
+    }
+    if (self.count == 0) {
+        return dict;
+    }
+    
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:self];
+    for (id key in [dict allKeys]) {
+        id obj = [self gx_mutableDictionaryCopyIfNeeded:[dict objectForKey:key]];
+        id localObj = [self gx_mutableDictionaryCopyIfNeeded:[self objectForKey:key]];
+        if ([obj isKindOfClass:[NSDictionary class]] &&
+            [localObj isKindOfClass:[NSMutableDictionary class]]) {
+            // Recursive merge for NSDictionary
+            [localObj gx_mergingWithDictionary:obj];
+        } else if (obj) {
+            [mutableDic setValue:obj forKey:key];
+        }
+    }
+    return (NSDictionary *)mutableDic;
+}
 /**
  合并两个字典
  
@@ -66,12 +93,10 @@
     if (self.count == 0) {
         if (dict.count == 0) {
             return nil;
-        }else
-        {
+        }else{
             return dict;
         }
-    }else
-    {
+    }else{
         if (dict.count == 0) {
             return self;
         }

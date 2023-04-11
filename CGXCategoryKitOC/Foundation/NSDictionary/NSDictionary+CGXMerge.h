@@ -27,6 +27,9 @@
  */
 - (NSDictionary *)gx_dictionaryByMergingWith:(NSDictionary *)dict;
 
+/// 合并两个字典
+/// @param dict 被合并的字典
+- (NSDictionary *)gx_mergingWithDictionary:(NSDictionary *)dict;
 /**
  合并两个字典
  
@@ -37,4 +40,7 @@
 
 /**转成可变型数据，包括里面的字典、数组*/
 - (NSMutableDictionary *)gx_Mutable;
+
+
+
 @end

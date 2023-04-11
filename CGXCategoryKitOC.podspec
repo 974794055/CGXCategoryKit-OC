@@ -106,6 +106,14 @@ Pod::Spec.new do |s|
             sss.source_files = 'CGXCategoryKitOC/Foundation/NSSet/**/*.{h,m}'
             sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
         end
+        ss.subspec 'NSCache' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSCache/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
+        end
+        ss.subspec 'NSOrderedSet' do |sss|
+            sss.source_files = 'CGXCategoryKitOC/Foundation/NSOrderedSet/**/*.{h,m}'
+            sss.dependency 'CGXCategoryKitOC/Foundation/NSObject'
+        end
     end
     s.subspec 'UIKit' do |ss|
         ss.subspec 'UIWindow' do |sss|
