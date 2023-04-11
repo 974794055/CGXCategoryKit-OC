@@ -150,7 +150,9 @@
         make.bottom.equalTo(hhhImageView.mas_bottom).offset(80+kSafeHeight);
     }];
     
-
+    [UIImage gx_requestSizeNoHeader:[NSURL URLWithString:@"https://img2.baidu.com/it/u=787509579,3031904838&fm=253&fmt=auto&app=138&f=PNG?w=1115&h=500"] completion:^(NSURL *imgURL, CGSize size) {
+        NSLog(@"哈哈 %@--%f--%f",imgURL,size.width,size.height);
+    }];
 
 }
 - (void)gx_tapAttributeInLabel:(UILabel *)label
