@@ -51,7 +51,7 @@
     If view is nil, this method instead converts to window base coordinates.
  @return The point converted to the coordinate system of view.
  */
-- (CGPoint)gx_convertPoint:(CGPoint)point toViewOrWindow:(nullable UIView *)view;
+- (CGPoint)gx_convertPoint:(CGPoint)point toViewOrWindow:(UIView *)view;
 
 /**
  Converts a point from the coordinate system of a given view or window to that of the receiver.

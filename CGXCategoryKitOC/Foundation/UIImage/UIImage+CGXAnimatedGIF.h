@@ -26,7 +26,7 @@
     
     For example, suppose the GIF contains three frames.  Frame 0 has duration 3.  Frame 1 has duration 9.  Frame 2 has duration 15.  I divide each duration by the greatest common denominator of all the durations, which is 3, and add each frame the resulting number of times.  Thus `animation` will contain frame 0 3/3 = 1 time, then frame 1 9/3 = 3 times, then frame 2 15/3 = 5 times.  I set `animation.duration` to (3+9+15)/100 = 0.27 seconds.
 */
-+ (nullable UIImage *)gx_animatedImageWithAnimatedGIFData:(NSData *)theData;
++ (UIImage *)gx_animatedImageWithAnimatedGIFData:(NSData *)theData;
 
 /*
         UIImage *image = [UIImage animatedImageWithAnimatedGIFURL:theURL];
@@ -74,7 +74,7 @@
  
  @return A new image create from PDF, or nil when an error occurs.
  */
-+ (nullable UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath;
++ (UIImage *)gx_imageWithPDF:(id)dataOrPath;
 
 /**
  Create an image from a PDF file data or path.
@@ -88,5 +88,5 @@
  
  @return A new image create from PDF, or nil when an error occurs.
  */
-+ (nullable UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath size:(CGSize)size;
++ (UIImage *)gx_imageWithPDF:(id)dataOrPath size:(CGSize)size;
 @end

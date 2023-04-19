@@ -101,7 +101,7 @@
     
     NSDictionary *dataDic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dataArr" ofType:@"plist"]];
     NSLog(@"\n%@",dataDic);
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@",@"14415"];
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@",@"123456789"];
     
     UIImage *logo = [[UIImage imageNamed:@"Placeholder"] gx_imageWithCornerRadius:10 andSize:CGSizeMake(ScreenWidth*0.1, ScreenWidth*0.1)];
     

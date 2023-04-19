@@ -287,11 +287,11 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     fclose(fd);
     return isGIF;
 }
-+ (UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath {
++ (UIImage *)gx_imageWithPDF:(id)dataOrPath {
     return [self gx_imageWithPDF:dataOrPath resize:NO size:CGSizeZero];
 }
 
-+ (UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath size:(CGSize)size {
++ (UIImage *)gx_imageWithPDF:(id)dataOrPath size:(CGSize)size {
     return [self gx_imageWithPDF:dataOrPath resize:YES size:size];
 }
 + (UIImage *)gx_imageWithPDF:(id)dataOrPath resize:(BOOL)resize size:(CGSize)size {

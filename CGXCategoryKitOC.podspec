@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
     s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"
     s.license      = { :type => "MIT", :file => "LICENSE" }
     s.author             = { "974794055" => "974794055@qq.com" }
-    s.platform     = :ios, "11.0"
-    s.ios.deployment_target = '11.0'
+    s.platform     = :ios, "9.0"
+    s.ios.deployment_target = '9.0'
     s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }
     s.requires_arc = true
     s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
