@@ -1,15 +1,15 @@
 Pod::Spec.new do |s|
-    s.name         = "CGXCategoryKitOC"    #存储库名称
-    s.version      = "0.2"      #版本号，与tag值一致
-    s.summary      = "APP的Foundation、UIKit的延展库"  #简介
-    s.description  = "APP的Foundation、UIKit控件延展库)"  #描述
-    s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"      #项目主页，不是git地址
-    s.license      = { :type => "MIT", :file => "LICENSE" }   #开源协议
-    s.author             = { "974794055" => "974794055@qq.com" }  #作者
-    s.platform     = :ios, "9.0"                  #支持的平台和版本号
-    s.ios.deployment_target = '9.0'
-    s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }         #存储库的git地址，以及tag值
-    s.requires_arc = true #是否支持ARC
+    s.name         = "CGXCategoryKitOC"
+    s.version      = "0.2"
+    s.summary      = "APP的Foundation、UIKit的延展库"
+    s.description  = "APP的Foundation、UIKit控件延展库)"
+    s.homepage     = "https://github.com/974794055/CGXCategoryKit-OC"
+    s.license      = { :type => "MIT", :file => "LICENSE" }
+    s.author             = { "974794055" => "974794055@qq.com" }
+    s.platform     = :ios, "11.0"
+    s.ios.deployment_target = '11.0'
+    s.source       = { :git => "https://github.com/974794055/CGXCategoryKit-OC.git", :tag => s.version }
+    s.requires_arc = true
     s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO','Accelerate','CoreServices','SystemConfiguration','AdSupport','CoreLocation','Accelerate','UserNotifications'
     #需要托管的源代码路径
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'

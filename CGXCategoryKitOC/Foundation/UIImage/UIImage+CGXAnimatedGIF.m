@@ -262,4 +262,77 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     return [UIImage animatedImageWithImages:scaledImages duration:self.duration];
 }
 
++ (BOOL)gx_isAnimatedGIFData:(NSData *)data {
+    if (data.length < 16) return NO;
+    UInt32 magic = *(UInt32 *)data.bytes;
+    if ((magic & 0xFFFFFF) != '\0FIG') return NO;
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFTypeRef)data, NULL);
+    if (!source) return NO;
+    size_t count = CGImageSourceGetCount(source);
+    CFRelease(source);
+    return count > 1;
+}
+
++ (BOOL)gx_isAnimatedGIFFile:(NSString *)path {
+    if (path.length == 0) return NO;
+    const char *cpath = path.UTF8String;
+    FILE *fd = fopen(cpath, "rb");
+    if (!fd) return NO;
+    
+    BOOL isGIF = NO;
+    UInt32 magic = 0;
+    if (fread(&magic, sizeof(UInt32), 1, fd) == 1) {
+        if ((magic & 0xFFFFFF) == '\0FIG') isGIF = YES;
+    }
+    fclose(fd);
+    return isGIF;
+}
++ (UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath {
+    return [self gx_imageWithPDF:dataOrPath resize:NO size:CGSizeZero];
+}
+
++ (UIImage *)gx_imageWithPDF:(id _Nonnull)dataOrPath size:(CGSize)size {
+    return [self gx_imageWithPDF:dataOrPath resize:YES size:size];
+}
++ (UIImage *)gx_imageWithPDF:(id)dataOrPath resize:(BOOL)resize size:(CGSize)size {
+    CGPDFDocumentRef pdf = NULL;
+    if ([dataOrPath isKindOfClass:[NSData class]]) {
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)dataOrPath);
+        pdf = CGPDFDocumentCreateWithProvider(provider);
+        CGDataProviderRelease(provider);
+    } else if ([dataOrPath isKindOfClass:[NSString class]]) {
+        pdf = CGPDFDocumentCreateWithURL((__bridge CFURLRef)[NSURL fileURLWithPath:dataOrPath]);
+    }
+    if (!pdf) return nil;
+    
+    CGPDFPageRef page = CGPDFDocumentGetPage(pdf, 1);
+    if (!page) {
+        CGPDFDocumentRelease(pdf);
+        return nil;
+    }
+    
+    CGRect pdfRect = CGPDFPageGetBoxRect(page, kCGPDFCropBox);
+    CGSize pdfSize = resize ? size : pdfRect.size;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(NULL, pdfSize.width * scale, pdfSize.height * scale, 8, 0, colorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    if (!ctx) {
+        CGColorSpaceRelease(colorSpace);
+        CGPDFDocumentRelease(pdf);
+        return nil;
+    }
+    
+    CGContextScaleCTM(ctx, scale, scale);
+    CGContextTranslateCTM(ctx, -pdfRect.origin.x, -pdfRect.origin.y);
+    CGContextDrawPDFPage(ctx, page);
+    CGPDFDocumentRelease(pdf);
+    
+    CGImageRef image = CGBitmapContextCreateImage(ctx);
+    UIImage *pdfImage = [[UIImage alloc] initWithCGImage:image scale:scale orientation:UIImageOrientationUp];
+    CGImageRelease(image);
+    CGContextRelease(ctx);
+    CGColorSpaceRelease(colorSpace);
+    
+    return pdfImage;
+}
 @end
