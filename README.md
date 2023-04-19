@@ -10,7 +10,7 @@
 -  QQ号：974794055
 -  群名称：
 -  群   号：
--  版本： 0.2
+-  版本： 0.2.1
 ## 功能：    
 -  Foundation、UIKit、UIControl、CoreLocation、QuartzCored等延展
  ## 优点：

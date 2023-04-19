@@ -44,7 +44,8 @@ PODS:
   - CGXCategoryKitOC/Foundation/NSCache (0.2):
     - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSCalendar (0.2)
-  - CGXCategoryKitOC/Foundation/NSData (0.2)
+  - CGXCategoryKitOC/Foundation/NSData (0.2):
+    - CGXCategoryKitOC/Foundation/NSObject
   - CGXCategoryKitOC/Foundation/NSDate (0.2):
     - CGXCategoryKitOC/Foundation/NSCalendar
     - CGXCategoryKitOC/Tools
@@ -150,9 +151,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryKitOC: 77dcbf8f195d1a996c69033b0cee6c8acafbca6b
+  CGXCategoryKitOC: d13e1378a6db6365efb757d0e884e37af99d53d0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 9177dccd9712366f066ab87344256913e3864fa4
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

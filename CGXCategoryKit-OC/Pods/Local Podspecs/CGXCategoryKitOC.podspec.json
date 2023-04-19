@@ -130,7 +130,12 @@
         },
         {
           "name": "NSData",
-          "source_files": "CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}"
+          "source_files": "CGXCategoryKitOC/Foundation/NSData/**/*.{h,m}",
+          "dependencies": {
+            "CGXCategoryKitOC/Foundation/NSObject": [
+
+            ]
+          }
         },
         {
           "name": "NSNumber",

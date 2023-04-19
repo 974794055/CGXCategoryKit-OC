@@ -53,9 +53,9 @@ NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
         
         [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceCharactersInRange:withAttributedString:) swizzleSel:@selector(gx_hook_ReplaceCharactersInRange:withAttributedString:)];
         
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttribute:inRange:options:usingBlock:) swizzleSel:@selector(gx_hook_EnumerateAttributesInRange:options:usingBlock:)];
+        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttribute:inRange:options:usingBlock:) swizzleSel:@selector(gx_hook_enumerateAttribute:inRange:options:usingBlock:)];
         
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttributesInRange:options:usingBlock:) swizzleSel:@selector(gx_hook_EnumerateAttributesInRange:options:usingBlock:)];
+        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttributesInRange:options:usingBlock:) swizzleSel:@selector(gx_hook_enumerateAttributesInRange:options:usingBlock:)];
         
         
     });
@@ -188,23 +188,23 @@ NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
         }
     }
 }
-- (void)gx_hook_EnumerateAttribute:(NSString*)attrName inRange:(NSRange)range options:(NSAttributedStringEnumerationOptions)opts usingBlock:(void (^)(id _Nullable, NSRange, BOOL * _Nonnull))block
+- (void)gx_hook_enumerateAttribute:(NSString*)attrName inRange:(NSRange)range options:(NSAttributedStringEnumerationOptions)opts usingBlock:(void (^)(id _Nullable, NSRange, BOOL * _Nonnull))block
 {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length) {
-            [self gx_hook_EnumerateAttribute:attrName inRange:range options:opts usingBlock:block];
+            [self gx_hook_enumerateAttribute:attrName inRange:range options:opts usingBlock:block];
         }else if (range.location < self.length){
-            [self gx_hook_EnumerateAttribute:attrName inRange:NSMakeRange(range.location, self.length-range.location) options:opts usingBlock:block];
+            [self gx_hook_enumerateAttribute:attrName inRange:NSMakeRange(range.location, self.length-range.location) options:opts usingBlock:block];
         }
     }
 }
-- (void)gx_hook_EnumerateAttributesInRange:(NSRange)range options:(NSAttributedStringEnumerationOptions)opts usingBlock:(void (^)(NSDictionary<NSString*,id> * _Nonnull, NSRange, BOOL * _Nonnull))block
+- (void)gx_hook_enumerateAttributesInRange:(NSRange)range options:(NSAttributedStringEnumerationOptions)opts usingBlock:(void (^)(NSDictionary<NSString*,id> * _Nonnull, NSRange, BOOL * _Nonnull))block
 {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length) {
-            [self gx_hook_EnumerateAttributesInRange:range options:opts usingBlock:block];
+            [self gx_hook_enumerateAttributesInRange:range options:opts usingBlock:block];
         }else if (range.location < self.length){
-            [self gx_hook_EnumerateAttributesInRange:NSMakeRange(range.location, self.length-range.location) options:opts usingBlock:block];
+            [self gx_hook_enumerateAttributesInRange:NSMakeRange(range.location, self.length-range.location) options:opts usingBlock:block];
         }
     }
 }
