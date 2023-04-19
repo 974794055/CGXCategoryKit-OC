@@ -17,7 +17,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
     NSArray *arr1 = [[NSArray alloc] init];
     NSArray *arr4 = [[NSArray alloc] initWithObjects:@0, @1, @2, nil];
     NSLog(@"arr1: %s --%@", object_getClassName(arr1),arr1[1]);

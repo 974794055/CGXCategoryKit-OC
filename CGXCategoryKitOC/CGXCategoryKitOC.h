@@ -17,7 +17,6 @@
 #ifndef CGXCategoryKitOC_h
 #define CGXCategoryKitOC_h
 
-
 // ****  CLLocation   **** /
 #import "CLLocation+CGXCH1903.h"
 #import "CLLocation+CGXConverter.h"

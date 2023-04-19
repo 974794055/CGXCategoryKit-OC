@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
     s.source_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
     #开源库头文件
     s.public_header_files = 'CGXCategoryKitOC/CGXCategoryKitOC.h'
-    
     s.subspec 'Tools' do |ss|
         ss.source_files = 'CGXCategoryKitOC/Tools/**/*.{h,m}'
     end
