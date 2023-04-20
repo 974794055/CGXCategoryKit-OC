@@ -30,158 +30,153 @@ NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        /* init方法 */
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(initWithString:) swizzleSel:@selector(gx_hook_InitWithString:)];
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(initWithString:attributes:) swizzleSel:@selector(gx_hook_InitWithString:attributes:)];
+       SEL selectorsNSArray0[13] = {
+           @selector(initWithString:),
+           @selector(initWithString:attributes:),
         
-        /* 普通方法 */
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(attributedSubstringFromRange:) swizzleSel:@selector(gx_hook_AttributedSubstringFromRange:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(attribute:atIndex:effectiveRange:) swizzleSel:@selector(gx_hook_Attribute:atIndex:effectiveRange:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(addAttribute:value:range:) swizzleSel:@selector(gx_hook_AddAttribute:value:range:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(addAttributes:range:) swizzleSel:@selector(gx_hook_AddAttributes:range:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(setAttributes:range:) swizzleSel:@selector(gx_hook_SetAttributes:range:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(removeAttribute:range:) swizzleSel:@selector(gx_hook_RemoveAttribute:range:)];
-
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(deleteCharactersInRange:) swizzleSel:@selector(gx_hook_DeleteCharactersInRange:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceCharactersInRange:withString:) swizzleSel:@selector(gx_hook_ReplaceCharactersInRange:withString:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceCharactersInRange:withAttributedString:) swizzleSel:@selector(gx_hook_ReplaceCharactersInRange:withAttributedString:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttribute:inRange:options:usingBlock:) swizzleSel:@selector(gx_hook_enumerateAttribute:inRange:options:usingBlock:)];
-        
-        [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:@selector(enumerateAttributesInRange:options:usingBlock:) swizzleSel:@selector(gx_hook_enumerateAttributesInRange:options:usingBlock:)];
-        
-        
+           @selector(attributedSubstringFromRange:),
+           @selector(attribute:atIndex:effectiveRange:),
+           
+           @selector(addAttribute:value:range:),
+           @selector(addAttributes:range:),
+           @selector(setAttributes:range:),
+           @selector(removeAttribute:range:),
+           @selector(deleteCharactersInRange:),
+           
+           @selector(replaceCharactersInRange:withString:),
+           @selector(replaceCharactersInRange:withAttributedString:),
+           @selector(enumerateAttribute:inRange:options:usingBlock:),
+           @selector(enumerateAttributesInRange:options:usingBlock:)
+       };
+       for (int i = 0; i < 13;  i++) {
+           SEL selector = selectorsNSArray0[i];
+           NSString *newSelectorStr = [[NSString stringWithFormat:@"gx_hook_%@", NSStringFromSelector(selector)] stringByReplacingOccurrencesOfString:@"__" withString:@"_"];
+           [NSClassFromString(@"NSConcreteMutableAttributedString") gx_swizzleClassInstanceMethodWithOriginSel:selector swizzleSel:NSSelectorFromString(newSelectorStr)];
+       }
     });
 }
-- (instancetype)gx_hook_InitWithString:(NSString *)str {
+- (instancetype)gx_hook_initWithString:(NSString *)str {
     if (str){
-        return [self gx_hook_InitWithString:str];
+        return [self gx_hook_initWithString:str];
     }
     return nil;
 }
-- (instancetype)gx_hook_InitWithString:(NSString *)str attributes:(NSDictionary<NSAttributedStringKey,id> *)attrs
+- (instancetype)gx_hook_initWithString:(NSString *)str attributes:(NSDictionary<NSAttributedStringKey,id> *)attrs
 {
     if (str){
-        return [self gx_hook_InitWithString:str attributes:attrs];
+        return [self gx_hook_initWithString:str attributes:attrs];
     }
     return nil;
 }
-- (NSAttributedString *)gx_hook_AttributedSubstringFromRange:(NSRange)range {
+- (NSAttributedString *)gx_hook_attributedSubstringFromRange:(NSRange)range {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length) {
-            return [self gx_hook_AttributedSubstringFromRange:range];
+            return [self gx_hook_attributedSubstringFromRange:range];
         }else if (range.location < self.length){
-            return [self gx_hook_AttributedSubstringFromRange:NSMakeRange(range.location, self.length-range.location)];
+            return [self gx_hook_attributedSubstringFromRange:NSMakeRange(range.location, self.length-range.location)];
         }
         return nil;
     }
 }
-- (id)gx_hook_Attribute:(NSAttributedStringKey)attrName atIndex:(NSUInteger)location effectiveRange:(nullable NSRangePointer)range
+- (id)gx_hook_attribute:(NSAttributedStringKey)attrName atIndex:(NSUInteger)location effectiveRange:(nullable NSRangePointer)range
 {
     @synchronized (self) {
         if (location < self.length){
-            return [self gx_hook_Attribute:attrName atIndex:location effectiveRange:range];
+            return [self gx_hook_attribute:attrName atIndex:location effectiveRange:range];
         }else{
             return nil;
         }
     }
 }
-- (void)gx_hook_AddAttribute:(id)name value:(id)value range:(NSRange)range {
+- (void)gx_hook_addAttribute:(id)name value:(id)value range:(NSRange)range {
     @synchronized (self) {
         if (!range.length) {
-            [self gx_hook_AddAttribute:name value:value range:range];
+            [self gx_hook_addAttribute:name value:value range:range];
         }else if (value){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_AddAttribute:name value:value range:range];
+                [self gx_hook_addAttribute:name value:value range:range];
             }else if (range.location < self.length){
-                [self gx_hook_AddAttribute:name value:value range:NSMakeRange(range.location, self.length-range.location)];
+                [self gx_hook_addAttribute:name value:value range:NSMakeRange(range.location, self.length-range.location)];
             }
         }else {
             NSLog(@"gx_hook_AddAttribute:value:range: value is nil");
         }
     }
 }
-- (void)gx_hook_AddAttributes:(NSDictionary<NSString *,id> *)attrs range:(NSRange)range {
+- (void)gx_hook_addAttributes:(NSDictionary<NSString *,id> *)attrs range:(NSRange)range {
     @synchronized (self) {
         if (!range.length) {
-            [self gx_hook_AddAttributes:attrs range:range];
+            [self gx_hook_addAttributes:attrs range:range];
         }else if (attrs){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_AddAttributes:attrs range:range];
+                [self gx_hook_addAttributes:attrs range:range];
             }else if (range.location < self.length){
-                [self gx_hook_AddAttributes:attrs range:NSMakeRange(range.location, self.length-range.location)];
+                [self gx_hook_addAttributes:attrs range:NSMakeRange(range.location, self.length-range.location)];
             }
         }else{
             NSLog(@"gx_hook_AddAttributes:range: attrs is nil");
         }
     }
 }
-- (void)gx_hook_SetAttributes:(NSDictionary<NSString *,id> *)attrs range:(NSRange)range {
+- (void)gx_hook_setAttributes:(NSDictionary<NSString *,id> *)attrs range:(NSRange)range {
     @synchronized (self) {
         if (!range.length) {
-            [self gx_hook_SetAttributes:attrs range:range];
+            [self gx_hook_setAttributes:attrs range:range];
         }else if (attrs){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_SetAttributes:attrs range:range];
+                [self gx_hook_setAttributes:attrs range:range];
             }else if (range.location < self.length){
-                [self gx_hook_SetAttributes:attrs range:NSMakeRange(range.location, self.length-range.location)];
+                [self gx_hook_setAttributes:attrs range:NSMakeRange(range.location, self.length-range.location)];
             }
         }else{
             NSLog(@"gx_hook_SetAttributes:range:  attrs is nil");
         }
     }
 }
-- (void)gx_hook_RemoveAttribute:(id)name range:(NSRange)range {
+- (void)gx_hook_removeAttribute:(id)name range:(NSRange)range {
     @synchronized (self) {
         if (!range.length) {
-            [self gx_hook_RemoveAttribute:name range:range];
+            [self gx_hook_removeAttribute:name range:range];
         }else if (name){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_RemoveAttribute:name range:range];
+                [self gx_hook_removeAttribute:name range:range];
             }else if (range.location < self.length) {
-                [self gx_hook_RemoveAttribute:name range:NSMakeRange(range.location, self.length-range.location)];
+                [self gx_hook_removeAttribute:name range:NSMakeRange(range.location, self.length-range.location)];
             }
         }else{
             NSLog(@"gx_hook_RemoveAttribute:range:  name is nil");
         }
     }
 }
-- (void)gx_hook_DeleteCharactersInRange:(NSRange)range {
+- (void)gx_hook_deleteCharactersInRange:(NSRange)range {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length) {
-            [self gx_hook_DeleteCharactersInRange:range];
+            [self gx_hook_deleteCharactersInRange:range];
         }else if (range.location < self.length) {
-            [self gx_hook_DeleteCharactersInRange:NSMakeRange(range.location, self.length-range.location)];
+            [self gx_hook_deleteCharactersInRange:NSMakeRange(range.location, self.length-range.location)];
         }
     }
 }
-- (void)gx_hook_ReplaceCharactersInRange:(NSRange)range withString:(NSString *)str {
+- (void)gx_hook_replaceCharactersInRange:(NSRange)range withString:(NSString *)str {
     @synchronized (self) {
         if (str){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_ReplaceCharactersInRange:range withString:str];
+                [self gx_hook_replaceCharactersInRange:range withString:str];
             }else if (range.location < self.length) {
-                [self gx_hook_ReplaceCharactersInRange:NSMakeRange(range.location, self.length-range.location) withString:str];
+                [self gx_hook_replaceCharactersInRange:NSMakeRange(range.location, self.length-range.location) withString:str];
             }
         }else{
             NSLog(@"gx_hook_ReplaceCharactersInRange:withString:  str is nil");
         }
     }
 }
-- (void)gx_hook_ReplaceCharactersInRange:(NSRange)range withAttributedString:(NSString *)str {
+- (void)gx_hook_replaceCharactersInRange:(NSRange)range withAttributedString:(NSString *)str {
     @synchronized (self) {
         if (str){
             if (NSSafeMaxRange(range) <= self.length) {
-                [self gx_hook_ReplaceCharactersInRange:range withAttributedString:str];
+                [self gx_hook_replaceCharactersInRange:range withAttributedString:str];
             }else if (range.location < self.length) {
-                [self gx_hook_ReplaceCharactersInRange:NSMakeRange(range.location, self.length-range.location) withAttributedString:str];
+                [self gx_hook_replaceCharactersInRange:NSMakeRange(range.location, self.length-range.location) withAttributedString:str];
             }
         }else{
             NSLog(@"gx_hook_ReplaceCharactersInRange:withString:  str is nil");

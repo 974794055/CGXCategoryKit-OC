@@ -34,53 +34,47 @@ NS_INLINE NSUInteger NSSafeMaxRange(NSRange range) {
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-       
-        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(resetBytesInRange:) swizzleSel:@selector(hookResetBytesInRange:)];
-        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:) swizzleSel:@selector(hookReplaceBytesInRange:withBytes:)];
-        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:length:) swizzleSel:@selector(hookReplaceBytesInRange:withBytes:length:)];
+        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(resetBytesInRange:) swizzleSel:@selector(gx_hook_resetBytesInRange:)];
+        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:) swizzleSel:@selector(gx_hook_replaceBytesInRange:withBytes:)];
+        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:length:) swizzleSel:@selector(gx_hook_replaceBytesInRange:withBytes:length:)];
         
-        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(resetBytesInRange:) swizzleSel:@selector(hookResetBytesInRange:)];
-        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:) swizzleSel:@selector(hookReplaceBytesInRange:withBytes:)];
-        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:length:) swizzleSel:@selector(hookReplaceBytesInRange:withBytes:length:)];
-        
-        
-        
+        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(resetBytesInRange:) swizzleSel:@selector(gx_hook_resetBytesInRange:)];
+        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:) swizzleSel:@selector(gx_hook_replaceBytesInRange:withBytes:)];
+        [NSClassFromString(@"__NSCFData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(replaceBytesInRange:withBytes:length:) swizzleSel:@selector(gx_hook_replaceBytesInRange:withBytes:length:)];
     });
 }
 
-- (void)hookResetBytesInRange:(NSRange)range
+- (void)gx_hook_resetBytesInRange:(NSRange)range
 {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length){
-            [self hookResetBytesInRange:range];
+            [self gx_hook_resetBytesInRange:range];
         }else if (range.location < self.length){
-            [self hookResetBytesInRange:NSMakeRange(range.location, self.length-range.location)];
+            [self gx_hook_resetBytesInRange:NSMakeRange(range.location, self.length-range.location)];
         }
     }
 }
-
-- (void)hookReplaceBytesInRange:(NSRange)range withBytes:(const void *)bytes
+- (void)gx_hook_replaceBytesInRange:(NSRange)range withBytes:(const void *)bytes
 {
     @synchronized (self) {
         if (bytes){
             if (range.location <= self.length) {
-                [self hookReplaceBytesInRange:range withBytes:bytes];
+                [self gx_hook_replaceBytesInRange:range withBytes:bytes];
             }else {
-                NSLog(@"hookReplaceBytesInRange:withBytes: range.location error");
+                NSLog(@"gx_hook_replaceBytesInRange:withBytes: range.location error");
             }
         }else if (!NSEqualRanges(range, NSMakeRange(0, 0))){
-            NSLog(@"hookReplaceBytesInRange:withBytes: bytes is nil");
+            NSLog(@"gx_hook_replaceBytesInRange:withBytes: bytes is nil");
         }
     }
 }
-
-- (void)hookReplaceBytesInRange:(NSRange)range withBytes:(const void *)bytes length:(NSUInteger)replacementLength
+- (void)gx_hook_replaceBytesInRange:(NSRange)range withBytes:(const void *)bytes length:(NSUInteger)replacementLength
 {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length) {
-            [self hookReplaceBytesInRange:range withBytes:bytes length:replacementLength];
+            [self gx_hook_replaceBytesInRange:range withBytes:bytes length:replacementLength];
         }else if (range.location < self.length){
-            [self hookReplaceBytesInRange:NSMakeRange(range.location, self.length - range.location) withBytes:bytes length:replacementLength];
+            [self gx_hook_replaceBytesInRange:NSMakeRange(range.location, self.length - range.location) withBytes:bytes length:replacementLength];
         }
     }
 }

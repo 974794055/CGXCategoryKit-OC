@@ -37,49 +37,49 @@ static const char *NSCFData = "__NSCFData";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        [NSClassFromString(@"NSConcreteData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(hookSubdataWithRange:)];
-        [NSClassFromString(@"NSConcreteData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(hookRangeOfData:options:range:)];
+        [NSClassFromString(@"NSConcreteData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(gx_hook_subdataWithRange:)];
+        [NSClassFromString(@"NSConcreteData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(gx_hook_hookRangeOfData:options:range:)];
         
-        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(hookSubdataWithRange:)];
-        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(hookRangeOfData:options:range:)];
+        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(gx_hook_subdataWithRange:)];
+        [NSClassFromString(@"NSConcreteMutableData") gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(gx_hook_hookRangeOfData:options:range:)];
 
         
-        [objc_getClass(NSZeroData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(hookSubdataWithRange:)];
-        [objc_getClass(NSZeroData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(hookRangeOfData:options:range:)];
+        [objc_getClass(NSZeroData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(gx_hook_subdataWithRange:)];
+        [objc_getClass(NSZeroData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(gx_hook_hookRangeOfData:options:range:)];
         
-        [objc_getClass(NSInlineData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(hookSubdataWithRange:)];
-        [objc_getClass(NSInlineData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(hookRangeOfData:options:range:)];
+        [objc_getClass(NSInlineData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(gx_hook_subdataWithRange:)];
+        [objc_getClass(NSInlineData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(gx_hook_hookRangeOfData:options:range:)];
         
         
-        [objc_getClass(NSCFData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(hookSubdataWithRange:)];
-        [objc_getClass(NSCFData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(hookRangeOfData:options:range:)];
+        [objc_getClass(NSCFData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(subdataWithRange:) swizzleSel:@selector(gx_hook_subdataWithRange:)];
+        [objc_getClass(NSCFData) gx_swizzleClassInstanceMethodWithOriginSel:@selector(rangeOfData:options:range:) swizzleSel:@selector(gx_hook_hookRangeOfData:options:range:)];
         
     });
 }
-- (NSData*)hookSubdataWithRange:(NSRange)range
+- (NSData*)gx_hook_subdataWithRange:(NSRange)range
 {
     @synchronized (self) {
         if (NSSafeMaxRange(range) <= self.length){
-            return [self hookSubdataWithRange:range];
+            return [self gx_hook_subdataWithRange:range];
         }else if (range.location < self.length){
-            return [self hookSubdataWithRange:NSMakeRange(range.location, self.length-range.location)];
+            return [self gx_hook_subdataWithRange:NSMakeRange(range.location, self.length-range.location)];
         }
         return nil;
     }
 }
 
-- (NSRange)hookRangeOfData:(NSData *)dataToFind options:(NSDataSearchOptions)mask range:(NSRange)range
+- (NSRange)gx_hook_hookRangeOfData:(NSData *)dataToFind options:(NSDataSearchOptions)mask range:(NSRange)range
 {
     @synchronized (self) {
         if (dataToFind){
             if (NSSafeMaxRange(range) <= self.length) {
-                return [self hookRangeOfData:dataToFind options:mask range:range];
+                return [self gx_hook_hookRangeOfData:dataToFind options:mask range:range];
             }else if (range.location < self.length){
-                return [self hookRangeOfData:dataToFind options:mask range:NSMakeRange(range.location, self.length - range.location) ];
+                return [self gx_hook_hookRangeOfData:dataToFind options:mask range:NSMakeRange(range.location, self.length - range.location) ];
             }
             return NSMakeRange(NSNotFound, 0);
         }else{
-            NSLog(@"hookRangeOfData:options:range: dataToFind is nil");
+            NSLog(@"gx_hook_hookRangeOfData:options:range: dataToFind is nil");
             return NSMakeRange(NSNotFound, 0);
         }
     }
