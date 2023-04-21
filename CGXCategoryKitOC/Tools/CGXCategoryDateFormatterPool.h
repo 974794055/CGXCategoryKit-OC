@@ -10,6 +10,33 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_OPTIONS (NSUInteger, CGXDateFormatterType) {
+    /// 年:月:日 时:分:秒
+    CGXDateFormatterType_YMDHMS,
+    /// 年:月:日 时:分
+    CGXDateFormatterType_YMDHM,
+    /// 年:月:日 时
+    CGXDateFormatterType_YMDH,
+    /// 年:月:日
+    CGXDateFormatterType_YMD,
+    /// 年/月/日 时:分:秒
+    CGXDateFormatterType_YMDHMS1,
+    /// 年/月/日 时:分
+    CGXDateFormatterType_YMDHM1,
+    /// 年/月/日 时
+    CGXDateFormatterType_YMDH1,
+    /// 年/月/日
+    CGXDateFormatterType_YMD1,
+    /// 年-月-日 时:分:秒
+    CGXDateFormatterType_YMDHMS2,
+    /// 年-月-日 时:分
+    CGXDateFormatterType_YMDHM2,
+    /// 年-月-日 时
+    CGXDateFormatterType_YMDH2,
+    /// 年-月-日
+    CGXDateFormatterType_YMD2,
+};
+
 @interface CGXCategoryDateFormatterPool : NSObject
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -27,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return NSDateFormatter
  */
 - (NSDateFormatter *)gx_dateFormatterWithFormat:(NSString *)format;
-
+- (NSDateFormatter *)gx_dateFormatterWithFormatType:(CGXDateFormatterType)format;
 /**
  Get date formatter by format string, localeIdentifier, timeZoneName.
 
@@ -39,6 +66,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDateFormatter *)gx_dateFormatterWithFormat:(NSString *)format
                                localeIdentifier:(nullable NSString *)identifier
                                    timeZoneName:(nullable NSString *)timeZoneName;
+
+- (NSDateFormatter *)gx_dateFormatterWithFormatType:(CGXDateFormatterType)format
+                               localeIdentifier:(nullable NSString *)identifier
+                                   timeZoneName:(nullable NSString *)timeZoneName;
+// 日期格式 yy年MM月dd日 HH:mm:ss
+- (NSString *)dateFormatStr:(CGXDateFormatterType)format;
+
 @end
 
 NS_ASSUME_NONNULL_END

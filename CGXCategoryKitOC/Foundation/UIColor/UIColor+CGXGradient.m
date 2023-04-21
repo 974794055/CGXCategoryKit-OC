@@ -37,4 +37,44 @@
     
     return [UIColor colorWithPatternImage:image];
 }
+
++ (UIColor *)gx_colorGradientChangeWithSize:(CGSize)size
+                                  direction:(CGXGradientColorDirection)direction
+                                 startColor:(UIColor*)startcolor
+                                   endColor:(UIColor*)endColor{
+    if(CGSizeEqualToSize(size,CGSizeZero) || !startcolor || !endColor) {
+        return [UIColor clearColor];
+    }
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame=CGRectMake(0,0, size.width, size.height);
+    CGPoint startPoint = CGPointZero;
+    if (direction == CGXGradientColorDirectionDiagonalLineDown) {
+        startPoint = CGPointMake(0.0,1.0);
+    }
+    gradientLayer.startPoint = startPoint;
+    CGPoint endPoint = CGPointZero;
+    switch(direction) {
+        case CGXGradientColorDirectionLevel:
+            endPoint = CGPointMake(1.0,0.0);
+            break;
+        case CGXGradientColorDirectionVertical:
+            endPoint = CGPointMake(0.0,1.0);
+            break;
+        case CGXGradientColorDirectionDiagonalLineUp:
+            endPoint = CGPointMake(1.0,1.0);
+            break;
+        case CGXGradientColorDirectionDiagonalLineDown:
+            endPoint = CGPointMake(1.0,0.0);
+            break;
+        default:
+            break;
+    }
+    gradientLayer.endPoint = endPoint;
+    gradientLayer.colors = @[(id)startcolor.CGColor, (id)endColor.CGColor];
+    UIGraphicsBeginImageContext(size);
+    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return [UIColor colorWithPatternImage:image];
+}
 @end

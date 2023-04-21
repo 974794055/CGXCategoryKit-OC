@@ -287,6 +287,7 @@
 #import "NSString+CGXTrims.h"
 #import "NSString+CGXUUID.h"
 #import "NSString+CGXSafe.h"
+#import "NSString+CGXCalculate.h"
 
 // ****  NSUserDefaults   **** /
 #import "NSUserDefaults+CGXExtension.h"

@@ -29,6 +29,12 @@ static dispatch_semaphore_t _cahcePoolLook;
                            localeIdentifier:@"zh_CN"
                                timeZoneName:@"Asia/Beijing"];
 }
+- (NSDateFormatter *)gx_dateFormatterWithFormatType:(CGXDateFormatterType)format
+{
+    return [self gx_dateFormatterWithFormat:[self dateFormatStr:format]
+                           localeIdentifier:@"zh_CN"
+                               timeZoneName:@"Asia/Beijing"];
+}
 #pragma mark < Basic Method >
 - (NSDateFormatter *)gx_dateFormatterWithFormat:(NSString *)format
                                localeIdentifier:(nullable NSString *)identifier
@@ -47,7 +53,14 @@ static dispatch_semaphore_t _cahcePoolLook;
     }
     return formatter;
 }
-
+- (NSDateFormatter *)gx_dateFormatterWithFormatType:(CGXDateFormatterType)format
+                               localeIdentifier:(nullable NSString *)identifier
+                                   timeZoneName:(nullable NSString *)timeZoneName
+{
+    return [self gx_dateFormatterWithFormat:[self dateFormatStr:format]
+                           localeIdentifier:identifier
+                               timeZoneName:timeZoneName];
+}
 - (NSDateFormatter *)creatBeijingformatter
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
@@ -59,4 +72,47 @@ static dispatch_semaphore_t _cahcePoolLook;
     return formatter;;
 }
 
+- (NSString *)dateFormatStr:(CGXDateFormatterType)format
+{
+    NSString *dateFormatStr = @"yy年MM月dd日 HH:mm:ss";;
+    switch (format) {
+        case CGXDateFormatterType_YMDHMS:
+            dateFormatStr = @"yy年MM月dd日 HH:mm:ss";
+            break;
+        case CGXDateFormatterType_YMDHM:
+            dateFormatStr = @"yy年MM月dd日 HH:mm";
+            break;
+        case CGXDateFormatterType_YMDH:
+            dateFormatStr = @"yy年MM月dd日 HH";
+            break;
+        case CGXDateFormatterType_YMD:
+            dateFormatStr = @"yy年MM月dd日";
+            break;
+        case CGXDateFormatterType_YMDHMS1:
+            dateFormatStr = @"yy/MM/dd HH:mm:ss";
+            break;
+        case CGXDateFormatterType_YMDHM1:
+            dateFormatStr = @"yy/MM/dd HH:mm";
+            break;
+        case CGXDateFormatterType_YMDH1:
+            dateFormatStr = @"yy/MM/dd HH";
+            break;
+        case CGXDateFormatterType_YMD1:
+            dateFormatStr = @"yy/MM/dd";
+            break;
+        case CGXDateFormatterType_YMDHMS2:
+            dateFormatStr = @"yy-MM-dd HH:mm:ss";
+            break;
+        case CGXDateFormatterType_YMDHM2:
+            dateFormatStr = @"yy-MM-dd HH:mm";
+            break;
+        case CGXDateFormatterType_YMDH2:
+            dateFormatStr = @"yy-MM-dd HH";
+            break;
+        case CGXDateFormatterType_YMD2:
+            dateFormatStr = @"yy-MM-dd";
+            break;
+    }
+    return  dateFormatStr;
+}
 @end

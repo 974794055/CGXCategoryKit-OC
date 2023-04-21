@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 //显示加载网页的进度条
 - (void)gx_progressWKWebViewWithColor:(UIColor *)color;
 
++ (void)gx_clearAllWebCache;
+
+/**
+ 网页截长图
+ */
+- (void)gx_screenshotsImage:(void(^)(UIImage *_Nullable image))handler;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -112,6 +112,62 @@
     result = [NSNumber numberWithDouble:[[formatter  stringFromNumber:self] doubleValue]];
     return result;
 }
+
+- (NSComparisonResult)gx_numberCompare:(NSNumber *)number{
+    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:self.stringValue];
+    NSDecimalNumber *compareNumber = [NSDecimalNumber decimalNumberWithString:number.stringValue];
+    
+    return [selfNumber compare:compareNumber];
+}
+
+- (NSNumber *)gx_adding:(NSNumber *)number{
+    NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:self.stringValue];
+    NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:number.stringValue];
+    
+    return [number1 decimalNumberByAdding:number2];
+}
+
+- (NSNumber *)gx_subtracting:(NSNumber *)number{
+    NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:self.stringValue];
+    NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:number.stringValue];
+    
+    return [number1 decimalNumberBySubtracting:number2];
+}
+
+- (NSNumber *)gx_multiplying:(NSNumber *)number{
+    NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:self.stringValue];
+    NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:number.stringValue];
+    
+    return [number1 decimalNumberByMultiplyingBy:number2];
+}
+
+- (NSNumber *)gx_dividing:(NSNumber *)number{
+    NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:self.stringValue];
+    NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:number.stringValue];
+    
+    return [number1 decimalNumberByDividingBy:number2];
+}
+
+- (NSString *)gx_decimalDigit:(int)digit{
+    return  [self gx_decimalHasDigit:digit Mode:NSNumberFormatterRoundHalfUp HasComma:true];
+}
+
+- (NSString *)gx_decimalDigitParam:(int)digit{
+    return  [self gx_decimalHasDigit:digit Mode:NSNumberFormatterRoundHalfUp HasComma:false];
+}
+
+- (NSString *)gx_decimalHasDigit:(int)digit
+                         Mode:(NSNumberFormatterRoundingMode)mode
+                     HasComma:(BOOL)hasComma{
+    NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
+    format.numberStyle = hasComma == true? NSNumberFormatterDecimalStyle : NSNumberFormatterNoStyle;
+    format.minimumFractionDigits = digit;
+    format.maximumFractionDigits = digit;
+    format.formatterBehavior = NSNumberFormatterBehaviorDefault;
+    format.roundingMode = mode;
+    
+    return  [format stringFromNumber:self];
+}
 @end
 
 
