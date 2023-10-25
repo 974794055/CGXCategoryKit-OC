@@ -8,123 +8,44 @@
 #import "NSObject+CGXSafe.h"
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
-
-@implementation UIWindow (CGXSafe)
-
-+ (UIViewController *)gx_objectSafeTopViewController {
-    return [self gx_privateObjectSafeGetVisibleViewControllerFrom:UIApplication.sharedApplication.keyWindow.rootViewController];
-}
-
-+ (UIViewController *)gx_privateObjectSafeGetVisibleViewControllerFrom:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:UINavigationController.class]) {
-        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UINavigationController *)viewController visibleViewController]];
-    } else if ([viewController isKindOfClass:UITabBarController.class]) {
-        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UITabBarController *)viewController selectedViewController]];
-    } else if ([viewController isKindOfClass:UISplitViewController.class]) {
-        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UISplitViewController *)viewController viewControllers].lastObject];
-    } else {
-        if (viewController.presentedViewController) {
-            return [self gx_privateObjectSafeGetVisibleViewControllerFrom:viewController.presentedViewController];
-        } else {
-            return viewController;
-        }
-    }
-}
-
-@end
-
-static NSString *_errorFoundationName;
-
-void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
-#ifdef DEBUG
-    NSString *className = NSStringFromClass([self class]);
-    NSString *errMsg = [NSString stringWithFormat:@"异常类名：%@\n异常方法名：%@", className, _errorFoundationName];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"debug，方法缺失异常" message:errMsg preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"秒懂" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:action];
-    [[UIWindow gx_objectSafeTopViewController] presentViewController:alert animated:YES completion:nil];
-#else
-    // debug handle, not handle at release, catch
-#endif
-}
-
+#import "NSObject+CGXRuntime.h"
 @implementation NSObject (CGXSafe)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+ 
+        [self gx_swizzleClassInstanceMethodWithOriginSel:@selector(addObserver:forKeyPath:options:context:)
+                                              swizzleSel:@selector(gx_object_hook_AddObserver:forKeyPath:options:context:)];
+        
+        [self gx_swizzleClassInstanceMethodWithOriginSel:@selector(removeObserver:forKeyPath:)
+                                              swizzleSel:@selector(gx_object_hook_removeObserver:forKeyPath:)];
+        
+        [self gx_swizzleClassInstanceMethodWithOriginSel:@selector(forwardInvocation:)
+                                              swizzleSel:@selector(gx_object_hook_forwardInvocation:)];
 
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(forwardInvocation:)
-                                                          mySel:@selector(gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:)];
-        
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(addObserver:forKeyPath:options:context:)
-                                                          mySel:@selector(gx_object_AddObserver:forKeyPath:options:context:)];
-        
-        
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(removeObserver:forKeyPath:)
-                                                          mySel:@selector(gx_object_removeObserver:forKeyPath:)];
-        
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:@selector(methodSignatureForSelector:)
-                                                          mySel:@selector(gx_object_methodSignatureForSelector:)];
-        
+        [self gx_swizzleClassInstanceMethodWithOriginSel:@selector(methodSignatureForSelector:)
+                                              swizzleSel:@selector(gx_object_hook_methodSignatureForSelector:)];
         
     });
 }
 
-+ (void)gx_objectCategoryRunTimeSafeAlertSwizzleSystemSel:(SEL)systemSel mySel:(SEL)mySel {
-    Class clz = [self class];
-    Method systemMethod = class_getInstanceMethod(clz, systemSel);
-    Method myMethod = class_getInstanceMethod(clz, mySel);
-    if (class_addMethod(clz, systemSel, method_getImplementation(myMethod), method_getTypeEncoding(myMethod))) {
-        class_replaceMethod(clz, mySel, method_getImplementation(systemMethod), method_getTypeEncoding(systemMethod));
-    } else {
-        method_exchangeImplementations(systemMethod, myMethod);
-    }
-}
-
-- (NSMethodSignature *)gx_object_methodSignatureForSelector:(SEL)aSelector {
-    if ([self respondsToSelector:aSelector]) {
-        return [self gx_object_methodSignatureForSelector:aSelector];
-    }
-    _errorFoundationName = NSStringFromSelector(aSelector);
-    NSMethodSignature *signature = [self gx_object_methodSignatureForSelector:aSelector];
-    if (class_addMethod([self class], aSelector, (IMP)gx_privateObjectSafeMSafeCategorySafeMethodIMP, "v@:")) {
-        NSLog(@"成功添加临时方法");
-    }
-    if (!signature) {
-        signature = [self gx_object_methodSignatureForSelector:aSelector];
-    }
-    return signature;
-}
-
-- (void)gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:(NSInvocation *)anInvocation {
-    SEL selctor = [anInvocation selector];
-    if ([self respondsToSelector:selctor]) {
-        [anInvocation invokeWithTarget:self];
-    } else {
-        [self gx_objectCategoryRunTimeSafeAlertSwizzleForwardInvocation:anInvocation];
-    }
-}
-- (void)gx_object_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+- (void)gx_object_hook_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
 {
     if (observer && keyPath.length) {
-        NSLog(@"hookAddObserver invalid args: %@",self);
         @try {
-            [self gx_object_AddObserver:observer forKeyPath:keyPath options:options context:context];
+            [self gx_object_hook_AddObserver:observer forKeyPath:keyPath options:options context:context];
         }
         @catch (NSException *exception) {
             NSLog(@"hookAddObserver ex: %@", [exception callStackSymbols]);
         }
     }
-
 }
-- (void)gx_object_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+- (void)gx_object_hook_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
 {
     if (observer && keyPath.length) {
-        NSLog(@"hookRemoveObserver invalid args: %@",self);
         @try {
-            [self gx_object_removeObserver:observer forKeyPath:keyPath];
+            [self gx_object_hook_removeObserver:observer forKeyPath:keyPath];
         }
         @catch (NSException *exception) {
             NSLog(@"hookRemoveObserver ex: %@", [exception callStackSymbols]);
@@ -132,7 +53,38 @@ void gx_privateObjectSafeMSafeCategorySafeMethodIMP(id self, SEL _cmd) {
     }
 }
 
+- (NSMethodSignature *)gx_object_hook_methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature* sig = [self gx_object_hook_methodSignatureForSelector:aSelector];
+    if (!sig){
+        //原始的默认实现NSObject 函数指针
+        IMP originIMP = class_getMethodImplementation([NSObject class], @selector(methodSignatureForSelector:));
+        // 当前类自己的实现
+        IMP currentClassIMP = class_getMethodImplementation(self.class, @selector(methodSignatureForSelector:));
+        // If current class override methodSignatureForSelector return nil
+        //当前类自己重新实现了methodSignatureForSelector:方法；
+        if (originIMP != currentClassIMP){
+            return nil;
+        }
+        // Customer method signature
+        // void xxx(id,sel,id)
+        //随便返回点啥签名， 只要forwardInvocation被hook拦截住不调用就不会崩溃
+        return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+    }
+    // 协议中的方法，但是没有实现， 默认返回非空
+    return sig;
+}
 
+- (void)gx_object_hook_forwardInvocation:(NSInvocation *)anInvocation {
+    SEL selctor = [anInvocation selector];
+    if ([self respondsToSelector:selctor]) {
+        [anInvocation invokeWithTarget:self];
+    } else {
+        [self gx_object_hook_forwardInvocation:anInvocation];
+    }
+    //    NSString* info = [NSString stringWithFormat:@"unrecognized selector [%@] sent to %@", NSStringFromSelector(invocation.selector), NSStringFromClass(self.class)];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:NSSafeNotification object:self userInfo:@{@"invocation":invocation}];
+    //    [[[NSSafeProxy new] autorelease] dealException:info];
+}
 
 
 

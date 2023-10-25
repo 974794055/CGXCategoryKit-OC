@@ -76,7 +76,7 @@
 + (UIViewController *)gx_visibleViewController
 {
     UIViewController *rootViewController =[[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    return [UIWindow getVisibleViewControllerFrom:rootViewController];
+    return [UIWindow gx_privateObjectSafeGetVisibleViewControllerFrom:rootViewController];
 }
 
 #pragma mark - private
@@ -91,16 +91,19 @@
     }
     return [UIWindow topViewController:result];
 }
-+ (UIViewController *) getVisibleViewControllerFrom:(UIViewController *) vc {
-    if ([vc isKindOfClass:[UINavigationController class]]) {
-        return [UIWindow getVisibleViewControllerFrom:[((UINavigationController *) vc) visibleViewController]];
-    } else if ([vc isKindOfClass:[UITabBarController class]]) {
-        return [UIWindow getVisibleViewControllerFrom:[((UITabBarController *) vc) selectedViewController]];
+
++ (UIViewController *)gx_privateObjectSafeGetVisibleViewControllerFrom:(UIViewController *)viewController {
+    if ([viewController isKindOfClass:UINavigationController.class]) {
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UINavigationController *)viewController visibleViewController]];
+    } else if ([viewController isKindOfClass:UITabBarController.class]) {
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UITabBarController *)viewController selectedViewController]];
+    } else if ([viewController isKindOfClass:UISplitViewController.class]) {
+        return [self gx_privateObjectSafeGetVisibleViewControllerFrom:[(UISplitViewController *)viewController viewControllers].lastObject];
     } else {
-        if (vc.presentedViewController) {
-            return [UIWindow getVisibleViewControllerFrom:vc.presentedViewController];
+        if (viewController.presentedViewController) {
+            return [self gx_privateObjectSafeGetVisibleViewControllerFrom:viewController.presentedViewController];
         } else {
-            return vc;
+            return viewController;
         }
     }
 }

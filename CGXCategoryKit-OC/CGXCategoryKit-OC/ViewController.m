@@ -110,7 +110,7 @@
     UIImage *footImage3 = [UIImage gx_qrImageByContent:url];
     UIImage *footImage4 = [UIImage gx_qrImageByContent:url outputSize:ScreenWidth*0.5];
     UIImage *footImage5 = [UIImage gx_qrImageByContent:url outputSize:ScreenWidth*0.5 color:[UIColor orangeColor]];
-    UIImage *footImage6 = [UIImage gx_qrImageByContent:url outputSize:ScreenWidth*0.5 tintColor:[UIColor orangeColor] logo:logo logoFrame:CGRectMake(ScreenWidth*0.1, ScreenWidth*0.2, ScreenWidth *0.1, ScreenWidth *0.1) isCorrectionHighLevel:YES];
+    UIImage *footImage6 = [UIImage gx_qrImageByContent:url outputSize:ScreenWidth*0.5 tintColor:[UIColor orangeColor] logo:logo isCorrectionHighLevel:YES];
 
     NSMutableArray *urlArr = [NSMutableArray arrayWithObjects:footImage1,footImage2,footImage3,footImage4,footImage5,footImage6, nil];
     

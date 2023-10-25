@@ -15,11 +15,14 @@
     if (@available(iOS 13, *)) {
         UIColor *tintColor = [self tintColor];
         UIImage *tintColorImage = [self imageWithColor:tintColor];
+        UIColor *backgroundColor = self.backgroundColor;
+        
         // Must set the background image for normal to something (even clear) else the rest won't work
-        [self setBackgroundImage:[self imageWithColor:self.backgroundColor ? self.backgroundColor : [UIColor clearColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [self setBackgroundImage:[self imageWithColor:backgroundColor ? backgroundColor : [UIColor clearColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [self setBackgroundImage:tintColorImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self setBackgroundImage:[self imageWithColor:[tintColor colorWithAlphaComponent:0.2]] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        [self setBackgroundImage:tintColorImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
         [self setBackgroundImage:tintColorImage forState:UIControlStateSelected|UIControlStateSelected barMetrics:UIBarMetricsDefault];
+     
         [self setTitleTextAttributes:@{NSForegroundColorAttributeName: tintColor, NSFontAttributeName: [UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
         [self setDividerImage:tintColorImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.layer.borderWidth = 1;

@@ -22,6 +22,7 @@ static char kActionHandlerPanGestureKey;
     {
         gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForTapGesture:)];
         gesture.delegate = self;
+        self.userInteractionEnabled = YES;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerTapGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -45,6 +46,7 @@ static char kActionHandlerPanGestureKey;
     {
         gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForLongPressGesture:)];
         gesture.delegate = self;
+        self.userInteractionEnabled = YES;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerLongPressGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -70,6 +72,7 @@ static char kActionHandlerPanGestureKey;
     {
         gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForPanGesture:)];
         gesture.delegate = self;
+        self.userInteractionEnabled = YES;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerPanGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }

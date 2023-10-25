@@ -21,6 +21,24 @@ NS_ASSUME_NONNULL_BEGIN
 /** 圆形图片 */
 + (UIImage *)gx_imageWithRoundImage:(UIImage *)image;
 
+
+/// 图片裁剪，默认圆形，长宽不同自动截取中间部分
+/// @param borderWidth 边框宽度
+/// @param borderColor 边框颜色
+- (UIImage *)gx_circleImageByBorderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor;
+/// 图片裁剪，默认全圆角
+/// @param radius 圆角值
+/// @param borderWidth 边框宽度
+/// @param borderColor 边框颜色
+- (UIImage *)gx_imageByRoundCornerRadius:(CGFloat)radius borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor;
+/// 图片裁剪
+/// @param radius 圆角值
+/// @param corners 圆角位置，可 | 多个圆角
+/// @param borderWidth 边框宽度
+/// @param borderColor 边框颜色
+/// @param borderLineJoin 边界线相交类型
+- (UIImage *)gx_imageByRoundCornerRadius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin;
+
 /**
  生成带圆角的颜色图片
  @param color 图片颜色

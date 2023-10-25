@@ -64,11 +64,17 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 {
     return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:logo QRColor:color bkColor:[UIColor whiteColor] Level:0];
 }
-+ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
++ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo isCorrectionHighLevel:(BOOL)isHighLevel
 {
     // 校正级别(L,M,Q,H)
     NSInteger levelString = isHighLevel ? 0:2;
     return [UIImage gx_qrCodeQRImageWithDataobject:content outputSize:outputSize Logo:logo QRColor:tintColor bkColor:[UIColor whiteColor] Level:levelString];
+}
++ (UIImage* )gx_qrCodeQRImageWithDataobject:(id)object outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor bkColor:(UIColor*)bkColor logo:(nullable UIImage *)logo isCorrectionHighLevel:(BOOL)isHighLevel
+{
+    // 校正级别(L,M,Q,H)
+    NSInteger levelString = isHighLevel ? 0:2;
+    return [UIImage gx_qrCodeQRImageWithDataobject:object outputSize:outputSize Logo:logo QRColor:tintColor bkColor:bkColor Level:levelString];
 }
 + (UIImage* )gx_qrCodeQRImageWithDataobject:(id)object outputSize:(CGFloat)outputSize Logo:(UIImage *)logo QRColor:(UIColor*)qrColor bkColor:(UIColor*)bkColor Level:(NSInteger)level
 {
@@ -354,5 +360,56 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     return radiusImage;
 }
 
+//绘制条形码
++ (UIImage *)gx_barCodeImageWithString:(NSString *)content barSize:(CGSize)size
+{
+    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:false];
+    CIFilter *filter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
+    [filter setValue:data forKey:@"inputMessage"];
+    CIImage *qrImage = filter.outputImage;
+    //绘制
+    CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:qrImage fromRect:qrImage.extent];
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGImageRelease(cgImage);
+    
+    return codeImage;
+}
+
++ (UIImage* )gx_barCodeImageWithString:(NSString*)content QRSize:(CGSize)size QRColor:(UIColor*)qrColor bkColor:(UIColor*)bkColor {
+    NSData *stringData = [content dataUsingEncoding: NSUTF8StringEncoding];
+    //生成
+    CIFilter *barFilter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
+    [barFilter setValue:stringData forKey:@"inputMessage"];
+    
+    //上色
+    CIFilter *colorFilter = [CIFilter filterWithName:@"CIFalseColor"
+                                       keysAndValues:
+                             @"inputImage",barFilter.outputImage,
+                             @"inputColor0",[CIColor colorWithCGColor:qrColor.CGColor],
+                             @"inputColor1",[CIColor colorWithCGColor:bkColor.CGColor],
+                             nil];
+    
+    CIImage *qrImage = colorFilter.outputImage;
+    //绘制
+    CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:qrImage fromRect:qrImage.extent];
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGImageRelease(cgImage);
+    
+    return codeImage;
+}
 
 @end

@@ -59,9 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param outputSize 生成尺寸
 /// @param tintColor 颜色，设置颜色时背景会变为透明
 /// @param logo logo图
-/// @param logoFrame logo位置
 /// @param isHighLevel 是否高清，设置颜色和logo默认高清
-+ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel;
++ (UIImage *)gx_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo isCorrectionHighLevel:(BOOL)isHighLevel;
+
++ (UIImage* )gx_qrCodeQRImageWithDataobject:(id)object outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor bkColor:(UIColor*)bkColor logo:(nullable UIImage *)logo isCorrectionHighLevel:(BOOL)isHighLevel;
+
 
 /// 修改二维码图片颜色
 /// @param color 颜色
@@ -78,6 +80,27 @@ NS_ASSUME_NONNULL_BEGIN
  5.白色边框的基础上进行绘制黑色分割线
  */
 + (UIImage *)gx_qrClipCornerRadius:(UIImage *)image withSize:(CGSize)size Radius:(CGFloat)radius FillColor:(UIColor *)fillColor;
+
+
+/**
+ 生成条形码【白底黑色】
+ @param content 条码内容【一般是数字】
+ @param size 生成条码图片的大小
+ @return UIImage图片对象
+ */
++ (UIImage *)gx_barCodeImageWithString:(NSString *)content barSize:(CGSize)size;
+
+
+/**
+ 生成条形码【自定义颜色】
+ @param content 条码内容【一般是数字】
+ @param size 生成条码图片的大小
+ @param qrColor 码颜色
+ @param bkColor 背景颜色
+ @return UIImage图片对象
+ */
++ (UIImage* )gx_barCodeImageWithString:(NSString*)content QRSize:(CGSize)size QRColor:(UIColor*)qrColor bkColor:(UIColor*)bkColor;
+
 
 @end
 
